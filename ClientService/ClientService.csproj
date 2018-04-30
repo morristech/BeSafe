@@ -60,6 +60,7 @@
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Watchers\ProcessWatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BeSafe.resx">
@@ -71,6 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
+      <Project>{09703241-2105-4120-90b8-6d4963c38926}</Project>
+      <Name>ExceptionManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
