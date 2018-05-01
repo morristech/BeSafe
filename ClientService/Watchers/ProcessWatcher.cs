@@ -10,7 +10,7 @@ namespace BeSafe.Watchers
         public delegate void NewProcessEventHandler(ProcessInfo processInfo);
         public NewProcessEventHandler OnNewProcess;
 
-        private readonly ManagementEventWatcher _processStartWatcher = new ManagementEventWatcher("SELECT * FROM Win32_ProcessStartTrace");
+        private readonly ManagementEventWatcher _processStartWatcher = new ManagementEventWatcher("SELECT ProcessID, ParentProcessID, ProcessName FROM Win32_ProcessStartTrace");
 
         public ProcessWatcher()
         {
