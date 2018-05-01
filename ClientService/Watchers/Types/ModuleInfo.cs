@@ -1,8 +1,10 @@
-﻿namespace BeSafe.Watchers.Types
+﻿using System;
+
+namespace BeSafe.Watchers.Types
 {
     public class ModuleInfo
     {
-        public string ProcessId { get; set; }
+        public UInt32 ProcessId { get; set; }
         public string ModulePath { get; set; }
     }
 }
