@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Watchers\ProcessWatcher.cs" />
+    <Compile Include="Watchers\Types\ProcessInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BeSafe.resx">
