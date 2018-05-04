@@ -1,4 +1,4 @@
-![alt text](https://github.com/MojtabaTajik/BeSafe/Resources/Besaf_Logo.png)
+![alt text](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/Besaf_Logo.png)
 
 BeSafe
 
