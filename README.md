@@ -11,7 +11,7 @@ Today there are many antiviruses in the world that protect users from threats. e
 
 BeSafe is robust threat analyzer which help to secure your desktop environment and know what's happening around you.
 By using VirusTotal public API BeSafe got power of more than 56 antivirus products without need to install any client engines in light and robust solution.
-It use multipile techniques and tricks to prevent your environments from known and unknown threats.
+It use multipile techniques and tricks to protect your environments from known and unknown threats.
 
 Key features :
 
