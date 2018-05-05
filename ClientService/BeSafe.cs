@@ -30,7 +30,7 @@ namespace ClientService
             }
             catch (System.Exception ex)
             {
-                ex.LogToFile();
+                ex.Log();
             }
         }
 

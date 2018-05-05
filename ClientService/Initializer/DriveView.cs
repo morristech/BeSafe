@@ -24,7 +24,7 @@ namespace BeSafe.Initializer
             }
             catch (Exception ex)
             {
-                ex.LogToFile();
+                ex.Log(ExceptionType.Service);
                 return;
             }
         }
@@ -40,7 +40,7 @@ namespace BeSafe.Initializer
             }
             catch (Exception ex)
             {
-                ex.LogToFile();
+                ex.Log(ExceptionType.Service);
                 return false;
             }
 
@@ -58,7 +58,7 @@ namespace BeSafe.Initializer
             }
             catch (Exception ex)
             {
-                ex.LogToFile();
+                ex.Log(ExceptionType.Service);
                 return false;
             }
 
@@ -78,7 +78,7 @@ namespace BeSafe.Initializer
             }
             catch (Exception ex)
             {
-                ex.LogToFile();
+                ex.Log(ExceptionType.Service);
                 return false;
             }
 

@@ -43,7 +43,7 @@ namespace BeSafe.Watchers
             }
             catch (Exception ex)
             {
-                ex.LogToFile(ExceptionType.Service);
+                ex.Log(ExceptionType.Service);
                 return false;
             }
         }
