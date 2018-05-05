@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
+﻿using BeSafe.Properties;
+using BeSafe.Initializer;
 using System.ServiceProcess;
-using System.Text;
+using BeSafe.Utils;
+using ExceptionManager;
 
 namespace ClientService
 {
     public partial class BeSafe : ServiceBase
     {
+        private VirtualDrive _virtualDrive;
+        private DriveView _driveView;
+        private string _besafeSecureVolumeLetter;
+
         public BeSafe()
         {
             InitializeComponent();
@@ -18,10 +19,25 @@ namespace ClientService
 
         protected override void OnStart(string[] args)
         {
+            try
+            {
+                _virtualDrive = new VirtualDrive();
+                _besafeSecureVolumeLetter = _virtualDrive.SingletonMapDrive(PathUtils.BeSafeSecureVolumePath);
+                _driveView = new DriveView(_besafeSecureVolumeLetter);
+
+                bool setDriveIconResult = _driveView.SetDriveIcon(_besafeSecureVolumeLetter);
+                bool setDriveLabelResult = _driveView.SetDriveLabel(Resources.ApplicationName);
+            }
+            catch (System.Exception ex)
+            {
+                ex.LogToFile();
+            }
         }
 
         protected override void OnStop()
         {
+            _virtualDrive.UnmapDrive(_besafeSecureVolumeLetter);
+            _driveView.RemoveDriveView();
         }
     }
 }
