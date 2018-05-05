@@ -120,4 +120,13 @@
   <data name="DriveMapMustEscapeChars" xml:space="preserve">
     <value>\??\</value>
   </data>
+  <data name="FileNameField" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ModuleWatcherQuery" xml:space="preserve">
+    <value>SELECT ProcessID, FileName FROM Win32_ModuleLoadTrace</value>
+  </data>
+  <data name="ProcessIdField" xml:space="preserve">
+    <value>ProcessID</value>
+  </data>
 </root>

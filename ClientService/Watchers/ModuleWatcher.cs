@@ -2,6 +2,7 @@
 using System.Management;
 using BeSafe.Watchers.Types;
 using ExceptionManager;
+using BeSafe.Properties;
 
 namespace BeSafe.Watchers
 {
@@ -10,7 +11,7 @@ namespace BeSafe.Watchers
         public delegate void LoadModuleEventHandler(ModuleInfo moduleInfo);
         public LoadModuleEventHandler OnLoadModule;
 
-        readonly ManagementEventWatcher _moduleLoadEvent = new ManagementEventWatcher("SELECT ProcessID, FileName FROM Win32_ModuleLoadTrace");
+        readonly ManagementEventWatcher _moduleLoadEvent = new ManagementEventWatcher(Resources.ModuleWatcherQuery);
 
         public ModuleWatcher()
         {
@@ -29,8 +30,8 @@ namespace BeSafe.Watchers
         {
             OnLoadModule?.Invoke(new ModuleInfo
             {
-                ProcessId = Convert.ToUInt32(e.NewEvent.Properties["ProcessID"].Value),
-                ModulePath = e.NewEvent.Properties["FileName"].Value.ToString()
+                ProcessId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ProcessIdField].Value),
+                ModulePath = e.NewEvent.Properties[Resources.FileNameField].Value.ToString()
             });
         }
 

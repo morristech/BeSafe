@@ -68,5 +68,32 @@ namespace BeSafe.Properties {
                 return ResourceManager.GetString("DriveMapMustEscapeChars", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FileName.
+        /// </summary>
+        internal static string FileNameField {
+            get {
+                return ResourceManager.GetString("FileNameField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT ProcessID, FileName FROM Win32_ModuleLoadTrace.
+        /// </summary>
+        internal static string ModuleWatcherQuery {
+            get {
+                return ResourceManager.GetString("ModuleWatcherQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProcessID.
+        /// </summary>
+        internal static string ProcessIdField {
+            get {
+                return ResourceManager.GetString("ProcessIdField", resourceCulture);
+            }
+        }
     }
 }
