@@ -120,13 +120,28 @@
   <data name="DriveMapMustEscapeChars" xml:space="preserve">
     <value>\??\</value>
   </data>
+  <data name="ExecutablaPathQuery" xml:space="preserve">
+    <value>SELECT ExecutablePath FROM Win32_Process WHERE ProcessID = {0}</value>
+  </data>
+  <data name="ExecutablePathField" xml:space="preserve">
+    <value>ExecutablePath</value>
+  </data>
   <data name="FileNameField" xml:space="preserve">
     <value>FileName</value>
   </data>
   <data name="ModuleWatcherQuery" xml:space="preserve">
     <value>SELECT ProcessID, FileName FROM Win32_ModuleLoadTrace</value>
   </data>
-  <data name="ProcessIdField" xml:space="preserve">
+  <data name="ParentProcessIDFiled" xml:space="preserve">
+    <value>ParentProcessID</value>
+  </data>
+  <data name="ProcessIDField" xml:space="preserve">
     <value>ProcessID</value>
+  </data>
+  <data name="ProcessNameField" xml:space="preserve">
+    <value>ProcessName</value>
+  </data>
+  <data name="ProcessWatcherQuery" xml:space="preserve">
+    <value>SELECT ProcessID, ParentProcessID, ProcessName FROM Win32_ProcessStartTrace</value>
   </data>
 </root>

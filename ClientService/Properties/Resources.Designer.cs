@@ -70,6 +70,24 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT ExecutablePath FROM Win32_Process WHERE ProcessID = {0}.
+        /// </summary>
+        internal static string ExecutablaPathQuery {
+            get {
+                return ResourceManager.GetString("ExecutablaPathQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExecutablePath.
+        /// </summary>
+        internal static string ExecutablePathField {
+            get {
+                return ResourceManager.GetString("ExecutablePathField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FileName.
         /// </summary>
         internal static string FileNameField {
@@ -88,11 +106,38 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ParentProcessID.
+        /// </summary>
+        internal static string ParentProcessIDFiled {
+            get {
+                return ResourceManager.GetString("ParentProcessIDFiled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ProcessID.
         /// </summary>
-        internal static string ProcessIdField {
+        internal static string ProcessIDField {
             get {
-                return ResourceManager.GetString("ProcessIdField", resourceCulture);
+                return ResourceManager.GetString("ProcessIDField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProcessName.
+        /// </summary>
+        internal static string ProcessNameField {
+            get {
+                return ResourceManager.GetString("ProcessNameField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT ProcessID, ParentProcessID, ProcessName FROM Win32_ProcessStartTrace.
+        /// </summary>
+        internal static string ProcessWatcherQuery {
+            get {
+                return ResourceManager.GetString("ProcessWatcherQuery", resourceCulture);
             }
         }
     }

@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Management;
-using BeSafe.Watchers.Types;
 using ExceptionManager;
+using System.Management;
+using BeSafe.Properties;
+using BeSafe.Watchers.Types;
 
 namespace BeSafe.Watchers
 {
@@ -10,7 +11,7 @@ namespace BeSafe.Watchers
         public delegate void NewProcessEventHandler(ProcessInfo processInfo);
         public NewProcessEventHandler OnNewProcess;
 
-        private readonly ManagementEventWatcher _processStartWatcher = new ManagementEventWatcher("SELECT ProcessID, ParentProcessID, ProcessName FROM Win32_ProcessStartTrace");
+        private readonly ManagementEventWatcher _processStartWatcher = new ManagementEventWatcher(Resources.ProcessWatcherQuery);
 
         public ProcessWatcher()
         {
@@ -27,13 +28,13 @@ namespace BeSafe.Watchers
 
         private void processStartEvent_EventArrived(object sender, EventArrivedEventArgs e)
         {
-            UInt32 processId = Convert.ToUInt32(e.NewEvent.Properties["ProcessID"].Value);
+            UInt32 processId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ProcessIDField].Value);
 
             OnNewProcess?.Invoke(new ProcessInfo
             {
                 ProcessId = processId,
-                ParentProcessId = Convert.ToUInt32(e.NewEvent.Properties["ParentProcessID"].Value),
-                ProcessName = e.NewEvent.Properties["ProcessName"].Value.ToString(),
+                ParentProcessId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ParentProcessIDFiled].Value),
+                ProcessName = e.NewEvent.Properties[Resources.ProcessNameField].Value.ToString(),
                 ExecutablePath = GetProcessExceutablePathByPid(processId)
             });
         }
@@ -42,12 +43,12 @@ namespace BeSafe.Watchers
         {
             try
             {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT ExecutablePath FROM Win32_Process WHERE ProcessID = {pid}");
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher(string.Format(Resources.ExecutablaPathQuery, pid));
 
                 foreach (var managementObject in searcher.Get())
                 {
                     ManagementObject item = (ManagementObject)managementObject;
-                    object executablePath = item["ExecutablePath"];
+                    object executablePath = item[Resources.ExecutablePathField];
 
                     if (string.IsNullOrEmpty(executablePath?.ToString()))
                         continue;

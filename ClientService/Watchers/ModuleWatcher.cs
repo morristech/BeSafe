@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Management;
-using BeSafe.Watchers.Types;
 using ExceptionManager;
 using BeSafe.Properties;
+using BeSafe.Watchers.Types;
 
 namespace BeSafe.Watchers
 {
@@ -30,7 +30,7 @@ namespace BeSafe.Watchers
         {
             OnLoadModule?.Invoke(new ModuleInfo
             {
-                ProcessId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ProcessIdField].Value),
+                ProcessId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ProcessIDField].Value),
                 ModulePath = e.NewEvent.Properties[Resources.FileNameField].Value.ToString()
             });
         }
