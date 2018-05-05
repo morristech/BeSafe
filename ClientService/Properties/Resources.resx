@@ -126,6 +126,9 @@
   <data name="ExecutablePathField" xml:space="preserve">
     <value>ExecutablePath</value>
   </data>
+  <data name="ExplorerDrivesRegistryPath" xml:space="preserve">
+    <value>Software\Classes\Applications\Explorer.exe\Drives</value>
+  </data>
   <data name="FileNameField" xml:space="preserve">
     <value>FileName</value>
   </data>

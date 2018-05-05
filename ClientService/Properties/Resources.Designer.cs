@@ -88,6 +88,15 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Software\Classes\Applications\Explorer.exe\Drives.
+        /// </summary>
+        internal static string ExplorerDrivesRegistryPath {
+            get {
+                return ResourceManager.GetString("ExplorerDrivesRegistryPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FileName.
         /// </summary>
         internal static string FileNameField {
