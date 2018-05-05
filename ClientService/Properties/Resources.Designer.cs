@@ -61,6 +61,15 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BeSafe.
+        /// </summary>
+        internal static string ApplicationName {
+            get {
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \??\.
         /// </summary>
         internal static string DriveMapMustEscapeChars {
