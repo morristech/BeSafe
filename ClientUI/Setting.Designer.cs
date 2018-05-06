@@ -34,17 +34,17 @@
             this.TryIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chbVTEngine = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.chbProcessWatcher = new System.Windows.Forms.CheckBox();
+            this.chbyaraEngine = new System.Windows.Forms.CheckBox();
+            this.chbStaticEngine = new System.Windows.Forms.CheckBox();
+            this.chbDynamicEngine = new System.Windows.Forms.CheckBox();
+            this.chbSecureVolume = new System.Windows.Forms.CheckBox();
+            this.chbKillSuspicious = new System.Windows.Forms.CheckBox();
+            this.chbQuarantineSuspicious = new System.Windows.Forms.CheckBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.chbVirusTotalEngine = new System.Windows.Forms.CheckBox();
+            this.chbmoduleWatcher = new System.Windows.Forms.CheckBox();
             this.TryIconMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,75 +77,75 @@
             this.startToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.startToolStripMenuItem.Text = "Start";
             // 
-            // chbVTEngine
+            // chbProcessWatcher
             // 
-            this.chbVTEngine.AutoSize = true;
-            this.chbVTEngine.Location = new System.Drawing.Point(24, 22);
-            this.chbVTEngine.Name = "chbVTEngine";
-            this.chbVTEngine.Size = new System.Drawing.Size(134, 21);
-            this.chbVTEngine.TabIndex = 1;
-            this.chbVTEngine.Text = "Process watcher";
-            this.chbVTEngine.UseVisualStyleBackColor = true;
+            this.chbProcessWatcher.AutoSize = true;
+            this.chbProcessWatcher.Location = new System.Drawing.Point(24, 22);
+            this.chbProcessWatcher.Name = "chbProcessWatcher";
+            this.chbProcessWatcher.Size = new System.Drawing.Size(134, 21);
+            this.chbProcessWatcher.TabIndex = 1;
+            this.chbProcessWatcher.Text = "Process watcher";
+            this.chbProcessWatcher.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chbyaraEngine
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(24, 76);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(141, 21);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Yara scan engine";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chbyaraEngine.AutoSize = true;
+            this.chbyaraEngine.Location = new System.Drawing.Point(24, 76);
+            this.chbyaraEngine.Name = "chbyaraEngine";
+            this.chbyaraEngine.Size = new System.Drawing.Size(141, 21);
+            this.chbyaraEngine.TabIndex = 2;
+            this.chbyaraEngine.Text = "Yara scan engine";
+            this.chbyaraEngine.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chbStaticEngine
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(24, 130);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(194, 21);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "BeSafe static scan engine";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chbStaticEngine.AutoSize = true;
+            this.chbStaticEngine.Location = new System.Drawing.Point(24, 130);
+            this.chbStaticEngine.Name = "chbStaticEngine";
+            this.chbStaticEngine.Size = new System.Drawing.Size(194, 21);
+            this.chbStaticEngine.TabIndex = 3;
+            this.chbStaticEngine.Text = "BeSafe static scan engine";
+            this.chbStaticEngine.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chbDynamicEngine
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(24, 157);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(213, 21);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "BeSafe dynamic scan engine";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chbDynamicEngine.AutoSize = true;
+            this.chbDynamicEngine.Location = new System.Drawing.Point(24, 157);
+            this.chbDynamicEngine.Name = "chbDynamicEngine";
+            this.chbDynamicEngine.Size = new System.Drawing.Size(213, 21);
+            this.chbDynamicEngine.TabIndex = 4;
+            this.chbDynamicEngine.Text = "BeSafe dynamic scan engine";
+            this.chbDynamicEngine.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chbSecureVolume
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(24, 103);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(172, 21);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "BeSafe secure volume";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chbSecureVolume.AutoSize = true;
+            this.chbSecureVolume.Location = new System.Drawing.Point(24, 103);
+            this.chbSecureVolume.Name = "chbSecureVolume";
+            this.chbSecureVolume.Size = new System.Drawing.Size(172, 21);
+            this.chbSecureVolume.TabIndex = 5;
+            this.chbSecureVolume.Text = "BeSafe secure volume";
+            this.chbSecureVolume.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chbKillSuspicious
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(24, 184);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(261, 21);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "Automatically kill suspicious process ";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chbKillSuspicious.AutoSize = true;
+            this.chbKillSuspicious.Location = new System.Drawing.Point(24, 184);
+            this.chbKillSuspicious.Name = "chbKillSuspicious";
+            this.chbKillSuspicious.Size = new System.Drawing.Size(261, 21);
+            this.chbKillSuspicious.TabIndex = 6;
+            this.chbKillSuspicious.Text = "Automatically kill suspicious process ";
+            this.chbKillSuspicious.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // chbQuarantineSuspicious
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(24, 211);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(284, 21);
-            this.checkBox6.TabIndex = 7;
-            this.checkBox6.Text = "Automatically quarantine suspicious files";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chbQuarantineSuspicious.AutoSize = true;
+            this.chbQuarantineSuspicious.Location = new System.Drawing.Point(24, 211);
+            this.chbQuarantineSuspicious.Name = "chbQuarantineSuspicious";
+            this.chbQuarantineSuspicious.Size = new System.Drawing.Size(284, 21);
+            this.chbQuarantineSuspicious.TabIndex = 7;
+            this.chbQuarantineSuspicious.Text = "Automatically quarantine suspicious files";
+            this.chbQuarantineSuspicious.UseVisualStyleBackColor = true;
             // 
             // btnOk
             // 
@@ -166,25 +166,25 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // chbVirusTotalEngine
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(24, 238);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(285, 21);
-            this.checkBox7.TabIndex = 10;
-            this.checkBox7.Text = "Improve scans using power of VirusTotal";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chbVirusTotalEngine.AutoSize = true;
+            this.chbVirusTotalEngine.Location = new System.Drawing.Point(24, 238);
+            this.chbVirusTotalEngine.Name = "chbVirusTotalEngine";
+            this.chbVirusTotalEngine.Size = new System.Drawing.Size(285, 21);
+            this.chbVirusTotalEngine.TabIndex = 10;
+            this.chbVirusTotalEngine.Text = "Improve scans using power of VirusTotal";
+            this.chbVirusTotalEngine.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // chbmoduleWatcher
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(24, 49);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(129, 21);
-            this.checkBox8.TabIndex = 11;
-            this.checkBox8.Text = "Module watcher";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.chbmoduleWatcher.AutoSize = true;
+            this.chbmoduleWatcher.Location = new System.Drawing.Point(24, 49);
+            this.chbmoduleWatcher.Name = "chbmoduleWatcher";
+            this.chbmoduleWatcher.Size = new System.Drawing.Size(129, 21);
+            this.chbmoduleWatcher.TabIndex = 11;
+            this.chbmoduleWatcher.Text = "Module watcher";
+            this.chbmoduleWatcher.UseVisualStyleBackColor = true;
             // 
             // Setting
             // 
@@ -193,17 +193,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(582, 353);
-            this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.checkBox7);
+            this.Controls.Add(this.chbmoduleWatcher);
+            this.Controls.Add(this.chbVirusTotalEngine);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.chbVTEngine);
+            this.Controls.Add(this.chbQuarantineSuspicious);
+            this.Controls.Add(this.chbKillSuspicious);
+            this.Controls.Add(this.chbSecureVolume);
+            this.Controls.Add(this.chbDynamicEngine);
+            this.Controls.Add(this.chbStaticEngine);
+            this.Controls.Add(this.chbyaraEngine);
+            this.Controls.Add(this.chbProcessWatcher);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -223,17 +223,17 @@
         private System.Windows.Forms.ContextMenuStrip TryIconMenu;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private System.Windows.Forms.CheckBox chbVTEngine;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox chbProcessWatcher;
+        private System.Windows.Forms.CheckBox chbyaraEngine;
+        private System.Windows.Forms.CheckBox chbStaticEngine;
+        private System.Windows.Forms.CheckBox chbDynamicEngine;
+        private System.Windows.Forms.CheckBox chbSecureVolume;
+        private System.Windows.Forms.CheckBox chbKillSuspicious;
+        private System.Windows.Forms.CheckBox chbQuarantineSuspicious;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox chbVirusTotalEngine;
+        private System.Windows.Forms.CheckBox chbmoduleWatcher;
     }
 }
 
