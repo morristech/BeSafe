@@ -171,9 +171,9 @@
             this.chbVirusTotalEngine.AutoSize = true;
             this.chbVirusTotalEngine.Location = new System.Drawing.Point(24, 238);
             this.chbVirusTotalEngine.Name = "chbVirusTotalEngine";
-            this.chbVirusTotalEngine.Size = new System.Drawing.Size(285, 21);
+            this.chbVirusTotalEngine.Size = new System.Drawing.Size(227, 21);
             this.chbVirusTotalEngine.TabIndex = 10;
-            this.chbVirusTotalEngine.Text = "Improve scans using power of VirusTotal";
+            this.chbVirusTotalEngine.Text = "Improve scans using VirusTotal";
             this.chbVirusTotalEngine.UseVisualStyleBackColor = true;
             // 
             // chbmoduleWatcher
