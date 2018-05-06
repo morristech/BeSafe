@@ -15,14 +15,17 @@ It use multipile techniques and tricks to protect your environments from known a
 
 Key features :
 
-- Use VirusTotal to scan running process, modules and URLs
+- Scan running process, modules and URLs
 - Secure volume protected by VirusTotal
 - Yara signature scanner engine
 - Static scan of executable files for suspicious trail (Strings,Icon,EOF,Sections and etc.)
 - Dynamic scan of running process for suspicious trail (Run PE,Process Hollowing and etc.)
 - Ability to automatically kill suspect process
 - Ability to quarantine suspect files & process
+- Ability to improve scan results uing VirusTotal engine
 - Cloud analyzer which analyze clients data in anonymous manner
 - Multipile reports about active world threats, frequency map, threats birth point and relations and etc.
+
+You can access the project's Trello board here : http://bit.do/BeSafeBoard
 
 BeSafe and keep calm ;)
