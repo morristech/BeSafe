@@ -3,6 +3,7 @@ using BeSafe.Initializer;
 using System.ServiceProcess;
 using BeSafe.Utils;
 using ExceptionManager;
+using Common;
 
 namespace ClientService
 {
@@ -38,6 +39,71 @@ namespace ClientService
         {
             _virtualDrive.UnmapDrive(_besafeSecureVolumeLetter);
             _driveView.RemoveDriveView();
+        }
+
+        protected override void OnCustomCommand(int serviceCommand)
+        {
+            switch (serviceCommand)
+            {
+                case (int)ServiceCommands.StopProcessWatcher:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartProcessWatcher:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StopModuleWatcher:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartModuleWatcher:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StopYaraEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartYaraEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StopSecureVolume:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartSecureVolume:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StopStaticEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartStaticEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StopDynamicEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartDynamicEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StopVTEngine:
+                    //
+                    break;
+
+                case (int)ServiceCommands.StartVTEngine:
+                    //
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
