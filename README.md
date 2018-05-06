@@ -26,6 +26,6 @@ Key features :
 - Cloud analyzer which analyze clients data in anonymous manner
 - Multipile reports about active world threats, frequency map, threats birth point and relations and etc.
 
-You can access the project's Trello board here : http://bit.do/BeSafeBoard
+Access the project's Trello board here : http://bit.do/BeSafeBoard
 
-BeSafe and keep calm ;)
+Be safe and keep calm ;)
