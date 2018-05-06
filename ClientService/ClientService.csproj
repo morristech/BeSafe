@@ -34,7 +34,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>BeSafe _ Icon.ico</ApplicationIcon>
+    <ApplicationIcon>BeSafe _ OrgIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BeSafe _ Icon.ico" />
+    <Content Include="BeSafe _ OrgIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
