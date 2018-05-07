@@ -62,7 +62,9 @@
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
     <Compile Include="Initializer\DriveView.cs" />
-    <Compile Include="Initializer\IVirtualDrive.cs" />
+    <Compile Include="Initializer\VirtualDrive\IVirtualDrive.cs" />
+    <Compile Include="Initializer\VirtualDrive\VirtualDrive.cs" />
+    <Compile Include="Initializer\VirtualDrive\BeSafeFileSystemImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -77,7 +79,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\PathUtils.cs" />
-    <Compile Include="Watchers\DirectoryWatcher.cs" />
+    <Compile Include="Utils\Win32APIDefinitions.cs" />
     <Compile Include="Watchers\ModuleWatcher.cs" />
     <Compile Include="Watchers\ProcessWatcher.cs" />
     <Compile Include="Watchers\Types\FileInfo.cs" />
@@ -101,6 +103,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{B9A93FB8-9E26-4035-A5C9-65A54F880A1D}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
       <Project>{09703241-2105-4120-90b8-6d4963c38926}</Project>
       <Name>ExceptionManager</Name>
