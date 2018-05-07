@@ -62,7 +62,7 @@
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
     <Compile Include="Initializer\DriveView.cs" />
-    <Compile Include="Initializer\VirtualDrive.cs" />
+    <Compile Include="Initializer\IVirtualDrive.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -110,7 +110,6 @@
     <Folder Include="Scanners\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BeSafe _ Icon.ico" />
     <Content Include="BeSafe _ OrgIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

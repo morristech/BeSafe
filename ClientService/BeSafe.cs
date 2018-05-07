@@ -1,18 +1,11 @@
-﻿using BeSafe.Properties;
-using BeSafe.Initializer;
-using System.ServiceProcess;
-using BeSafe.Utils;
-using ExceptionManager;
+﻿using System.ServiceProcess;
 using Common;
+using ExceptionManager;
 
 namespace ClientService
 {
     public partial class BeSafe : ServiceBase
     {
-        private VirtualDrive _virtualDrive;
-        private DriveView _driveView;
-        private string _besafeSecureVolumeLetter;
-
         public BeSafe()
         {
             InitializeComponent();
@@ -22,12 +15,7 @@ namespace ClientService
         {
             try
             {
-                _virtualDrive = new VirtualDrive();
-                _besafeSecureVolumeLetter = _virtualDrive.SingletonMapDrive(PathUtils.BeSafeSecureVolumePath);
-                _driveView = new DriveView(_besafeSecureVolumeLetter);
 
-                bool setDriveIconResult = _driveView.SetDriveIcon(_besafeSecureVolumeLetter);
-                bool setDriveLabelResult = _driveView.SetDriveLabel(Resources.ApplicationName);
             }
             catch (System.Exception ex)
             {
@@ -37,8 +25,7 @@ namespace ClientService
 
         protected override void OnStop()
         {
-            _virtualDrive.UnmapDrive(_besafeSecureVolumeLetter);
-            _driveView.RemoveDriveView();
+
         }
 
         protected override void OnCustomCommand(int serviceCommand)
