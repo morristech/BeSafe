@@ -26,12 +26,18 @@ Key features :
 - Cloud analyzer which analyze clients data in anonymous manner
 - Multipile reports about active world threats, frequency map, threats birth point and relations and etc.
 
-BeSafe developed using C#.7 in VisualStudio.2017 with following dependencies :
+BeSafe developed using C#.7 in VisualStudio.2017 using folowin free libraries :
 
 - Dokan user mode file system library for Windows : http://dokan-dev.github.io/
+- MonoFlat WinForms theme by HazelDev
 
-Dependencies automatically handled by NuGet package manager of VisualStudio, just build project and enjoy.
+:exclamation: Dependencies automatically handled by NuGet package manager of VisualStudio.
 
 Access the project's Trello board here : http://bit.do/BeSafeBoard
+
+Here are some screenshots of BeSafe Windows client UI :
+
+![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Configuration.png)  |  ![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Plugins.png) | ![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Account.png)
+:------------------------:|:-------------------------:|:-------------------------:
 
 Be safe and keep calm ;)
