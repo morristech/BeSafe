@@ -35,6 +35,10 @@
             this.TryIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.monoFlat_ThemeContainer1 = new ClientUI.MonoFlat_ThemeContainer();
+            this.btnRefreshPlugins = new ClientUI.MonoFlat_Button();
+            this.lbPlugins = new System.Windows.Forms.ListBox();
+            this.Logo = new System.Windows.Forms.PictureBox();
+            this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.chbVirusTotalEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbQuarantineSuspicious = new ClientUI.MonoFlat_CheckBox();
             this.chbKillSuspicious = new ClientUI.MonoFlat_CheckBox();
@@ -46,7 +50,6 @@
             this.chbProcessWatcher = new ClientUI.MonoFlat_CheckBox();
             this.btnCancel = new ClientUI.MonoFlat_Button();
             this.btnOk = new ClientUI.MonoFlat_Button();
-            this.Logo = new System.Windows.Forms.PictureBox();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -84,6 +87,10 @@
             // monoFlat_ThemeContainer1
             // 
             this.monoFlat_ThemeContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.monoFlat_ThemeContainer1.Controls.Add(this.btnRefreshPlugins);
+            this.monoFlat_ThemeContainer1.Controls.Add(this.lbPlugins);
+            this.monoFlat_ThemeContainer1.Controls.Add(this.Logo);
+            this.monoFlat_ThemeContainer1.Controls.Add(this.monoFlat_HeaderLabel1);
             this.monoFlat_ThemeContainer1.Controls.Add(this.chbVirusTotalEngine);
             this.monoFlat_ThemeContainer1.Controls.Add(this.chbQuarantineSuspicious);
             this.monoFlat_ThemeContainer1.Controls.Add(this.chbKillSuspicious);
@@ -95,7 +102,6 @@
             this.monoFlat_ThemeContainer1.Controls.Add(this.chbProcessWatcher);
             this.monoFlat_ThemeContainer1.Controls.Add(this.btnCancel);
             this.monoFlat_ThemeContainer1.Controls.Add(this.btnOk);
-            this.monoFlat_ThemeContainer1.Controls.Add(this.Logo);
             this.monoFlat_ThemeContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monoFlat_ThemeContainer1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.monoFlat_ThemeContainer1.Location = new System.Drawing.Point(0, 0);
@@ -107,6 +113,55 @@
             this.monoFlat_ThemeContainer1.SmartBounds = true;
             this.monoFlat_ThemeContainer1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.monoFlat_ThemeContainer1.TabIndex = 1;
+            // 
+            // btnRefreshPlugins
+            // 
+            this.btnRefreshPlugins.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefreshPlugins.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshPlugins.Image = null;
+            this.btnRefreshPlugins.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefreshPlugins.Location = new System.Drawing.Point(516, 278);
+            this.btnRefreshPlugins.Name = "btnRefreshPlugins";
+            this.btnRefreshPlugins.Size = new System.Drawing.Size(46, 30);
+            this.btnRefreshPlugins.TabIndex = 37;
+            this.btnRefreshPlugins.Text = " ⟳";
+            this.btnRefreshPlugins.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // lbPlugins
+            // 
+            this.lbPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            this.lbPlugins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlugins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.lbPlugins.FormattingEnabled = true;
+            this.lbPlugins.ItemHeight = 20;
+            this.lbPlugins.Location = new System.Drawing.Point(357, 88);
+            this.lbPlugins.Name = "lbPlugins";
+            this.lbPlugins.Size = new System.Drawing.Size(206, 184);
+            this.lbPlugins.TabIndex = 36;
+            // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Location = new System.Drawing.Point(15, 0);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(45, 60);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 23;
+            this.Logo.TabStop = false;
+            // 
+            // monoFlat_HeaderLabel1
+            // 
+            this.monoFlat_HeaderLabel1.AutoSize = true;
+            this.monoFlat_HeaderLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.monoFlat_HeaderLabel1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold);
+            this.monoFlat_HeaderLabel1.ForeColor = System.Drawing.Color.Black;
+            this.monoFlat_HeaderLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.monoFlat_HeaderLabel1.Location = new System.Drawing.Point(224, 7);
+            this.monoFlat_HeaderLabel1.Name = "monoFlat_HeaderLabel1";
+            this.monoFlat_HeaderLabel1.Size = new System.Drawing.Size(128, 46);
+            this.monoFlat_HeaderLabel1.TabIndex = 35;
+            this.monoFlat_HeaderLabel1.Text = "BeSafe";
             // 
             // chbVirusTotalEngine
             // 
@@ -224,17 +279,6 @@
             this.btnOk.Text = "Ok";
             this.btnOk.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // Logo
-            // 
-            this.Logo.BackColor = System.Drawing.Color.Transparent;
-            this.Logo.Image = global::ClientUI.Properties.Resources.besafe_logo;
-            this.Logo.Location = new System.Drawing.Point(11, 0);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(45, 60);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Logo.TabIndex = 23;
-            this.Logo.TabStop = false;
-            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +295,7 @@
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.TryIconMenu.ResumeLayout(false);
             this.monoFlat_ThemeContainer1.ResumeLayout(false);
+            this.monoFlat_ThemeContainer1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
 
@@ -275,6 +320,9 @@
         private MonoFlat_CheckBox chbyaraEngine;
         private MonoFlat_CheckBox chbmoduleWatcher;
         private MonoFlat_CheckBox chbProcessWatcher;
+        private MonoFlat_HeaderLabel monoFlat_HeaderLabel1;
+        private System.Windows.Forms.ListBox lbPlugins;
+        private MonoFlat_Button btnRefreshPlugins;
     }
 }
 
