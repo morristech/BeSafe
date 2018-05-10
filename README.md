@@ -30,6 +30,7 @@ BeSafe developed using C#.7 in VisualStudio.2017 using folowin free libraries :
 
 - Dokan user mode file system library for Windows : http://dokan-dev.github.io/
 - MonoFlat WinForms theme by HazelDev
+- Named Pipe Wrapper library                      : https://github.com/acdvorak/named-pipe-wrapper
 
 :exclamation: Dependencies automatically handled by NuGet package manager of VisualStudio.
 
