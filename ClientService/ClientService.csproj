@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="ComponentsConfigurator\ConfigManager.cs" />
     <Compile Include="ComponentsConfigurator\IConfigurator.cs" />
+    <Compile Include="ComponentsConfigurator\SecureVolumeConfigurator.cs" />
     <Compile Include="Core\PipeServer.cs" />
     <Compile Include="Initializer\DriveView.cs" />
     <Compile Include="Initializer\VirtualDrive\IVirtualDrive.cs" />
