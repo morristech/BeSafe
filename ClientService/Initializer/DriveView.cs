@@ -8,7 +8,7 @@ namespace BeSafe.Initializer
     public class DriveView : IDisposable
     {
         private char _driveLetter;
-        private RegistryKey _driveSpecificKey = Registry.CurrentUser;
+        private RegistryKey _driveSpecificKey = Registry.LocalMachine;
 
         public DriveView(string driveLetter)
         {
@@ -47,30 +47,12 @@ namespace BeSafe.Initializer
             return true;
         }
 
-        public bool SetDriveLabel(string label)
-        {
-            if (_driveSpecificKey == null)
-                return false;
-
-            try
-            {
-                _driveSpecificKey.CreateSubKey("DefaultLabel")?.SetValue(null, label);
-            }
-            catch (Exception ex)
-            {
-                ex.Log(ExceptionType.Service);
-                return false;
-            }
-
-            return true;
-        }
-
         public bool RemoveDriveView()
         {
             if (_driveSpecificKey == null)
                 return false;
 
-            var registry = Registry.CurrentUser;
+            var registry = Registry.LocalMachine;
             try
             {
                 registry = registry.OpenSubKey(Resources.ExplorerDrivesRegistryPath, true);

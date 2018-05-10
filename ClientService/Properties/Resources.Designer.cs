@@ -97,7 +97,7 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Software\Classes\Applications\Explorer.exe\Drives.
+        ///   Looks up a localized string similar to SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\DriveIcons.
         /// </summary>
         internal static string ExplorerDrivesRegistryPath {
             get {
