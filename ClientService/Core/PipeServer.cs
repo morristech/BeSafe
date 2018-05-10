@@ -10,7 +10,7 @@ namespace BeSafe.Core
     {
         public event ConnectionMessageEventHandler<BeSafePipeCommand, BeSafePipeCommand> ClientMessageEventHandler;
 
-        private NamedPipeServer<BeSafePipeCommand> serverPipe = new NamedPipeServer<BeSafePipeCommand>(Resources.ApplicationName);;
+        private NamedPipeServer<BeSafePipeCommand> serverPipe = new NamedPipeServer<BeSafePipeCommand>(Resources.ApplicationName);
 
         public void Start()
         {
