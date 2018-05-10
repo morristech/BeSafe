@@ -6,6 +6,7 @@ using BeSafe.Utils;
 using BeSafe.Properties;
 using ExceptionManager;
 using DokanNet;
+using System.Threading.Tasks;
 
 namespace BeSafe.Initializer.VirtualDrive
 {
@@ -28,8 +29,11 @@ namespace BeSafe.Initializer.VirtualDrive
                 string unusedDriveLetter = FirstUnusedDriveLetter();
                 string normalizedDriveLetter = NormalizeDriveLetter(unusedDriveLetter);
 
-                virtualDriveImpl = new BeSafeFileSystemImpl(virtualPath);
-                virtualDriveImpl.Mount(normalizedDriveLetter, DokanOptions.FixedDrive, NumberOfThradsToManageFileSystem);
+                Task.Run(() =>
+                {
+                    virtualDriveImpl = new BeSafeFileSystemImpl(virtualPath);
+                    virtualDriveImpl.Mount(normalizedDriveLetter, DokanOptions.FixedDrive, NumberOfThradsToManageFileSystem);
+                });
 
                 return normalizedDriveLetter;
             }
