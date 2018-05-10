@@ -35,8 +35,10 @@
             this.TryIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.monoFlat_ThemeContainer1 = new ClientUI.MonoFlat_ThemeContainer();
+            this.monoFlat_ControlBox1 = new ClientUI.MonoFlat_ControlBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpConfiguration = new System.Windows.Forms.TabPage();
+            this.chbProtectorDetector = new ClientUI.MonoFlat_CheckBox();
             this.chbVirusTotalEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbQuarantineSuspicious = new ClientUI.MonoFlat_CheckBox();
             this.chbKillSuspicious = new ClientUI.MonoFlat_CheckBox();
@@ -58,9 +60,8 @@
             this.btnLogin = new ClientUI.MonoFlat_Button();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
-            this.btnCancel = new ClientUI.MonoFlat_Button();
-            this.btnOk = new ClientUI.MonoFlat_Button();
-            this.chbProtectorDetector = new ClientUI.MonoFlat_CheckBox();
+            this.btnApply = new ClientUI.MonoFlat_Button();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -73,13 +74,13 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // TryIconMenu
@@ -87,9 +88,10 @@
             this.TryIconMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.TryIconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.TryIconMenu.Name = "TryIconMenu";
-            this.TryIconMenu.Size = new System.Drawing.Size(108, 48);
+            this.TryIconMenu.Size = new System.Drawing.Size(181, 92);
             // 
             // notifyIcon
             // 
@@ -98,15 +100,16 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "BeSafe";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
             // monoFlat_ThemeContainer1
             // 
             this.monoFlat_ThemeContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.monoFlat_ThemeContainer1.Controls.Add(this.monoFlat_ControlBox1);
             this.monoFlat_ThemeContainer1.Controls.Add(this.tabControl);
             this.monoFlat_ThemeContainer1.Controls.Add(this.Logo);
             this.monoFlat_ThemeContainer1.Controls.Add(this.monoFlat_HeaderLabel1);
-            this.monoFlat_ThemeContainer1.Controls.Add(this.btnCancel);
-            this.monoFlat_ThemeContainer1.Controls.Add(this.btnOk);
+            this.monoFlat_ThemeContainer1.Controls.Add(this.btnApply);
             this.monoFlat_ThemeContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monoFlat_ThemeContainer1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.monoFlat_ThemeContainer1.Location = new System.Drawing.Point(0, 0);
@@ -118,6 +121,18 @@
             this.monoFlat_ThemeContainer1.SmartBounds = true;
             this.monoFlat_ThemeContainer1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.monoFlat_ThemeContainer1.TabIndex = 1;
+            // 
+            // monoFlat_ControlBox1
+            // 
+            this.monoFlat_ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.monoFlat_ControlBox1.EnableHoverHighlight = false;
+            this.monoFlat_ControlBox1.EnableMaximizeButton = true;
+            this.monoFlat_ControlBox1.EnableMinimizeButton = true;
+            this.monoFlat_ControlBox1.Location = new System.Drawing.Point(466, 15);
+            this.monoFlat_ControlBox1.Name = "monoFlat_ControlBox1";
+            this.monoFlat_ControlBox1.Size = new System.Drawing.Size(100, 25);
+            this.monoFlat_ControlBox1.TabIndex = 39;
+            this.monoFlat_ControlBox1.Text = "monoFlat_ControlBox1";
             // 
             // tabControl
             // 
@@ -154,6 +169,16 @@
             this.tpConfiguration.Size = new System.Drawing.Size(542, 254);
             this.tpConfiguration.TabIndex = 0;
             this.tpConfiguration.Text = "Configuration";
+            // 
+            // chbProtectorDetector
+            // 
+            this.chbProtectorDetector.Checked = false;
+            this.chbProtectorDetector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chbProtectorDetector.Location = new System.Drawing.Point(293, 24);
+            this.chbProtectorDetector.Name = "chbProtectorDetector";
+            this.chbProtectorDetector.Size = new System.Drawing.Size(243, 16);
+            this.chbProtectorDetector.TabIndex = 44;
+            this.chbProtectorDetector.Text = "Protector Detector Engine";
             // 
             // chbVirusTotalEngine
             // 
@@ -260,6 +285,7 @@
             // 
             // btnUnloadPlugin
             // 
+            this.btnUnloadPlugin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUnloadPlugin.BackColor = System.Drawing.Color.Transparent;
             this.btnUnloadPlugin.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnUnloadPlugin.Image = null;
@@ -273,6 +299,7 @@
             // 
             // btnLoadPlugin
             // 
+            this.btnLoadPlugin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoadPlugin.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadPlugin.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnLoadPlugin.Image = null;
@@ -286,6 +313,9 @@
             // 
             // lbPlugins
             // 
+            this.lbPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             this.lbPlugins.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbPlugins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,6 +344,7 @@
             // 
             // tbPassword
             // 
+            this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPassword.BackColor = System.Drawing.Color.Transparent;
             this.tbPassword.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
@@ -330,6 +361,7 @@
             // 
             // lblPassword
             // 
+            this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -342,6 +374,7 @@
             // 
             // lblUsername
             // 
+            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -354,6 +387,7 @@
             // 
             // tbUsername
             // 
+            this.tbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbUsername.BackColor = System.Drawing.Color.Transparent;
             this.tbUsername.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
@@ -370,11 +404,12 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnLogin.Image = null;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(297, 141);
+            this.btnLogin.Location = new System.Drawing.Point(297, 142);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(80, 30);
             this.btnLogin.TabIndex = 0;
@@ -394,6 +429,7 @@
             // 
             // monoFlat_HeaderLabel1
             // 
+            this.monoFlat_HeaderLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.monoFlat_HeaderLabel1.AutoSize = true;
             this.monoFlat_HeaderLabel1.BackColor = System.Drawing.Color.Transparent;
             this.monoFlat_HeaderLabel1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold);
@@ -405,42 +441,27 @@
             this.monoFlat_HeaderLabel1.TabIndex = 35;
             this.monoFlat_HeaderLabel1.Text = "BeSafe";
             // 
-            // btnCancel
+            // btnApply
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCancel.Image = null;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(365, 374);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 41);
-            this.btnCancel.TabIndex = 25;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.BackColor = System.Drawing.Color.Transparent;
+            this.btnApply.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnApply.Image = null;
+            this.btnApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApply.Location = new System.Drawing.Point(471, 374);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(100, 41);
+            this.btnApply.TabIndex = 24;
+            this.btnApply.Text = "Apply";
+            this.btnApply.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnApply.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // btnOk
+            // exitToolStripMenuItem
             // 
-            this.btnOk.BackColor = System.Drawing.Color.Transparent;
-            this.btnOk.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnOk.Image = null;
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(471, 374);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(100, 41);
-            this.btnOk.TabIndex = 24;
-            this.btnOk.Text = "Ok";
-            this.btnOk.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // chbProtectorDetector
-            // 
-            this.chbProtectorDetector.Checked = false;
-            this.chbProtectorDetector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbProtectorDetector.Location = new System.Drawing.Point(293, 24);
-            this.chbProtectorDetector.Name = "chbProtectorDetector";
-            this.chbProtectorDetector.Size = new System.Drawing.Size(243, 16);
-            this.chbProtectorDetector.TabIndex = 44;
-            this.chbProtectorDetector.Text = "Protector Detector Engine";
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Setting
             // 
@@ -456,6 +477,8 @@
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Setting_FormClosing);
+            this.Resize += new System.EventHandler(this.Setting_Resize);
             this.TryIconMenu.ResumeLayout(false);
             this.monoFlat_ThemeContainer1.ResumeLayout(false);
             this.monoFlat_ThemeContainer1.PerformLayout();
@@ -477,8 +500,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MonoFlat_ThemeContainer monoFlat_ThemeContainer1;
         private System.Windows.Forms.PictureBox Logo;
-        private MonoFlat_Button btnCancel;
-        private MonoFlat_Button btnOk;
+        private MonoFlat_Button btnApply;
         private MonoFlat_HeaderLabel monoFlat_HeaderLabel1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tpConfiguration;
@@ -502,6 +524,8 @@
         private MonoFlat_TextBox tbUsername;
         private MonoFlat_Button btnLogin;
         private MonoFlat_CheckBox chbProtectorDetector;
+        private MonoFlat_ControlBox monoFlat_ControlBox1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
