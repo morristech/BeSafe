@@ -10,13 +10,18 @@ namespace ClientUI.Core
     {
         public event ConnectionMessageEventHandler<BeSafePipeCommand, BeSafePipeCommand> ServerMessageEventHandler;
 
-        private NamedPipeClient<BeSafePipeCommand> client = new NamedPipeClient<BeSafePipeCommand>(Resources.ApplicationName);    
+        private NamedPipeClient<BeSafePipeCommand> pipeClient = new NamedPipeClient<BeSafePipeCommand>(Resources.ApplicationName);    
 
         public void Start()
         {
-            client.Error += OnError;
-            client.ServerMessage += ServerMessageEventHandler;
-            client.Start();
+            pipeClient.Error += OnError;
+            pipeClient.ServerMessage += ServerMessageEventHandler;
+            pipeClient.Start();
+        }
+
+        public void Stop()
+        {
+            pipeClient.Stop();
         }
 
         private void OnError(Exception exception)
@@ -28,7 +33,7 @@ namespace ClientUI.Core
         {
             try
             {
-                client.PushMessage(command);
+                pipeClient.PushMessage(command);
                 return true;
             }
             catch (Exception ex)

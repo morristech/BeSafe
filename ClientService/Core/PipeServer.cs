@@ -10,14 +10,19 @@ namespace BeSafe.Core
     {
         public event ConnectionMessageEventHandler<BeSafePipeCommand, BeSafePipeCommand> ClientMessageEventHandler;
 
-        private NamedPipeServer<BeSafePipeCommand> server = new NamedPipeServer<BeSafePipeCommand>(Resources.ApplicationName);;
+        private NamedPipeServer<BeSafePipeCommand> serverPipe = new NamedPipeServer<BeSafePipeCommand>(Resources.ApplicationName);;
 
         public void Start()
         {
-            server.Error += OnError;
-            server.ClientConnected += OnClientConnected;
-            server.ClientMessage += ClientMessageEventHandler;
-            server.Start();
+            serverPipe.Error += OnError;
+            serverPipe.ClientConnected += OnClientConnected;
+            serverPipe.ClientMessage += ClientMessageEventHandler;
+            serverPipe.Start();
+        }
+
+        public void Stop()
+        {
+            serverPipe.Stop();
         }
 
         private void OnClientConnected(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection)
@@ -34,7 +39,7 @@ namespace BeSafe.Core
         {
             try
             {
-                server.PushMessage(command);
+                serverPipe.PushMessage(command);
                 return true;
             }
             catch (Exception ex)
