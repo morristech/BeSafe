@@ -1,5 +1,8 @@
-﻿namespace Common.PipeCommandStructure
+﻿using System;
+
+namespace Common.PipeCommandStructure
 {
+    [Serializable]
     public enum PipeCommands
     {
         Stop = 0,
