@@ -1,11 +1,15 @@
 ﻿using System.ServiceProcess;
-using Common;
+using BeSafe.Core;
+using Common.PipeCommandStructure;
 using ExceptionManager;
+using NamedPipeWrapper;
 
 namespace ClientService
 {
     public partial class BeSafe : ServiceBase
     {
+        private readonly PipeServer pipeServer = new PipeServer();
+
         public BeSafe()
         {
             InitializeComponent();
@@ -15,7 +19,8 @@ namespace ClientService
         {
             try
             {
-
+                pipeServer.ClientMessageEventHandler += OnClientCommandReceived;
+                pipeServer.Start();
             }
             catch (System.Exception ex)
             {
@@ -25,7 +30,31 @@ namespace ClientService
 
         protected override void OnStop()
         {
+            pipeServer.Stop();
+        }
 
+        private void OnClientCommandReceived(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection, BeSafePipeCommand command)
+        {
+            switch (command.Command)
+            {
+                case PipeCommands.ComponentConfiguration:
+                    {
+
+                    }
+                    break;
+
+                case PipeCommands.ReloadPlugins:
+                    {
+
+                    }
+                    break;
+
+                case PipeCommands.Notification:
+                    {
+
+                    }
+                    break;
+            }
         }
     }
 }
