@@ -9,6 +9,7 @@ namespace Common.PipeCommandStructure
         Start = 1,
         ComponentConfiguration = 2,
         Notification = 3,
+        ReloadPlugins,
         Error =4,
     }
 }
