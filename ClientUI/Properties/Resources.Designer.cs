@@ -61,6 +61,15 @@ namespace ClientUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BeSafe.
+        /// </summary>
+        internal static string ApplicationName {
+            get {
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap besafe_logo {

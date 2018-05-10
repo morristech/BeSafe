@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\PipeClient.cs" />
     <Compile Include="MonoFlat.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -91,10 +92,15 @@
       <Project>{b9a93fb8-9e26-4035-a5c9-65a54f880a1d}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
+      <Project>{09703241-2105-4120-90B8-6D4963C38926}</Project>
+      <Name>ExceptionManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NamedPipeWrapper\NamedPipeWrapper.csproj">
       <Project>{73152691-3cde-46df-8d04-7117747dffe7}</Project>
       <Name>NamedPipeWrapper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
