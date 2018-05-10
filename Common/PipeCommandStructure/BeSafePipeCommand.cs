@@ -5,7 +5,7 @@ namespace Common.PipeCommandStructure
     [Serializable]
     public class BeSafePipeCommand
     {
-        public ClientServiceItems Item;
+        public ComponentsEnableState ComponentsState;
         public PipeCommands Command;
         public string ExtraData;
     }
