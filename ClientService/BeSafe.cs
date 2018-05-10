@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
+using BeSafe.ComponentsConfigurator;
 using BeSafe.Core;
-using BeSafe.Initializer.VirtualDrive;
 using Common.PipeCommandStructure;
 using ExceptionManager;
 using NamedPipeWrapper;
@@ -11,8 +11,6 @@ namespace ClientService
     public partial class BeSafe : ServiceBase
     {
         private readonly PipeServer pipeServer = new PipeServer();
-        private VirtualDrive secureDrive = new VirtualDrive();
-        public string _mappedDriveLetter;
 
         public BeSafe()
         {
@@ -45,10 +43,7 @@ namespace ClientService
                 {
                     case PipeCommands.ComponentConfiguration:
                         {
-                            if (command.ComponentsState.SecureVolume)
-                                _mappedDriveLetter = secureDrive.MapDrive(@"H:\BeSafe");
-                            else
-                                secureDrive.UnmapDrive(_mappedDriveLetter);
+                            ConfigManager.Manage(command.ComponentsState);
                         }
                         break;
 
