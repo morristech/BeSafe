@@ -43,7 +43,7 @@
             this.chbDynamicEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbStaticEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbSecureVolume = new ClientUI.MonoFlat_CheckBox();
-            this.chbyaraEngine = new ClientUI.MonoFlat_CheckBox();
+            this.chbYaraEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbmoduleWatcher = new ClientUI.MonoFlat_CheckBox();
             this.chbProcessWatcher = new ClientUI.MonoFlat_CheckBox();
             this.tpSecureVolumePlugins = new System.Windows.Forms.TabPage();
@@ -60,6 +60,7 @@
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnCancel = new ClientUI.MonoFlat_Button();
             this.btnOk = new ClientUI.MonoFlat_Button();
+            this.chbProtectorDetector = new ClientUI.MonoFlat_CheckBox();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -136,13 +137,14 @@
             // tpConfiguration
             // 
             this.tpConfiguration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.tpConfiguration.Controls.Add(this.chbProtectorDetector);
             this.tpConfiguration.Controls.Add(this.chbVirusTotalEngine);
             this.tpConfiguration.Controls.Add(this.chbQuarantineSuspicious);
             this.tpConfiguration.Controls.Add(this.chbKillSuspicious);
             this.tpConfiguration.Controls.Add(this.chbDynamicEngine);
             this.tpConfiguration.Controls.Add(this.chbStaticEngine);
             this.tpConfiguration.Controls.Add(this.chbSecureVolume);
-            this.tpConfiguration.Controls.Add(this.chbyaraEngine);
+            this.tpConfiguration.Controls.Add(this.chbYaraEngine);
             this.tpConfiguration.Controls.Add(this.chbmoduleWatcher);
             this.tpConfiguration.Controls.Add(this.chbProcessWatcher);
             this.tpConfiguration.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -157,9 +159,9 @@
             // 
             this.chbVirusTotalEngine.Checked = false;
             this.chbVirusTotalEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbVirusTotalEngine.Location = new System.Drawing.Point(18, 198);
+            this.chbVirusTotalEngine.Location = new System.Drawing.Point(18, 200);
             this.chbVirusTotalEngine.Name = "chbVirusTotalEngine";
-            this.chbVirusTotalEngine.Size = new System.Drawing.Size(283, 16);
+            this.chbVirusTotalEngine.Size = new System.Drawing.Size(243, 16);
             this.chbVirusTotalEngine.TabIndex = 43;
             this.chbVirusTotalEngine.Text = "Improve scans using VirusTotal";
             // 
@@ -167,9 +169,9 @@
             // 
             this.chbQuarantineSuspicious.Checked = false;
             this.chbQuarantineSuspicious.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbQuarantineSuspicious.Location = new System.Drawing.Point(18, 176);
+            this.chbQuarantineSuspicious.Location = new System.Drawing.Point(18, 178);
             this.chbQuarantineSuspicious.Name = "chbQuarantineSuspicious";
-            this.chbQuarantineSuspicious.Size = new System.Drawing.Size(283, 16);
+            this.chbQuarantineSuspicious.Size = new System.Drawing.Size(243, 16);
             this.chbQuarantineSuspicious.TabIndex = 42;
             this.chbQuarantineSuspicious.Text = "Automatically quarantine suspicious files";
             // 
@@ -177,9 +179,9 @@
             // 
             this.chbKillSuspicious.Checked = false;
             this.chbKillSuspicious.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbKillSuspicious.Location = new System.Drawing.Point(18, 154);
+            this.chbKillSuspicious.Location = new System.Drawing.Point(18, 156);
             this.chbKillSuspicious.Name = "chbKillSuspicious";
-            this.chbKillSuspicious.Size = new System.Drawing.Size(283, 16);
+            this.chbKillSuspicious.Size = new System.Drawing.Size(243, 16);
             this.chbKillSuspicious.TabIndex = 41;
             this.chbKillSuspicious.Text = "Automatically kill suspicious process ";
             // 
@@ -187,9 +189,9 @@
             // 
             this.chbDynamicEngine.Checked = false;
             this.chbDynamicEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbDynamicEngine.Location = new System.Drawing.Point(18, 132);
+            this.chbDynamicEngine.Location = new System.Drawing.Point(18, 134);
             this.chbDynamicEngine.Name = "chbDynamicEngine";
-            this.chbDynamicEngine.Size = new System.Drawing.Size(283, 16);
+            this.chbDynamicEngine.Size = new System.Drawing.Size(243, 16);
             this.chbDynamicEngine.TabIndex = 40;
             this.chbDynamicEngine.Text = "BeSafe dynamic scan engine";
             // 
@@ -197,9 +199,9 @@
             // 
             this.chbStaticEngine.Checked = false;
             this.chbStaticEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbStaticEngine.Location = new System.Drawing.Point(18, 110);
+            this.chbStaticEngine.Location = new System.Drawing.Point(18, 112);
             this.chbStaticEngine.Name = "chbStaticEngine";
-            this.chbStaticEngine.Size = new System.Drawing.Size(283, 16);
+            this.chbStaticEngine.Size = new System.Drawing.Size(243, 16);
             this.chbStaticEngine.TabIndex = 39;
             this.chbStaticEngine.Text = "BeSafe static scan engine";
             // 
@@ -207,29 +209,29 @@
             // 
             this.chbSecureVolume.Checked = false;
             this.chbSecureVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbSecureVolume.Location = new System.Drawing.Point(18, 88);
+            this.chbSecureVolume.Location = new System.Drawing.Point(18, 90);
             this.chbSecureVolume.Name = "chbSecureVolume";
-            this.chbSecureVolume.Size = new System.Drawing.Size(283, 16);
+            this.chbSecureVolume.Size = new System.Drawing.Size(243, 16);
             this.chbSecureVolume.TabIndex = 38;
             this.chbSecureVolume.Text = "BeSafe secure volume";
             // 
-            // chbyaraEngine
+            // chbYaraEngine
             // 
-            this.chbyaraEngine.Checked = false;
-            this.chbyaraEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbyaraEngine.Location = new System.Drawing.Point(18, 66);
-            this.chbyaraEngine.Name = "chbyaraEngine";
-            this.chbyaraEngine.Size = new System.Drawing.Size(283, 16);
-            this.chbyaraEngine.TabIndex = 37;
-            this.chbyaraEngine.Text = "Yara scan engine";
+            this.chbYaraEngine.Checked = false;
+            this.chbYaraEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chbYaraEngine.Location = new System.Drawing.Point(18, 68);
+            this.chbYaraEngine.Name = "chbYaraEngine";
+            this.chbYaraEngine.Size = new System.Drawing.Size(243, 16);
+            this.chbYaraEngine.TabIndex = 37;
+            this.chbYaraEngine.Text = "Yara scan engine";
             // 
             // chbmoduleWatcher
             // 
             this.chbmoduleWatcher.Checked = false;
             this.chbmoduleWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbmoduleWatcher.Location = new System.Drawing.Point(18, 44);
+            this.chbmoduleWatcher.Location = new System.Drawing.Point(18, 46);
             this.chbmoduleWatcher.Name = "chbmoduleWatcher";
-            this.chbmoduleWatcher.Size = new System.Drawing.Size(283, 16);
+            this.chbmoduleWatcher.Size = new System.Drawing.Size(243, 16);
             this.chbmoduleWatcher.TabIndex = 36;
             this.chbmoduleWatcher.Text = "Module watcher";
             // 
@@ -237,9 +239,9 @@
             // 
             this.chbProcessWatcher.Checked = false;
             this.chbProcessWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbProcessWatcher.Location = new System.Drawing.Point(18, 22);
+            this.chbProcessWatcher.Location = new System.Drawing.Point(18, 24);
             this.chbProcessWatcher.Name = "chbProcessWatcher";
-            this.chbProcessWatcher.Size = new System.Drawing.Size(283, 16);
+            this.chbProcessWatcher.Size = new System.Drawing.Size(243, 16);
             this.chbProcessWatcher.TabIndex = 35;
             this.chbProcessWatcher.Text = "Process watcher";
             // 
@@ -428,6 +430,17 @@
             this.btnOk.TabIndex = 24;
             this.btnOk.Text = "Ok";
             this.btnOk.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // chbProtectorDetector
+            // 
+            this.chbProtectorDetector.Checked = false;
+            this.chbProtectorDetector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chbProtectorDetector.Location = new System.Drawing.Point(293, 24);
+            this.chbProtectorDetector.Name = "chbProtectorDetector";
+            this.chbProtectorDetector.Size = new System.Drawing.Size(243, 16);
+            this.chbProtectorDetector.TabIndex = 44;
+            this.chbProtectorDetector.Text = "Protector Detector Engine";
             // 
             // Setting
             // 
@@ -475,7 +488,7 @@
         private MonoFlat_CheckBox chbDynamicEngine;
         private MonoFlat_CheckBox chbStaticEngine;
         private MonoFlat_CheckBox chbSecureVolume;
-        private MonoFlat_CheckBox chbyaraEngine;
+        private MonoFlat_CheckBox chbYaraEngine;
         private MonoFlat_CheckBox chbmoduleWatcher;
         private MonoFlat_CheckBox chbProcessWatcher;
         private System.Windows.Forms.TabPage tpSecureVolumePlugins;
@@ -488,6 +501,7 @@
         private MonoFlat_Label lblUsername;
         private MonoFlat_TextBox tbUsername;
         private MonoFlat_Button btnLogin;
+        private MonoFlat_CheckBox chbProtectorDetector;
     }
 }
 
