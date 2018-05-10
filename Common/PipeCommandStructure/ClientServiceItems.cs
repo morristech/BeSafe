@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common
+namespace Common.PipeCommandStructure
 {
     [Serializable]
     public enum ClientServiceItems
