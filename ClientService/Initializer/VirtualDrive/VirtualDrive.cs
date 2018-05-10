@@ -21,6 +21,10 @@ namespace BeSafe.Initializer.VirtualDrive
 
             try
             {
+                string alreadyMappingPath = CheckPathAlreadyMapped(virtualPath);
+                if (!string.IsNullOrEmpty(alreadyMappingPath))
+                    return alreadyMappingPath;
+
                 string unusedDriveLetter = FirstUnusedDriveLetter();
                 string normalizedDriveLetter = NormalizeDriveLetter(unusedDriveLetter);
 
@@ -66,6 +70,19 @@ namespace BeSafe.Initializer.VirtualDrive
                 ex.Log(ExceptionType.SecureVolume, @"Can not unmount virtual drive");
                 return false;
             }
+        }
+
+        private string CheckPathAlreadyMapped(string mappingPath)
+        {
+            string[] driveList = Directory.GetLogicalDrives();
+            foreach(string drive in driveList)
+            {
+                string driveMappingPath = GetDriveMappingPath(drive);
+                if (driveMappingPath == mappingPath)
+                    return drive;
+            }
+
+            return null;
         }
 
         private string FirstUnusedDriveLetter()
