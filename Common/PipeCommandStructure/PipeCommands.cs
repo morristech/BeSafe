@@ -7,5 +7,8 @@ namespace Common.PipeCommandStructure
     {
         Stop = 0,
         Start = 1,
+        ComponentConfiguration = 2,
+        Notification = 3,
+        Error =4,
     }
 }
