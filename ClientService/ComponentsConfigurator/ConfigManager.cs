@@ -4,7 +4,7 @@ namespace BeSafe.ComponentsConfigurator
 {
     public class ConfigManager
     {
-        public static void Manage(ComponentsEnableState enableState)
+        public static void ManageComponentsState(ComponentsEnableState enableState)
         {
             SecureVolumeConfigurator.Instance().Config(enableState.SecureVolume);
         }

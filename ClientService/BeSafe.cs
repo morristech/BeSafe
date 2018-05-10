@@ -43,7 +43,7 @@ namespace ClientService
                 {
                     case PipeCommands.ComponentConfiguration:
                         {
-                            ConfigManager.Manage(command.ComponentsState);
+                            ConfigManager.ManageComponentsState(command.ComponentsState);
                         }
                         break;
 
