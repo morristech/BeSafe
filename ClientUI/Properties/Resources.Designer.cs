@@ -78,5 +78,15 @@ namespace ClientUI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure, you want to exit BeSafe client ?
+        ///BeSafe service continue working in background.
+        /// </summary>
+        internal static string ConfirmExitMessage {
+            get {
+                return ResourceManager.GetString("ConfirmExitMessage", resourceCulture);
+            }
+        }
     }
 }

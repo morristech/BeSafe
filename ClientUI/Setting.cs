@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ClientUI.Core;
+using ClientUI.Properties;
 using Common.PipeCommandStructure;
 using NamedPipeWrapper;
 
@@ -9,6 +10,7 @@ namespace ClientUI
     public partial class Setting : Form
     {
         private readonly PipeClient pipeClient = new PipeClient();
+        private bool CanClose = false;
 
         public Setting()
         {
@@ -43,6 +45,34 @@ namespace ClientUI
                 Command = PipeCommands.ComponentConfiguration,
                 ComponentsState = enableState,
             });
+        }
+
+        private void Setting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !CanClose;
+            this.Hide();
+        }
+
+        private void Setting_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                this.Close();
+        }
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool confirmExit = MessageBox.Show(Resources.ConfirmExitMessage, string.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            if (confirmExit)
+            {
+                pipeClient.Stop();
+                this.CanClose = true;
+                this.Close();
+            }
         }
     }
 }
