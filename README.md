@@ -26,7 +26,7 @@ Key features :
 - Cloud analyzer which analyze clients data in anonymous manner
 - Multipile reports about active world threats, frequency map, threats birth point and relations and etc.
 
-BeSafe developed using C#.7 in VisualStudio.2017 using folowin free libraries :
+BeSafe developed using C#.7 in VisualStudio.2017 using folowing free libraries :
 
 - Dokan user mode file system library for Windows : http://dokan-dev.github.io/
 - MonoFlat WinForms theme by HazelDev
