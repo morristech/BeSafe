@@ -86,5 +86,15 @@
     <Content Include="BeSafe_Icon.ico" />
     <None Include="Resources\besafe-logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b9a93fb8-9e26-4035-a5c9-65a54f880a1d}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NamedPipeWrapper\NamedPipeWrapper.csproj">
+      <Project>{73152691-3cde-46df-8d04-7117747dffe7}</Project>
+      <Name>NamedPipeWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

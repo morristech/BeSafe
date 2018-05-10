@@ -111,8 +111,13 @@
       <Project>{09703241-2105-4120-90b8-6d4963c38926}</Project>
       <Name>ExceptionManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NamedPipeWrapper\NamedPipeWrapper.csproj">
+      <Project>{73152691-3cde-46df-8d04-7117747dffe7}</Project>
+      <Name>NamedPipeWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Core\" />
     <Folder Include="Scanners\" />
   </ItemGroup>
   <ItemGroup>
