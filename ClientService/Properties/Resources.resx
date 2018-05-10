@@ -141,6 +141,9 @@
   <data name="ParentProcessIDFiled" xml:space="preserve">
     <value>ParentProcessID</value>
   </data>
+  <data name="PipeName" xml:space="preserve">
+    <value>BeSafePipe</value>
+  </data>
   <data name="ProcessIDField" xml:space="preserve">
     <value>ProcessID</value>
   </data>

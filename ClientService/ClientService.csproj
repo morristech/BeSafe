@@ -61,6 +61,7 @@
     <Compile Include="BeSafe.Designer.cs">
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\PipeServer.cs" />
     <Compile Include="Initializer\DriveView.cs" />
     <Compile Include="Initializer\VirtualDrive\IVirtualDrive.cs" />
     <Compile Include="Initializer\VirtualDrive\VirtualDrive.cs" />
@@ -117,7 +118,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
     <Folder Include="Scanners\" />
   </ItemGroup>
   <ItemGroup>
