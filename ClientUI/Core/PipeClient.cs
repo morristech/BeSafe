@@ -10,15 +10,14 @@ namespace ClientUI.Core
     {
         public event ConnectionMessageEventHandler<BeSafePipeCommand, BeSafePipeCommand> ServerMessageEventHandler;
 
-        private NamedPipeClient<BeSafePipeCommand> client = new NamedPipeClient<BeSafePipeCommand>(Resources.ApplicationName);
+        private NamedPipeClient<BeSafePipeCommand> client = new NamedPipeClient<BeSafePipeCommand>(Resources.ApplicationName);    
 
-        public PipeClient()
+        public void Start()
         {
             client.Error += OnError;
             client.ServerMessage += ServerMessageEventHandler;
-
             client.Start();
-        }      
+        }
 
         private void OnError(Exception exception)
         {

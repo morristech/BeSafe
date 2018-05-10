@@ -10,22 +10,19 @@ namespace BeSafe.Core
     {
         public event ConnectionMessageEventHandler<BeSafePipeCommand, BeSafePipeCommand> ClientMessageEventHandler;
 
-        private NamedPipeServer<BeSafePipeCommand> server = new NamedPipeServer<BeSafePipeCommand>(Resources.ApplicationName);
+        private NamedPipeServer<BeSafePipeCommand> server = new NamedPipeServer<BeSafePipeCommand>(Resources.ApplicationName);;
 
-        public PipeServer()
+        public void Start()
         {
             server.Error += OnError;
             server.ClientConnected += OnClientConnected;
             server.ClientMessage += ClientMessageEventHandler;
-
             server.Start();
         }
 
         private void OnClientConnected(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection)
         {
-            // Just accept first connection
-            if (connection.Id != 1)
-                connection.Close();
+    
         }
 
         private void OnError(Exception exception)
