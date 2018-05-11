@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 namespace BeSafe.Utils
 {
-    public static class HashHelper
+    public static class HashUtils
     {
         public static string GetSHA256(byte[] buffer)
         {

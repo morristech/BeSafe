@@ -92,7 +92,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Scanners\VirusTotalEngine.cs" />
-    <Compile Include="Utils\HashHelper.cs" />
+    <Compile Include="Utils\HashUtils.cs" />
     <Compile Include="Utils\PathUtils.cs" />
     <Compile Include="Utils\Win32APIDefinitions.cs" />
     <Compile Include="Watchers\ModuleWatcher.cs" />

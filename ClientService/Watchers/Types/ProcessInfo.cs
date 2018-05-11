@@ -21,7 +21,7 @@ namespace BeSafe.Watchers.Types
                         return null;
 
                     byte[] fileBuffer = File.ReadAllBytes(ExecutablePath);
-                    return HashHelper.GetSHA256(fileBuffer);
+                    return HashUtils.GetSHA256(fileBuffer);
                 }
                 catch(Exception ex)
                 {
