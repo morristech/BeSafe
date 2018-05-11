@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using VirusTotalNET.Results;
+using BeSafe.Watchers.Types;
 
 namespace BeSafe.Scanners
 {
@@ -15,9 +16,16 @@ namespace BeSafe.Scanners
             virusTotal = new VirusTotalNET.VirusTotal(apiKey) { UseTLS = true };
         }
 
-        public List<FileReport> ScanFile(List<string> Objecthash)
+        public List<FileReport> ScanProcess(List<ProcessInfo> processInfos)
         {
-            return virusTotal.GetFileReportsAsync(Objecthash).Result.ToList();
+            List<string> processHashList = processInfos.Select(s => s.Sha256Hash).ToList();
+            return virusTotal.GetFileReportsAsync(processHashList).Result.ToList();
+        }
+
+        public List<FileReport> ScanModule(List<ModuleInfo> moduleInfos)
+        {
+            List<string> moduleHashList = moduleInfos.Select(s => s.Sha256Hash).ToList();
+            return virusTotal.GetFileReportsAsync(moduleHashList).Result.ToList();
         }
 
         public List<UrlReport> ScanURL(List<string> urlList)
