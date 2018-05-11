@@ -88,7 +88,6 @@
     <Compile Include="Utils\Win32APIDefinitions.cs" />
     <Compile Include="Watchers\ModuleWatcher.cs" />
     <Compile Include="Watchers\ProcessWatcher.cs" />
-    <Compile Include="Watchers\Types\FileInfo.cs" />
     <Compile Include="Watchers\Types\ModuleInfo.cs" />
     <Compile Include="Watchers\Types\ProcessInfo.cs" />
   </ItemGroup>
