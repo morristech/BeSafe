@@ -1,7 +1,7 @@
-﻿using BeSafe.Watchers;
+﻿using System.Diagnostics;
+using System.Collections.Generic;
+using BeSafe.Watchers;
 using BeSafe.Watchers.Types;
-using System;
-using System.Diagnostics;
 
 namespace BeSafe.ComponentsConfigurator
 {
@@ -13,6 +13,7 @@ namespace BeSafe.ComponentsConfigurator
         #endregion
 
         private ProcessWatcher processWatcher = new ProcessWatcher();
+        private Stack<ProcessInfo> ExecutedProcessStack = new Stack<ProcessInfo>();
 
         public ProcessConfigurator()
         {
@@ -27,6 +28,7 @@ namespace BeSafe.ComponentsConfigurator
         private void NewProcessArrived(ProcessInfo processInfo)
         {
             // TODO Scan engines not implemented yet, after they get ready use theme to scan process here :)
+            ExecutedProcessStack.Push(processInfo);
             Debug.WriteLine(processInfo.ToString());
         }
     }
