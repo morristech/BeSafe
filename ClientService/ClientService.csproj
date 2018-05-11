@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="ComponentsConfigurator\ConfigManager.cs" />
     <Compile Include="ComponentsConfigurator\IConfigurator.cs" />
+    <Compile Include="ComponentsConfigurator\ModuleConfigurator.cs" />
     <Compile Include="ComponentsConfigurator\ProcessConfigurator.cs" />
     <Compile Include="ComponentsConfigurator\SecureVolumeConfigurator.cs" />
     <Compile Include="Core\PipeServer.cs" />
