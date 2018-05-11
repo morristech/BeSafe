@@ -2,7 +2,7 @@
 using Microsoft.Win32.SafeHandles;
 using System.Runtime.InteropServices;
 
-namespace BeSafe.Utils
+namespace BeSafe.Core.Utils
 {
     public class Win32APIDefinitions
     {

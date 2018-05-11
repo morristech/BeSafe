@@ -1,4 +1,4 @@
-﻿namespace BeSafe.Initializer.VirtualDrive
+﻿namespace BeSafe.Components.Initializers.VirtualDrive
 {
     interface IVirtualDrive
     {

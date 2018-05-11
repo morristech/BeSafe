@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using BeSafe.Utils;
+using BeSafe.Core.Utils;
 
-namespace BeSafe.Watchers.Types
+namespace BeSafe.Components.Watchers.Types
 {
     public class ProcessInfo
     {

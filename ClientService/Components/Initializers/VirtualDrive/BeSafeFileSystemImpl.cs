@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using DokanNet;
 using FileAccess = DokanNet.FileAccess;
 
-namespace BeSafe.Initializer.VirtualDrive
+namespace BeSafe.Components.Initializers.VirtualDrive
 {
     internal class BeSafeFileSystemImpl : IDokanOperations
     {
@@ -339,7 +339,7 @@ namespace BeSafe.Initializer.VirtualDrive
                     var ct = creationTime?.ToFileTime() ?? 0;
                     var lat = lastAccessTime?.ToFileTime() ?? 0;
                     var lwt = lastWriteTime?.ToFileTime() ?? 0;
-                    if (Utils.Win32APIDefinitions.SetFileTime(stream.SafeFileHandle, ref ct, ref lat, ref lwt))
+                    if (Core.Utils.Win32APIDefinitions.SetFileTime(stream.SafeFileHandle, ref ct, ref lat, ref lwt))
                         return NtStatus.Success;
                     throw Marshal.GetExceptionForHR(Marshal.GetLastWin32Error());
                 }

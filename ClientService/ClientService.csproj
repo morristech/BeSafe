@@ -68,16 +68,16 @@
     <Compile Include="BeSafe.Designer.cs">
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComponentsConfigurator\ConfigManager.cs" />
-    <Compile Include="ComponentsConfigurator\IConfigurator.cs" />
-    <Compile Include="ComponentsConfigurator\ModuleConfigurator.cs" />
-    <Compile Include="ComponentsConfigurator\ProcessConfigurator.cs" />
-    <Compile Include="ComponentsConfigurator\SecureVolumeConfigurator.cs" />
+    <Compile Include="Core\ComponentsConfigurator\ConfigManager.cs" />
+    <Compile Include="Core\ComponentsConfigurator\IConfigurator.cs" />
+    <Compile Include="Core\ComponentsConfigurator\ModuleConfigurator.cs" />
+    <Compile Include="Core\ComponentsConfigurator\ProcessConfigurator.cs" />
+    <Compile Include="Core\ComponentsConfigurator\SecureVolumeConfigurator.cs" />
     <Compile Include="Core\PipeServer.cs" />
-    <Compile Include="Initializer\DriveView.cs" />
-    <Compile Include="Initializer\VirtualDrive\IVirtualDrive.cs" />
-    <Compile Include="Initializer\VirtualDrive\VirtualDrive.cs" />
-    <Compile Include="Initializer\VirtualDrive\BeSafeFileSystemImpl.cs" />
+    <Compile Include="Components\Initializers\DriveView.cs" />
+    <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
+    <Compile Include="Components\Initializers\VirtualDrive\VirtualDrive.cs" />
+    <Compile Include="Components\Initializers\VirtualDrive\BeSafeFileSystemImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -91,14 +91,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Scanners\VirusTotalEngine.cs" />
-    <Compile Include="Utils\HashUtils.cs" />
-    <Compile Include="Utils\PathUtils.cs" />
-    <Compile Include="Utils\Win32APIDefinitions.cs" />
-    <Compile Include="Watchers\ModuleWatcher.cs" />
-    <Compile Include="Watchers\ProcessWatcher.cs" />
-    <Compile Include="Watchers\Types\ModuleInfo.cs" />
-    <Compile Include="Watchers\Types\ProcessInfo.cs" />
+    <Compile Include="Components\Engines\VirusTotalEngine.cs" />
+    <Compile Include="Core\Utils\HashUtils.cs" />
+    <Compile Include="Core\Utils\PathUtils.cs" />
+    <Compile Include="Core\Utils\Win32APIDefinitions.cs" />
+    <Compile Include="Components\Watchers\ModuleWatcher.cs" />
+    <Compile Include="Components\Watchers\ProcessWatcher.cs" />
+    <Compile Include="Components\Watchers\Types\ModuleInfo.cs" />
+    <Compile Include="Components\Watchers\Types\ProcessInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BeSafe.resx">

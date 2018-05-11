@@ -1,7 +1,7 @@
-﻿using BeSafe.Initializer;
-using BeSafe.Initializer.VirtualDrive;
+﻿using BeSafe.Components.Initializers;
+using BeSafe.Components.Initializers.VirtualDrive;
 
-namespace BeSafe.ComponentsConfigurator
+namespace BeSafe.Core.ComponentsConfigurator
 {
     public class SecureVolumeConfigurator : IConfigurator
     {

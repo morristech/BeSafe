@@ -2,9 +2,9 @@
 using ExceptionManager;
 using System.Management;
 using BeSafe.Properties;
-using BeSafe.Watchers.Types;
+using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.Watchers
+namespace BeSafe.Components.Watchers
 {
     public class ProcessWatcher
     {

@@ -1,4 +1,4 @@
-﻿namespace BeSafe.ComponentsConfigurator
+﻿namespace BeSafe.Core.ComponentsConfigurator
 {
     interface IConfigurator
     {

@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using VirusTotalNET.Results;
-using BeSafe.Watchers.Types;
+using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.Scanners
+namespace BeSafe.Components.Engines
 {
     public class VirusTotalEngine
     {

@@ -3,7 +3,7 @@ using Microsoft.Win32;
 using BeSafe.Properties;
 using ExceptionManager;
 
-namespace BeSafe.Initializer
+namespace BeSafe.Components.Initializers
 {
     public class DriveView : IDisposable
     {

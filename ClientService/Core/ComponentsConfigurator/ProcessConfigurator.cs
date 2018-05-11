@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Collections.Generic;
-using BeSafe.Watchers;
-using BeSafe.Watchers.Types;
+using BeSafe.Components.Watchers;
+using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.ComponentsConfigurator
+namespace BeSafe.Core.ComponentsConfigurator
 {
     public class ProcessConfigurator : IConfigurator
     {

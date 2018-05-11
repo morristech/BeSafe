@@ -2,9 +2,9 @@
 using System.Management;
 using ExceptionManager;
 using BeSafe.Properties;
-using BeSafe.Watchers.Types;
+using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.Watchers
+namespace BeSafe.Components.Watchers
 {
     public class ModuleWatcher
     {

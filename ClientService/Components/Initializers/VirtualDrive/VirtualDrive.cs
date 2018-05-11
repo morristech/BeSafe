@@ -2,13 +2,13 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using BeSafe.Utils;
+using BeSafe.Core.Utils;
 using BeSafe.Properties;
 using ExceptionManager;
 using DokanNet;
 using System.Threading.Tasks;
 
-namespace BeSafe.Initializer.VirtualDrive
+namespace BeSafe.Components.Initializers.VirtualDrive
 {
     public class VirtualDrive : IVirtualDrive
     {

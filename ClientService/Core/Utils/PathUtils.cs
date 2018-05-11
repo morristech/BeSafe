@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace BeSafe.Utils
+namespace BeSafe.Core.Utils
 {
     public class PathUtils
     {

@@ -1,6 +1,6 @@
 ﻿using Common.PipeCommandStructure;
 
-namespace BeSafe.ComponentsConfigurator
+namespace BeSafe.Core.ComponentsConfigurator
 {
     public class ConfigManager
     {
