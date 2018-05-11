@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PluginInfo.cs" />
+    <Compile Include="PluginResult.cs" />
     <Compile Include="PluginSDK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
