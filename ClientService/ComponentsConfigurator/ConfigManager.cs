@@ -6,6 +6,7 @@ namespace BeSafe.ComponentsConfigurator
     {
         public static void ManageComponentsState(ComponentsEnableState enableState)
         {
+            ProcessConfigurator.Instance().Config(enableState.ProcessWatcher);
             SecureVolumeConfigurator.Instance().Config(enableState.SecureVolume);
         }
     }
