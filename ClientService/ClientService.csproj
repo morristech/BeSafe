@@ -40,8 +40,11 @@
     <Reference Include="DokanNet, Version=1.1.1.1, Culture=neutral, PublicKeyToken=cef3dedf553bda55, processorArchitecture=MSIL">
       <HintPath>..\packages\DokanNet.1.1.1.1\lib\net40\DokanNet.dll</HintPath>
     </Reference>
+    <Reference Include="NamedPipeWrapper, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NamedPipeWrapper.1.5.0\lib\net40\NamedPipeWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="StringInterpolationBridge, Version=0.9.1.0, Culture=neutral, PublicKeyToken=761dcf67ba0bf74d, processorArchitecture=MSIL">
       <HintPath>..\packages\StringInterpolationBridgeStrong.0.9.1\lib\net40\StringInterpolationBridge.dll</HintPath>
@@ -124,10 +127,6 @@
     <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
       <Project>{09703241-2105-4120-90b8-6d4963c38926}</Project>
       <Name>ExceptionManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NamedPipeWrapper\NamedPipeWrapper.csproj">
-      <Project>{73152691-3cde-46df-8d04-7117747dffe7}</Project>
-      <Name>NamedPipeWrapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

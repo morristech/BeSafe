@@ -34,6 +34,9 @@
     <ApplicationIcon>BeSafe_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NamedPipeWrapper, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NamedPipeWrapper.1.5.0\lib\net40\NamedPipeWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,6 +73,7 @@
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,10 +99,6 @@
     <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
       <Project>{09703241-2105-4120-90B8-6D4963C38926}</Project>
       <Name>ExceptionManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NamedPipeWrapper\NamedPipeWrapper.csproj">
-      <Project>{73152691-3cde-46df-8d04-7117747dffe7}</Project>
-      <Name>NamedPipeWrapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
