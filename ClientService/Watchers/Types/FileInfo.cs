@@ -7,5 +7,10 @@ namespace BeSafe.Watchers.Types
         public string Path { get; set; }
         public string Name { get; set; }
         public DateTime LastWrite { get; set; }
+
+        public new string ToString()
+        {
+            return $"Path:{Path},Name:{Name},LastWrite:{LastWrite}";
+        }
     }
 }
