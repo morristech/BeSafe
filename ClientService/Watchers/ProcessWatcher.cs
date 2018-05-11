@@ -9,20 +9,40 @@ namespace BeSafe.Watchers
     public class ProcessWatcher
     {
         public delegate void NewProcessEventHandler(ProcessInfo processInfo);
-        public NewProcessEventHandler OnNewProcess;
+        public NewProcessEventHandler NewProcess;
 
         private readonly ManagementEventWatcher _processStartWatcher = new ManagementEventWatcher(Resources.ProcessWatcherQuery);
 
         public ProcessWatcher()
         {
+            _processStartWatcher.EventArrived += processStartEvent_EventArrived;
+        }
+
+        public bool Start()
+        {
             try
             {
-                _processStartWatcher.EventArrived += processStartEvent_EventArrived;
                 _processStartWatcher.Start();
+                return true;
             }
             catch (Exception ex)
             {
                 ex.Log(ExceptionType.Service);
+                return false;
+            }
+        }
+
+        public bool Stop()
+        {
+            try
+            {
+                _processStartWatcher.Stop();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log(ExceptionType.Service);
+                return false;
             }
         }
 
@@ -30,7 +50,7 @@ namespace BeSafe.Watchers
         {
             UInt32 processId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ProcessIDField].Value);
 
-            OnNewProcess?.Invoke(new ProcessInfo
+            NewProcess?.Invoke(new ProcessInfo
             {
                 ProcessId = processId,
                 ParentProcessId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ParentProcessIDFiled].Value),
@@ -62,20 +82,6 @@ namespace BeSafe.Watchers
             }
 
             return null;
-        }
-
-        public bool Stop()
-        {
-            try
-            {
-                _processStartWatcher.Stop();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ex.Log(ExceptionType.Service);
-                return false;
-            }
         }
     }
 }
