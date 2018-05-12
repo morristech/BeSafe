@@ -99,6 +99,24 @@ namespace ClientUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to load plugin.
+        /// </summary>
+        internal static string FailedToLoadPlugin {
+            get {
+                return ResourceManager.GetString("FailedToLoadPlugin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already plugin with the same information exists.
+        /// </summary>
+        internal static string PluginAlreadyExists {
+            get {
+                return ResourceManager.GetString("PluginAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to *.bsp.
         /// </summary>
         internal static string PluginSearchPattern {

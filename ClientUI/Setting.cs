@@ -88,6 +88,20 @@ namespace ClientUI
 
             LoadPluginResult loadResult = PluginManager.LoadPlugin(openPluginFileDialog.FileName);
 
+            switch (loadResult)
+            {
+                case LoadPluginResult.Success:
+                    PluginManager.LoadPluginsInfoToListBox(lbPlugins);
+                    break;
+
+                case LoadPluginResult.Failed:
+                    MessageBox.Show(Resources.FailedToLoadPlugin, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+
+                case LoadPluginResult.AlreadyExists:
+                    MessageBox.Show(Resources.PluginAlreadyExists, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+            }
         }
 
         private void btnUnloadPlugin_Click(object sender, EventArgs e)

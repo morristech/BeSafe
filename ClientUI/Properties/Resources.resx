@@ -137,4 +137,10 @@ BeSafe service continue working in background</value>
   <data name="PluginSearchPattern" xml:space="preserve">
     <value>*.bsp</value>
   </data>
+  <data name="FailedToLoadPlugin" xml:space="preserve">
+    <value>Failed to load plugin</value>
+  </data>
+  <data name="PluginAlreadyExists" xml:space="preserve">
+    <value>Already plugin with the same information exists</value>
+  </data>
 </root>
