@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using BeSafe.Components.Watchers;
 using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.Core.ComponentsConfigurator
+namespace BeSafe.Core.ComponentRegulators
 {
-    public class ModuleConfigurator : IConfigurator
+    public class ModuleRegulator : IRegulator
     {
         #region Singleton
-        private static ModuleConfigurator SingletonInstance;
-        public static ModuleConfigurator Instance() => (SingletonInstance ?? (SingletonInstance = new ModuleConfigurator()));
+        private static ModuleRegulator SingletonInstance;
+        public static ModuleRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new ModuleRegulator()));
         #endregion    
 
         private ModuleWatcher moduleWatcher = new ModuleWatcher();
         private Stack<ModuleInfo> LoadedModulesStack = new Stack<ModuleInfo>();
 
-        public ModuleConfigurator()
+        public ModuleRegulator()
         {
             moduleWatcher.LoadModule += OnLoadModule;
         }

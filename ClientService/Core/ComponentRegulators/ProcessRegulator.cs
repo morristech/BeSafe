@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using BeSafe.Components.Watchers;
 using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.Core.ComponentsConfigurator
+namespace BeSafe.Core.ComponentRegulators
 {
-    public class ProcessConfigurator : IConfigurator
+    public class ProcessRegulator : IRegulator
     {
         #region Singleton
-        private static ProcessConfigurator SingletonInstance;
-        public static ProcessConfigurator Instance() => (SingletonInstance ?? (SingletonInstance = new ProcessConfigurator()));
+        private static ProcessRegulator SingletonInstance;
+        public static ProcessRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new ProcessRegulator()));
         #endregion
 
         private ProcessWatcher processWatcher = new ProcessWatcher();
         private Stack<ProcessInfo> ExecutedProcessStack = new Stack<ProcessInfo>();
 
-        public ProcessConfigurator()
+        public ProcessRegulator()
         {
             processWatcher.NewProcess += NewProcessArrived;
         }

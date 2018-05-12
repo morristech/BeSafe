@@ -71,11 +71,11 @@
     <Compile Include="BeSafe.Designer.cs">
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\ComponentsConfigurator\ConfigManager.cs" />
-    <Compile Include="Core\ComponentsConfigurator\IConfigurator.cs" />
-    <Compile Include="Core\ComponentsConfigurator\ModuleConfigurator.cs" />
-    <Compile Include="Core\ComponentsConfigurator\ProcessConfigurator.cs" />
-    <Compile Include="Core\ComponentsConfigurator\SecureVolumeConfigurator.cs" />
+    <Compile Include="Core\ComponentRegulators\ComponentRegulator.cs" />
+    <Compile Include="Core\ComponentRegulators\IRegulator.cs" />
+    <Compile Include="Core\ComponentRegulators\ModuleRegulator.cs" />
+    <Compile Include="Core\ComponentRegulators\ProcessRegulator.cs" />
+    <Compile Include="Core\ComponentRegulators\SecureVolumeRegulator.cs" />
     <Compile Include="Core\PipeServer.cs" />
     <Compile Include="Components\Initializers\DriveView.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
@@ -122,6 +122,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{B9A93FB8-9E26-4035-A5C9-65A54F880A1D}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfigManager\ConfigManager.csproj">
+      <Project>{87B63E06-141A-4216-A9B3-609777DDA168}</Project>
+      <Name>ConfigManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
       <Project>{09703241-2105-4120-90b8-6d4963c38926}</Project>

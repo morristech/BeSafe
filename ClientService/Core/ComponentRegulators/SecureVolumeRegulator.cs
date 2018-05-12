@@ -1,13 +1,13 @@
 ﻿using BeSafe.Components.Initializers;
 using BeSafe.Components.Initializers.VirtualDrive;
 
-namespace BeSafe.Core.ComponentsConfigurator
+namespace BeSafe.Core.ComponentRegulators
 {
-    public class SecureVolumeConfigurator : IConfigurator
+    public class SecureVolumeRegulator : IRegulator
     {
         #region Singleton
-        private static SecureVolumeConfigurator SingletonInstance;
-        public static SecureVolumeConfigurator Instance() => (SingletonInstance ?? (SingletonInstance = new SecureVolumeConfigurator()));
+        private static SecureVolumeRegulator SingletonInstance;
+        public static SecureVolumeRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new SecureVolumeRegulator()));
         #endregion
 
         private VirtualDrive secureDrive = new VirtualDrive();
