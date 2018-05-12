@@ -1,7 +1,7 @@
-﻿using BeSafe.Core.ComponentRegulators;
+﻿using BeSafe.Core.Regulators.ComponentRegulators;
 using ConfigManager;
 
-namespace BeSafe.Core.ComponentsConfigurator
+namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     public class ComponentRegulator
     {

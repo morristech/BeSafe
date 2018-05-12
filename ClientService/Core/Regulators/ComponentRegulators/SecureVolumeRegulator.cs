@@ -1,7 +1,7 @@
 ﻿using BeSafe.Components.Initializers;
 using BeSafe.Components.Initializers.VirtualDrive;
 
-namespace BeSafe.Core.ComponentRegulators
+namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     public class SecureVolumeRegulator : IRegulator
     {

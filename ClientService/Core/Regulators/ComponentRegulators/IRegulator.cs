@@ -1,4 +1,4 @@
-﻿namespace BeSafe.Core.ComponentRegulators
+﻿namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     interface IRegulator
     {

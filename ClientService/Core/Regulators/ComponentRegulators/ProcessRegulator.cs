@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BeSafe.Components.Watchers;
 using BeSafe.Components.Watchers.Types;
 
-namespace BeSafe.Core.ComponentRegulators
+namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     public class ProcessRegulator : IRegulator
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ServiceProcess;
-using BeSafe.Core.ComponentsConfigurator;
+using BeSafe.Core.Regulators.ComponentRegulators;
 using BeSafe.Core;
 using Common.PipeCommandStructure;
 using ExceptionManager;

@@ -71,11 +71,11 @@
     <Compile Include="BeSafe.Designer.cs">
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\ComponentRegulators\ComponentRegulator.cs" />
-    <Compile Include="Core\ComponentRegulators\IRegulator.cs" />
-    <Compile Include="Core\ComponentRegulators\ModuleRegulator.cs" />
-    <Compile Include="Core\ComponentRegulators\ProcessRegulator.cs" />
-    <Compile Include="Core\ComponentRegulators\SecureVolumeRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\ComponentRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\IRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\ModuleRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\ProcessRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\SecureVolumeRegulator.cs" />
     <Compile Include="Core\PipeServer.cs" />
     <Compile Include="Components\Initializers\DriveView.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
@@ -133,7 +133,9 @@
       <Name>ExceptionManager</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Core\Regulators\PluginRegulators\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="BeSafe _ OrgIcon.ico" />
   </ItemGroup>
