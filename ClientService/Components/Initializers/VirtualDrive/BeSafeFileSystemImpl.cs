@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using BeSafe.Properties;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 using System.Runtime.InteropServices;
@@ -11,6 +9,8 @@ using DokanNet;
 using FileAccess = DokanNet.FileAccess;
 using BeSafe.Core.Regulators.PluginRegulators;
 using PluginSDK;
+using ExceptionManager;
+using BeSafe.Properties;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
@@ -121,10 +121,25 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                             // Scan file with BeSafe plugins
                             if ((access != FileAccess.Delete) && (_pluginRegulator != null))
                             {
-                                PluginResult scanResult = _pluginRegulator.IsFileSafeToExecute(filePath);
+                                try
+                                {
+                                    PluginResult scanResult = _pluginRegulator.IsFileSafeToExecute(filePath);
 
-                                if (scanResult.Threat)
-                                    return DokanResult.FileNotFound;
+                                    if (scanResult.Threat)
+                                    {
+                                        if (_pluginRegulator.AutoQuarantine)
+                                        {
+                                            string quarantineFilePath = Path.ChangeExtension(filePath, Resources.BeSafeQuarantineFileExt);
+                                            File.Move(filePath, quarantineFilePath);
+                                        }
+
+                                        return DokanResult.FileNotFound;
+                                    }
+                                }
+                                catch(Exception ex)
+                                {
+                                    ex.Log();
+                                }
                             }
 
                             if (pathExists)
