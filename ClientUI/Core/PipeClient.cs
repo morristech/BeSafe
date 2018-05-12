@@ -3,6 +3,7 @@ using NamedPipeWrapper;
 using ExceptionManager;
 using ClientUI.Properties;
 using Common.PipeCommandStructure;
+using Common;
 
 namespace ClientUI.Core
 {
@@ -33,6 +34,7 @@ namespace ClientUI.Core
         {
             try
             {
+                command.ConfigFilePath = PathUtils.ConfigFilePath;
                 pipeClient.PushMessage(command);
                 return true;
             }
