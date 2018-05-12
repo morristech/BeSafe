@@ -13,5 +13,7 @@ namespace Common.PipeCommandStructure
         public bool ProtectorDetectorEngine;
         public bool VirusTotalEngine;
         public bool YaraEngine;
+        public bool AutoKill;
+        public bool AutoQuarantine;
     }
 }
