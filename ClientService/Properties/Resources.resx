@@ -120,6 +120,9 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>BeSafe</value>
   </data>
+  <data name="ConfigFilePathRegistryValueName" xml:space="preserve">
+    <value>ConfigFilePath</value>
+  </data>
   <data name="DriveMapMustEscapeChars" xml:space="preserve">
     <value>\??\</value>
   </data>
@@ -152,5 +155,8 @@
   </data>
   <data name="ProcessWatcherQuery" xml:space="preserve">
     <value>SELECT ProcessID, ParentProcessID, ProcessName FROM Win32_ProcessStartTrace</value>
+  </data>
+  <data name="ServiceSettingRegistrypath" xml:space="preserve">
+    <value>Software</value>
   </data>
 </root>

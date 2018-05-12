@@ -81,6 +81,7 @@
     <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\VirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\BeSafeFileSystemImpl.cs" />
+    <Compile Include="Core\ServerSetting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

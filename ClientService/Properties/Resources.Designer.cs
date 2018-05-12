@@ -70,6 +70,15 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ConfigFilePath.
+        /// </summary>
+        internal static string ConfigFilePathRegistryValueName {
+            get {
+                return ResourceManager.GetString("ConfigFilePathRegistryValueName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \??\.
         /// </summary>
         internal static string DriveMapMustEscapeChars {
@@ -165,6 +174,15 @@ namespace BeSafe.Properties {
         internal static string ProcessWatcherQuery {
             get {
                 return ResourceManager.GetString("ProcessWatcherQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software.
+        /// </summary>
+        internal static string ServiceSettingRegistrypath {
+            get {
+                return ResourceManager.GetString("ServiceSettingRegistrypath", resourceCulture);
             }
         }
     }
