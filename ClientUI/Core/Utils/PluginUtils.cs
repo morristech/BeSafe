@@ -19,7 +19,7 @@ namespace ClientUI.Core.Utils
                 return pluginsInfo;
 
             // Search for plugin files in plugin directory & get information of plugins
-            foreach (var pluginFile in Directory.GetFiles(pluginDirectory, Resources.BeSafePluginFileFormat))
+            foreach (var pluginFile in Directory.GetFiles(pluginDirectory, Resources.PluginSearchPattern))
             {
                 try
                 {
