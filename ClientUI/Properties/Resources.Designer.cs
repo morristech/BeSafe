@@ -80,12 +80,30 @@ namespace ClientUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *.bsp.
+        /// </summary>
+        internal static string BeSafePluginFileFormat {
+            get {
+                return ResourceManager.GetString("BeSafePluginFileFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure, you want to exit BeSafe client ?
         ///BeSafe service continue working in background.
         /// </summary>
         internal static string ConfirmExitMessage {
             get {
                 return ResourceManager.GetString("ConfirmExitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugins.
+        /// </summary>
+        internal static string PluginsPathName {
+            get {
+                return ResourceManager.GetString("PluginsPathName", resourceCulture);
             }
         }
     }

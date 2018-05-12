@@ -128,4 +128,10 @@
     <value>Are you sure, you want to exit BeSafe client ?
 BeSafe service continue working in background</value>
   </data>
+  <data name="BeSafePluginFileFormat" xml:space="preserve">
+    <value>*.bsp</value>
+  </data>
+  <data name="PluginsPathName" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
 </root>

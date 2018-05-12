@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using ClientUI.Core;
+using ClientUI.Core.Utils;
 using ClientUI.Properties;
 using Common.PipeCommandStructure;
 using NamedPipeWrapper;
+using PluginSDK;
 
 namespace ClientUI
 {
@@ -18,6 +21,11 @@ namespace ClientUI
 
             pipeClient.ServerMessageEventHandler += OnServerCommandReceived;
             pipeClient.Start();
+
+            // Load plugins to UI
+            List<IBeSafePlugin> plugins = new PluginUtils().GetPluginsInfo(PathUtils.PluginsPath);
+            foreach (IBeSafePlugin plugin in plugins)
+                lbPlugins.Items.Add(plugin.GetPluginInfo());
         }
 
         private void OnServerCommandReceived(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection, BeSafePipeCommand command)

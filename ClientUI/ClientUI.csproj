@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\PipeClient.cs" />
+    <Compile Include="Core\Utils\PluginUtils.cs" />
+    <Compile Include="Core\Utils\PathUtils.cs" />
     <Compile Include="MonoFlat.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -99,6 +101,10 @@
     <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
       <Project>{09703241-2105-4120-90B8-6D4963C38926}</Project>
       <Name>ExceptionManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginSDK\PluginSDK.csproj">
+      <Project>{a2f48b96-69fe-4731-ab4a-90552803b52a}</Project>
+      <Name>PluginSDK</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
