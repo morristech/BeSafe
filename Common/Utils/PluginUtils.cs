@@ -2,12 +2,12 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using ClientUI.Properties;
 using System.Collections.Generic;
 using ExceptionManager;
 using PluginSDK;
+using Common.Properties;
 
-namespace ClientUI.Core.Utils
+namespace Common.Utils
 {
     public class PluginUtils
     {

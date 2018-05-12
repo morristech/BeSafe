@@ -79,6 +79,15 @@ namespace Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *.bsp.
+        /// </summary>
+        internal static string PluginSearchPattern {
+            get {
+                return ResourceManager.GetString("PluginSearchPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plugins.
         /// </summary>
         internal static string PluginsPathName {

@@ -2,11 +2,10 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ClientUI.Core.Utils;
 using ExceptionManager;
 using PluginSDK;
 using ClientUI.Properties;
-using Common;
+using Common.Utils;
 
 namespace ClientUI.Core.PluginManager
 {

@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using Common.Utils;
 using ConfigManager;
 
 namespace ClientUI.Core

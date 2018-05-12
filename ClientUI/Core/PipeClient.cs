@@ -3,7 +3,7 @@ using NamedPipeWrapper;
 using ExceptionManager;
 using ClientUI.Properties;
 using Common.PipeCommandStructure;
-using Common;
+using Common.Utils;
 
 namespace ClientUI.Core
 {

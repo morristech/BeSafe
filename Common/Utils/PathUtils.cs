@@ -2,7 +2,7 @@
 using System.IO;
 using Common.Properties;
 
-namespace Common
+namespace Common.Utils
 {
     public class PathUtils
     {

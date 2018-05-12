@@ -123,6 +123,9 @@
   <data name="ConfigFileName" xml:space="preserve">
     <value>BeSafe.bsc</value>
   </data>
+  <data name="PluginSearchPattern" xml:space="preserve">
+    <value>*.bsp</value>
+  </data>
   <data name="PluginsPathName" xml:space="preserve">
     <value>Plugins</value>
   </data>
