@@ -21,6 +21,7 @@ namespace ClientUI
             pipeClient.ServerMessageEventHandler += OnServerCommandReceived;
             pipeClient.Start();
 
+            ConfigLoader.LoadConfigToUI(this);
 
             // Load plugins to UI
             PluginManager.LoadPluginsInfoToListBox(lbPlugins);
@@ -51,34 +52,9 @@ namespace ClientUI
                 Command = PipeCommands.ComponentConfiguration,
                 ComponentsState = enableState,
             });
-        }
 
-        private void Setting_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = !CanClose;
-            this.Hide();
-        }
-
-        private void Setting_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-                this.Close();
-        }
-        private void notifyIcon_DoubleClick(object sender, EventArgs e)
-        {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool confirmExit = MessageBox.Show(Resources.ConfirmExitMessage, string.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
-            if (confirmExit)
-            {
-                pipeClient.Stop();
-                this.CanClose = true;
-                this.Close();
-            }
+            // Save setting to config file
+            ConfigLoader.LoadConfigToFile(this);
         }
 
         private void btnLoadPlugin_Click(object sender, EventArgs e)
@@ -112,5 +88,35 @@ namespace ClientUI
             if (unloadResult)
                 PluginManager.LoadPluginsInfoToListBox(lbPlugins);
         }
+
+        #region UI minimize and restore
+        private void Setting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !CanClose;
+            this.Hide();
+        }
+
+        private void Setting_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                this.Close();
+        }
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool confirmExit = MessageBox.Show(Resources.ConfirmExitMessage, string.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            if (confirmExit)
+            {
+                pipeClient.Stop();
+                this.CanClose = true;
+                this.Close();
+            }
+        }
+        #endregion
     }
 }
