@@ -80,7 +80,7 @@ namespace ClientUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to *.bsp.
+        ///   Looks up a localized string similar to .bsp.
         /// </summary>
         internal static string BeSafePluginFileFormat {
             get {
@@ -95,6 +95,15 @@ namespace ClientUI.Properties {
         internal static string ConfirmExitMessage {
             get {
                 return ResourceManager.GetString("ConfirmExitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *.bsp.
+        /// </summary>
+        internal static string PluginSearchPattern {
+            get {
+                return ResourceManager.GetString("PluginSearchPattern", resourceCulture);
             }
         }
         
