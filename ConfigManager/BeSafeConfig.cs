@@ -3,7 +3,6 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Common;
 using ExceptionManager;
-using Common.PipeCommandStructure;
 
 namespace ConfigManager
 {

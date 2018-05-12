@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common.PipeCommandStructure
+namespace ConfigManager
 {
     [Serializable]
     public class ComponentsEnableState

@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="PathUtils.cs" />
     <Compile Include="PipeCommandStructure\BeSafePipeCommand.cs" />
-    <Compile Include="PipeCommandStructure\ComponentsEnableState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PipeCommandStructure\PipeCommands.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

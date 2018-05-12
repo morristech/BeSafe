@@ -7,7 +7,6 @@ namespace Common.PipeCommandStructure
     {
         public Guid CommandId;
         public PipeCommands Command;
-        public ComponentsEnableState ComponentsState;
         public string Notification;
         public string ConfigFilePath;
     }
