@@ -60,6 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Core\ConfigLoader.cs" />
     <Compile Include="Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{b9a93fb8-9e26-4035-a5c9-65a54f880a1d}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfigManager\ConfigManager.csproj">
+      <Project>{87B63E06-141A-4216-A9B3-609777DDA168}</Project>
+      <Name>ConfigManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExceptionManager\ExceptionManager.csproj">
       <Project>{09703241-2105-4120-90B8-6D4963C38926}</Project>
