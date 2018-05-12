@@ -5,6 +5,7 @@ using BeSafe.Core;
 using Common.PipeCommandStructure;
 using ExceptionManager;
 using NamedPipeWrapper;
+using ConfigManager;
 
 namespace ClientService
 {
@@ -24,7 +25,7 @@ namespace ClientService
                 pipeServer.ClientMessageEventHandler += OnClientCommandReceived;
                 pipeServer.Start();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ex.Log();
             }
@@ -43,7 +44,11 @@ namespace ClientService
                 {
                     case PipeCommands.ComponentConfiguration:
                         {
-                            ConfigManager.ManageComponentsState(command.ComponentsState);
+                            BeSafeConfig config = new BeSafeConfig(command.ConfigFilePath);
+                            bool loadConfigResult = config.Load();
+
+                            if(loadConfigResult)
+                                ComponentRegulator.ManageComponentsState(config.ComponentsState);
                         }
                         break;
 
