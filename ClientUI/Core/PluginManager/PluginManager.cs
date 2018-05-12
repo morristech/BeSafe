@@ -6,6 +6,7 @@ using ClientUI.Core.Utils;
 using ExceptionManager;
 using PluginSDK;
 using ClientUI.Properties;
+using Common;
 
 namespace ClientUI.Core.PluginManager
 {
