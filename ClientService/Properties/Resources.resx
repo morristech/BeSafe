@@ -120,6 +120,9 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>BeSafe</value>
   </data>
+  <data name="BeSafeQuarantineFileExt" xml:space="preserve">
+    <value>.bsq</value>
+  </data>
   <data name="ConfigFilePathRegistryValueName" xml:space="preserve">
     <value>ConfigFilePath</value>
   </data>

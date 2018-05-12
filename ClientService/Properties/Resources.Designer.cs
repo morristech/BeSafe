@@ -70,6 +70,15 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .bsq.
+        /// </summary>
+        internal static string BeSafeQuarantineFileExt {
+            get {
+                return ResourceManager.GetString("BeSafeQuarantineFileExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConfigFilePath.
         /// </summary>
         internal static string ConfigFilePathRegistryValueName {
