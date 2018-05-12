@@ -8,19 +8,25 @@ namespace BeSafe.Core
         #region Singleton
         private static ConfigLoader SingletonInstance;
         public static ConfigLoader Instance() => (SingletonInstance ?? (SingletonInstance = new ConfigLoader()));
+
+        private BeSafeConfig _beSafeConfig;
         #endregion    
 
         public BeSafeConfig LoadConfig()
         {
-            string settingFilePath = new ServiceSetting().RetriveConfigFilePath();
+            if (_beSafeConfig == null)
+            {
+                string settingFilePath = new ServiceSetting().RetriveConfigFilePath();
 
-            if (!File.Exists(settingFilePath))
-                return null;
+                if (!File.Exists(settingFilePath))
+                    return null;
 
-            BeSafeConfig config = new BeSafeConfig(settingFilePath);
-            config.Load();
+                _beSafeConfig = new BeSafeConfig(settingFilePath);
+            }
 
-            return config;
+            _beSafeConfig.Load();
+
+            return _beSafeConfig;
         }
     }
 }
