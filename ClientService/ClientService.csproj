@@ -71,6 +71,7 @@
     <Compile Include="BeSafe.Designer.cs">
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\ConfigLoader.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ComponentRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\IRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ModuleRegulator.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\VirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\BeSafeFileSystemImpl.cs" />
+    <Compile Include="Core\Regulators\PluginRegulators\PluginRegulator.cs" />
     <Compile Include="Core\ServerSetting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
@@ -132,10 +134,12 @@
       <Project>{09703241-2105-4120-90b8-6d4963c38926}</Project>
       <Name>ExceptionManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PluginSDK\PluginSDK.csproj">
+      <Project>{A2F48B96-69FE-4731-AB4A-90552803B52A}</Project>
+      <Name>PluginSDK</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Regulators\PluginRegulators\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="BeSafe _ OrgIcon.ico" />
   </ItemGroup>
