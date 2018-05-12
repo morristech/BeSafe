@@ -6,6 +6,7 @@ using Common.PipeCommandStructure;
 using ExceptionManager;
 using NamedPipeWrapper;
 using ConfigManager;
+using System.IO;
 
 namespace ClientService
 {
@@ -22,6 +23,8 @@ namespace ClientService
         {
             try
             {
+                ConfigApplier();
+
                 pipeServer.ClientMessageEventHandler += OnClientCommandReceived;
                 pipeServer.Start();
             }
@@ -44,11 +47,9 @@ namespace ClientService
                 {
                     case PipeCommands.ComponentConfiguration:
                         {
-                            BeSafeConfig config = new BeSafeConfig(command.ConfigFilePath);
-                            bool loadConfigResult = config.Load();
-
-                            if(loadConfigResult)
-                                ComponentRegulator.ManageComponentsState(config.ComponentsState);
+                            bool sotreSettingResult = new ServiceSetting().StoreConfigFilePath(command.ConfigFilePath);
+                            if (sotreSettingResult)
+                                ConfigApplier();
                         }
                         break;
 
@@ -65,10 +66,29 @@ namespace ClientService
                         break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.Log();
             }
+        }
+
+        private bool ConfigApplier()
+        {
+            string settingFilePath = new ServiceSetting().RetriveConfigFilePath();       
+
+            if (!File.Exists(settingFilePath))
+                return false;
+
+            BeSafeConfig config = new BeSafeConfig(settingFilePath);
+
+            bool loadConfigResult = config.Load();     
+            if (loadConfigResult)
+            {
+                ComponentRegulator.ManageComponentsState(config.ComponentsState);
+                return true;
+            }
+
+            return false;
         }
     }
 }
