@@ -34,8 +34,8 @@ namespace BeSafe.Components.Initializers.VirtualDrive
 
                 Task.Run(() =>
                 {
-                    string pluginDirectory = ConfigLoader.Instance().LoadConfig().PluginsPath;
-                    PluginRegulator pluginRegulator = new PluginRegulator(pluginDirectory);
+                    BeSafeConfig config = ConfigLoader.Instance().LoadConfig();
+                    PluginRegulator pluginRegulator = new PluginRegulator(config);
 
                     virtualDriveImpl = new BeSafeFileSystemImpl(virtualPath, pluginRegulator);
                     virtualDriveImpl.Mount(normalizedDriveLetter, DokanOptions.FixedDrive, NumberOfThradsToManageFileSystem);
