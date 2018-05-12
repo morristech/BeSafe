@@ -9,12 +9,15 @@ using System.Runtime.InteropServices;
 
 using DokanNet;
 using FileAccess = DokanNet.FileAccess;
+using BeSafe.Core.Regulators.PluginRegulators;
+using PluginSDK;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
     internal class BeSafeFileSystemImpl : IDokanOperations
     {
         private readonly string path;
+        private readonly PluginRegulator _pluginRegulator;
 
         private const FileAccess DataAccess = FileAccess.ReadData | FileAccess.WriteData | FileAccess.AppendData |
                                               FileAccess.Execute |
@@ -25,11 +28,13 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                                                    FileAccess.Delete |
                                                    FileAccess.GenericWrite;
 
-        public BeSafeFileSystemImpl(string path)
+        public BeSafeFileSystemImpl(string path, PluginRegulator pluginRegulator)
         {
             if (!Directory.Exists(path))
                 throw new ArgumentException(nameof(path));
+
             this.path = path;
+            _pluginRegulator = pluginRegulator;
         }
 
         private string GetPath(string fileName)
@@ -112,33 +117,35 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                 switch (mode)
                 {
                     case FileMode.Open:
-                        if ((access.HasFlag(FileAccess.ReadPermissions) | access.HasFlag(FileAccess.ReadAttributes) | access.HasFlag(FileAccess.Synchronize))
-)
                         {
-                            Thread.Sleep(5000);
-                            return DokanResult.Success;
-                        }
-
-                        if (pathExists)
-                        {
-                            // check if driver only wants to read attributes, security info, or open directory
-                            if (readWriteAttributes || pathIsDirectory)
+                            // Scan file with BeSafe plugins
+                            if ((access != FileAccess.Delete) && (_pluginRegulator != null))
                             {
-                                if (pathIsDirectory && (access & FileAccess.Delete) == FileAccess.Delete
-                                    && (access & FileAccess.Synchronize) != FileAccess.Synchronize)
-                                    //It is a DeleteFile request on a directory
-                                    return DokanResult.AccessDenied;
+                                PluginResult scanResult = _pluginRegulator.IsFileSafeToExecute(filePath);
 
-                                info.IsDirectory = pathIsDirectory;
-                                info.Context = new object();
-                                // must set it to someting if you return DokanError.Success
-
-                                return DokanResult.Success;
+                                if (scanResult.Threat)
+                                    return DokanResult.FileNotFound;
                             }
-                        }
-                        else
-                        {
-                            return DokanResult.FileNotFound;
+
+                            if (pathExists)
+                            {
+                                // check if driver only wants to read attributes, security info, or open directory
+                                if (readWriteAttributes || pathIsDirectory)
+                                {
+                                    if (pathIsDirectory && (access & FileAccess.Delete) == FileAccess.Delete
+                                        && (access & FileAccess.Synchronize) != FileAccess.Synchronize)
+                                        //It is a DeleteFile request on a directory
+                                        return DokanResult.AccessDenied;
+
+                                    info.IsDirectory = pathIsDirectory;
+                                    info.Context = new object();
+                                    // must set it to someting if you return DokanError.Success
+
+                                    return DokanResult.Success;
+                                }
+                            }
+                            else
+                                return DokanResult.FileNotFound;
                         }
                         break;
 
