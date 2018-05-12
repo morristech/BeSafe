@@ -127,7 +127,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
 
                                     if (scanResult.Threat)
                                     {
-                                        if (_pluginRegulator.AutoQuarantine)
+                                        if (_pluginRegulator.AutoQuarantineThreatFile)
                                         {
                                             string quarantineFilePath = Path.ChangeExtension(filePath, Resources.BeSafeQuarantineFileExt);
                                             File.Move(filePath, quarantineFilePath);

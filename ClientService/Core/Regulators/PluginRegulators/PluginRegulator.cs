@@ -41,7 +41,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
             return scanResult;
         }
 
-        public bool AutoQuarantine
+        public bool AutoQuarantineThreatFile
         {
             get
             {
