@@ -25,6 +25,9 @@ namespace BeSafe.Core.ComponentRegulators
             }
             else
             {
+                if (string.IsNullOrEmpty(_mappedDriveLetter))
+                    return;
+
                 secureDrive.UnmapDrive(_mappedDriveLetter);
                 driveView.RemoveDriveView();
             }
