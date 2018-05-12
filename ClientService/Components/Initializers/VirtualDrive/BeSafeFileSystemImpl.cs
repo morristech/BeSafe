@@ -11,6 +11,7 @@ using BeSafe.Core.Regulators.PluginRegulators;
 using PluginSDK;
 using ExceptionManager;
 using BeSafe.Properties;
+using System.Diagnostics;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
@@ -129,7 +130,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                                     {
                                         if (_pluginRegulator.AutoQuarantineThreatFile)
                                         {
-                                            string quarantineFilePath = Path.ChangeExtension(filePath, Resources.BeSafeQuarantineFileExt);
+                                            string quarantineFilePath = filePath + Resources.BeSafeQuarantineFileExt;
                                             File.Move(filePath, quarantineFilePath);
                                         }
 
