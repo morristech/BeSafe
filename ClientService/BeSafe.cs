@@ -74,15 +74,9 @@ namespace ClientService
 
         private bool ConfigApplier()
         {
-            string settingFilePath = new ServiceSetting().RetriveConfigFilePath();       
-
-            if (!File.Exists(settingFilePath))
-                return false;
-
-            BeSafeConfig config = new BeSafeConfig(settingFilePath);
-
-            bool loadConfigResult = config.Load();     
-            if (loadConfigResult)
+            BeSafeConfig config = ConfigLoader.Instance().LoadConfig();
+    
+            if (config != null)
             {
                 ComponentRegulator.ManageComponentsState(config.ComponentsState);
                 return true;
