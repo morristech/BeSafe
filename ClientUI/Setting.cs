@@ -33,28 +33,15 @@ namespace ClientUI
         }
 
         private void btnOk_Click(object sender, EventArgs e)
-        {
-            ComponentsEnableState enableState = new ComponentsEnableState
-            {
-                DynamicScanEngine = chbDynamicEngine.Checked,
-                ModuleWatcher = chbmoduleWatcher.Checked,
-                ProcessWatcher = chbProcessWatcher.Checked,
-                SecureVolume = chbSecureVolume.Checked,
-                StaticScanEngine = chbStaticEngine.Checked,
-                VirusTotalEngine = chbVirusTotalEngine.Checked,
-                YaraEngine = chbYaraEngine.Checked,
-                ProtectorDetectorEngine = chbProtectorDetector.Checked,
-            };
+        {            
+            // Save setting to config file
+            ConfigLoader.LoadConfigToFile(this);
 
             bool sendCommandResult = pipeClient.SendCommandToService(new BeSafePipeCommand
             {
                 CommandId = Guid.NewGuid(),
                 Command = PipeCommands.ComponentConfiguration,
-                ComponentsState = enableState,
             });
-
-            // Save setting to config file
-            ConfigLoader.LoadConfigToFile(this);
         }
 
         private void btnLoadPlugin_Click(object sender, EventArgs e)
