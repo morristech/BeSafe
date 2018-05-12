@@ -54,7 +54,6 @@
     <Compile Include="Core\PluginManager\LoadPluginResult.cs" />
     <Compile Include="Core\PluginManager\PluginManager.cs" />
     <Compile Include="Core\Utils\PluginUtils.cs" />
-    <Compile Include="Core\Utils\PathUtils.cs" />
     <Compile Include="MonoFlat.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

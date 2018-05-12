@@ -96,7 +96,6 @@
     </Compile>
     <Compile Include="Components\Engines\VirusTotalEngine.cs" />
     <Compile Include="Core\Utils\HashUtils.cs" />
-    <Compile Include="Core\Utils\PathUtils.cs" />
     <Compile Include="Core\Utils\Win32APIDefinitions.cs" />
     <Compile Include="Components\Watchers\ModuleWatcher.cs" />
     <Compile Include="Components\Watchers\ProcessWatcher.cs" />
