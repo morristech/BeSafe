@@ -9,5 +9,6 @@ namespace Common.PipeCommandStructure
         public PipeCommands Command;
         public ComponentsEnableState ComponentsState;
         public string Notification;
+        public RequiredPaths RequiredPaths;
     }
 }
