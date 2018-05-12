@@ -33,6 +33,7 @@
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.monoFlat_ThemeContainer1 = new ClientUI.MonoFlat_ThemeContainer();
             this.monoFlat_ControlBox1 = new ClientUI.MonoFlat_ControlBox();
@@ -61,7 +62,7 @@
             this.Logo = new System.Windows.Forms.PictureBox();
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnApply = new ClientUI.MonoFlat_Button();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openPluginFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -74,13 +75,13 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // TryIconMenu
@@ -91,7 +92,14 @@
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TryIconMenu.Name = "TryIconMenu";
-            this.TryIconMenu.Size = new System.Drawing.Size(181, 92);
+            this.TryIconMenu.Size = new System.Drawing.Size(108, 70);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // notifyIcon
             // 
@@ -296,6 +304,7 @@
             this.btnUnloadPlugin.TabIndex = 40;
             this.btnUnloadPlugin.Text = "Unload Plugin";
             this.btnUnloadPlugin.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnUnloadPlugin.Click += new System.EventHandler(this.btnUnloadPlugin_Click);
             // 
             // btnLoadPlugin
             // 
@@ -310,6 +319,7 @@
             this.btnLoadPlugin.TabIndex = 39;
             this.btnLoadPlugin.Text = "Load Plugin";
             this.btnLoadPlugin.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLoadPlugin.Click += new System.EventHandler(this.btnLoadPlugin_Click);
             // 
             // lbPlugins
             // 
@@ -456,12 +466,9 @@
             this.btnApply.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnApply.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // exitToolStripMenuItem
+            // openPluginFileDialog
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.openPluginFileDialog.Filter = "BeSafe Plugin Files|*.bsp";
             // 
             // Setting
             // 
@@ -526,6 +533,7 @@
         private MonoFlat_CheckBox chbProtectorDetector;
         private MonoFlat_ControlBox monoFlat_ControlBox1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openPluginFileDialog;
     }
 }
 

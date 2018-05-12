@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using ClientUI.Core;
-using ClientUI.Core.Utils;
+using ClientUI.Core.PluginManager;
 using ClientUI.Properties;
 using Common.PipeCommandStructure;
 using NamedPipeWrapper;
@@ -22,10 +21,9 @@ namespace ClientUI
             pipeClient.ServerMessageEventHandler += OnServerCommandReceived;
             pipeClient.Start();
 
+
             // Load plugins to UI
-            List<IBeSafePlugin> plugins = new PluginUtils().GetPluginsInfo(PathUtils.PluginsPath);
-            foreach (IBeSafePlugin plugin in plugins)
-                lbPlugins.Items.Add(plugin.GetPluginInfo());
+            PluginManager.LoadPluginsInfoToListBox(lbPlugins);
         }
 
         private void OnServerCommandReceived(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection, BeSafePipeCommand command)
@@ -81,6 +79,24 @@ namespace ClientUI
                 this.CanClose = true;
                 this.Close();
             }
+        }
+
+        private void btnLoadPlugin_Click(object sender, EventArgs e)
+        {
+            if (openPluginFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            LoadPluginResult loadResult = PluginManager.LoadPlugin(openPluginFileDialog.FileName);
+
+        }
+
+        private void btnUnloadPlugin_Click(object sender, EventArgs e)
+        {
+            PluginInfo selectedPlugin = (PluginInfo)lbPlugins.SelectedItem;
+
+            bool unloadResult = PluginManager.UnloadPlugin(selectedPlugin);
+            if (unloadResult)
+                PluginManager.LoadPluginsInfoToListBox(lbPlugins);
         }
     }
 }
