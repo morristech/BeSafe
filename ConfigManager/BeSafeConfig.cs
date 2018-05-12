@@ -104,6 +104,7 @@ namespace ConfigManager
             {              
                 this.SecureVolumePath = PathUtils.BeSafeSecureVolumePath;
                 this.PluginsPath = PathUtils.PluginsPath;
+                this.ComponentsState = new ComponentsEnableState();
                 
                 Save();
                 return true;
