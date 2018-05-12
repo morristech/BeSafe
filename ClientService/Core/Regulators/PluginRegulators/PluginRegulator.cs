@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using Common.Utils;
 using PluginSDK;
+using ConfigManager;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
     public class PluginRegulator
     {
         private readonly PluginUtils pluginUtils = new PluginUtils();
-        private readonly string _pluginsDirectoryPath;
+        private readonly BeSafeConfig _config;
 
         private List<IBeSafePlugin> _plugins;
 
-        public PluginRegulator(string pluginsDirectoryPath)
+        public PluginRegulator(BeSafeConfig config)
         {
-            _pluginsDirectoryPath = pluginsDirectoryPath;
+            _config = config;
 
-            _plugins = pluginUtils.GetPluginsInfo(pluginsDirectoryPath);
+            _plugins = pluginUtils.GetPluginsInfo(_config.PluginsPath);
         }
 
         public PluginResult IsFileSafeToExecute(string filePath)
         {
             PluginResult scanResult = new PluginResult();
 
-            foreach(IBeSafePlugin plugin in _plugins)
+            foreach (IBeSafePlugin plugin in _plugins)
             {
                 string fileExt = Path.GetExtension(filePath);
                 List<string> pluginSupportedFileTypes = plugin.GetPluginInfo().SupportedFileTypes;
@@ -38,6 +39,14 @@ namespace BeSafe.Core.Regulators.PluginRegulators
             }
 
             return scanResult;
+        }
+
+        public bool AutoQuarantine
+        {
+            get
+            {
+                return _config.ComponentsState.AutoQuarantine;
+            }
         }
     }
 }
