@@ -9,7 +9,7 @@ namespace PluginSDK
         public Version Version;
         public List<string> SupportedFileTypes;
 
-        public new string ToString()
+        public override string ToString()
         {
             return $"{Name} {Version} ({string.Join(",", SupportedFileTypes)})";
         }
