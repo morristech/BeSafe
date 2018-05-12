@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PluginSDK
 {
-    public struct PluginInfo
+    public class PluginInfo
     {
         public string Name;
         public Version Version;
