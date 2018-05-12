@@ -42,6 +42,8 @@ namespace ClientUI
                 CommandId = Guid.NewGuid(),
                 Command = PipeCommands.ComponentConfiguration,
             });
+
+            this.Hide();
         }
 
         private void btnLoadPlugin_Click(object sender, EventArgs e)
