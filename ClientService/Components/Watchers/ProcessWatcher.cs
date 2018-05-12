@@ -3,6 +3,9 @@ using ExceptionManager;
 using System.Management;
 using BeSafe.Properties;
 using BeSafe.Components.Watchers.Types;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace BeSafe.Components.Watchers
 {
@@ -55,33 +58,8 @@ namespace BeSafe.Components.Watchers
                 ProcessId = processId,
                 ParentProcessId = Convert.ToUInt32(e.NewEvent.Properties[Resources.ParentProcessIDFiled].Value),
                 ProcessName = e.NewEvent.Properties[Resources.ProcessNameField].Value.ToString(),
-                ExecutablePath = GetProcessExceutablePathByPid(processId)
+                ExecutablePath = Process.GetProcesses()?.FirstOrDefault(pr => pr.Id == processId)?.MainModule?.FileName
             });
-        }
-
-        private string GetProcessExceutablePathByPid(UInt32 pid)
-        {
-            try
-            {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(string.Format(Resources.ExecutablaPathQuery, pid));
-
-                foreach (var managementObject in searcher.Get())
-                {
-                    ManagementObject item = (ManagementObject)managementObject;
-                    object executablePath = item[Resources.ExecutablePathField];
-
-                    if (string.IsNullOrEmpty(executablePath?.ToString()))
-                        continue;
-
-                    return executablePath.ToString();
-                }
-            }
-            catch (ManagementException ex)
-            {
-                ex.Log(ExceptionType.Service);
-            }
-
-            return null;
         }
     }
 }
