@@ -120,6 +120,9 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>BeSafe</value>
   </data>
+  <data name="ConfigFileName" xml:space="preserve">
+    <value>BeSafe.bsc</value>
+  </data>
   <data name="PluginsPathName" xml:space="preserve">
     <value>Plugins</value>
   </data>
