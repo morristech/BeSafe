@@ -187,6 +187,15 @@ namespace BeSafe.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 7P49-8CD8-Z4N7-43F6.
+        /// </summary>
+        internal static string SecureVolumeFileSystem {
+            get {
+                return ResourceManager.GetString("SecureVolumeFileSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Software.
         /// </summary>
         internal static string ServiceSettingRegistrypath {

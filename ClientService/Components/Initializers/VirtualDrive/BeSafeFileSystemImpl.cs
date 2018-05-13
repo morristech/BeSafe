@@ -522,7 +522,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
             out string fileSystemName, out uint maximumComponentLength, DokanFileInfo info)
         {
             volumeLabel = Resources.ApplicationName;
-            fileSystemName = "NTFS";
+            fileSystemName = Resources.SecureVolumeFileSystem;
             maximumComponentLength = 256;
 
             features = FileSystemFeatures.CasePreservedNames | FileSystemFeatures.CaseSensitiveSearch |

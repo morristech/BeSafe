@@ -2,14 +2,15 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using BeSafe.Core;
 using BeSafe.Core.Utils;
 using BeSafe.Properties;
-using ExceptionManager;
-using DokanNet;
-using System.Threading.Tasks;
 using BeSafe.Core.Regulators.PluginRegulators;
+using ExceptionManager;
 using ConfigManager;
-using BeSafe.Core;
+using DokanNet;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
@@ -25,9 +26,9 @@ namespace BeSafe.Components.Initializers.VirtualDrive
 
             try
             {
-                string alreadyMappingPath = CheckPathAlreadyMapped(virtualPath);
-                if (!string.IsNullOrEmpty(alreadyMappingPath))
-                    return alreadyMappingPath;
+                string beSafeDriveLetter = CheckPathAlreadyMapped(virtualPath);
+                if (!string.IsNullOrEmpty(beSafeDriveLetter))
+                    return beSafeDriveLetter;
 
                 string unusedDriveLetter = FirstUnusedDriveLetter();
                 string normalizedDriveLetter = NormalizeDriveLetter(unusedDriveLetter);
@@ -84,15 +85,9 @@ namespace BeSafe.Components.Initializers.VirtualDrive
 
         private string CheckPathAlreadyMapped(string mappingPath)
         {
-            string[] driveList = Directory.GetLogicalDrives();
-            foreach(string drive in driveList)
-            {
-                string driveMappingPath = GetDriveMappingPath(drive);
-                if (driveMappingPath == mappingPath)
-                    return drive;
-            }
+            List<DriveInfo> driveInfoList = DriveInfo.GetDrives().ToList();
 
-            return null;
+            return driveInfoList.FirstOrDefault(drive => drive.DriveFormat == Resources.SecureVolumeFileSystem)?.RootDirectory?.FullName;
         }
 
         private string FirstUnusedDriveLetter()

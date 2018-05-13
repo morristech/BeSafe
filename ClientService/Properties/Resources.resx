@@ -159,6 +159,9 @@
   <data name="ProcessWatcherQuery" xml:space="preserve">
     <value>SELECT ProcessID, ParentProcessID, ProcessName FROM Win32_ProcessStartTrace</value>
   </data>
+  <data name="SecureVolumeFileSystem" xml:space="preserve">
+    <value>7P49-8CD8-Z4N7-43F6</value>
+  </data>
   <data name="ServiceSettingRegistrypath" xml:space="preserve">
     <value>Software</value>
   </data>
