@@ -1,15 +1,14 @@
-﻿using BeSafe.Core.Regulators.ComponentRegulators;
-using ConfigManager;
+﻿using ConfigManager;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     public class ComponentRegulator
     {
-        public static void ManageComponentsState(ComponentsEnableState enableState)
+        public static void ManageComponentsState(BeSafeConfig configuration)
         {
-            ProcessRegulator.Instance().Config(enableState.ProcessWatcher);
-            ModuleRegulator.Instance().Config(enableState.ModuleWatcher);
-            SecureVolumeRegulator.Instance().Config(enableState.SecureVolume);
+            ProcessRegulator.Instance().Config(configuration);
+            ModuleRegulator.Instance().Config(configuration);
+            SecureVolumeRegulator.Instance().Config(configuration);
         }
     }
 }

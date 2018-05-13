@@ -1,7 +1,9 @@
-﻿namespace BeSafe.Core.Regulators.ComponentRegulators
+﻿using ConfigManager;
+
+namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     interface IRegulator
     {
-        void Config(bool enableState);
+        void Config(BeSafeConfig config);
     }
 }

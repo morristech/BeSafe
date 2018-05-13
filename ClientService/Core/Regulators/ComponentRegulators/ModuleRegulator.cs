@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BeSafe.Components.Watchers;
 using BeSafe.Components.Watchers.Types;
+using ConfigManager;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
@@ -19,9 +20,9 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         {
             moduleWatcher.LoadModule += OnLoadModule;
         }
-        public void Config(bool enableState)
+        public void Config(BeSafeConfig config)
         {
-            bool stateResult = (enableState == true ? moduleWatcher.Start() : moduleWatcher.Stop());
+            bool stateResult = (config.ComponentsState.ModuleWatcher == true ? moduleWatcher.Start() : moduleWatcher.Stop());
         }
 
         private void OnLoadModule(ModuleInfo moduleInfo)

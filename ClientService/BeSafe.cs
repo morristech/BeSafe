@@ -74,11 +74,11 @@ namespace ClientService
 
         private bool ConfigApplier()
         {
-            BeSafeConfig config = ConfigLoader.Instance().LoadConfig();
+            BeSafeConfig configiguration = ConfigLoader.Instance().LoadConfig();
     
-            if (config != null)
+            if (configiguration != null)
             {
-                ComponentRegulator.ManageComponentsState(config.ComponentsState);
+                ComponentRegulator.ManageComponentsState(configiguration);
                 return true;
             }
 

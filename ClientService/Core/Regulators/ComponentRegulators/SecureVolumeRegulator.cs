@@ -1,5 +1,6 @@
 ﻿using BeSafe.Components.Initializers;
 using BeSafe.Components.Initializers.VirtualDrive;
+using ConfigManager;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
@@ -14,11 +15,11 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private string _mappedDriveLetter;
         private DriveView driveView;
 
-        public void Config(bool enableState)
+        public void Config(BeSafeConfig config)
         {
-            if (enableState)
+            if (config.ComponentsState.SecureVolume)
             {
-                _mappedDriveLetter = secureDrive.MapDrive(@"H:\BeSafe");
+                _mappedDriveLetter = secureDrive.MapDrive(config.SecureVolumePath);
 
                 driveView = new DriveView(_mappedDriveLetter);
                 driveView.SetDriveIcon($"{System.Reflection.Assembly.GetEntryAssembly().Location}");

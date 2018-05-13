@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BeSafe.Components.Watchers;
 using BeSafe.Components.Watchers.Types;
+using ConfigManager;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
@@ -20,9 +21,9 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
             processWatcher.NewProcess += NewProcessArrived;
         }
 
-        public void Config(bool enableState)
+        public void Config(BeSafeConfig config)
         {
-            bool stateResult = (enableState == true ? processWatcher.Start() : processWatcher.Stop());
+            bool stateResult = (config.ComponentsState.ProcessWatcher == true ? processWatcher.Start() : processWatcher.Stop());
         }
 
         private void NewProcessArrived(ProcessInfo processInfo)
