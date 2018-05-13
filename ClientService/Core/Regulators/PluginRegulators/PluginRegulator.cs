@@ -16,12 +16,12 @@ namespace BeSafe.Core.Regulators.PluginRegulators
         public PluginRegulator(BeSafeConfig config)
         {
             _config = config;
-
-            _plugins = pluginUtils.GetPluginsInfo(_config.PluginsPath);
         }
 
         public PluginResult IsFileSafeToExecute(string filePath)
         {
+            _plugins = pluginUtils.GetPluginsInfo(_config.PluginsPath);
+
             PluginResult scanResult = new PluginResult();
 
             foreach (IBeSafePlugin plugin in _plugins)
