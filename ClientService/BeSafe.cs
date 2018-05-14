@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ServiceProcess;
-using BeSafe.Core.Regulators.ComponentRegulators;
 using BeSafe.Core;
+using BeSafe.Core.Utils;
+using BeSafe.Core.Regulators.ComponentRegulators;
 using Common.PipeCommandStructure;
 using ExceptionManager;
 using NamedPipeWrapper;
 using ConfigManager;
-using System.IO;
 
 namespace ClientService
 {
@@ -37,6 +37,7 @@ namespace ClientService
         protected override void OnStop()
         {
             pipeServer.Stop();
+            ComponentRegulator.ManageComponentsState(null, true);
         }
 
         private void OnClientCommandReceived(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection, BeSafePipeCommand command)
@@ -78,7 +79,8 @@ namespace ClientService
     
             if (configiguration != null)
             {
-                ComponentRegulator.ManageComponentsState(configiguration);
+                ServiceUtils.SystemHideDirectory(configiguration.SecureVolumePath);
+                ComponentRegulator.ManageComponentsState(configiguration, false);
                 return true;
             }
 
