@@ -84,6 +84,7 @@
     <Compile Include="Components\Initializers\VirtualDrive\BeSafeFileSystemImpl.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\PluginRegulator.cs" />
     <Compile Include="Core\ServerSetting.cs" />
+    <Compile Include="Core\Utils\ServiceUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
