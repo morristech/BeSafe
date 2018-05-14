@@ -20,9 +20,11 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         {
             moduleWatcher.LoadModule += OnLoadModule;
         }
-        public void Config(BeSafeConfig config)
+        public void Config(BeSafeConfig config, bool stoppingService)
         {
-            bool stateResult = (config.ComponentsState.ModuleWatcher == true ? moduleWatcher.Start() : moduleWatcher.Stop());
+            bool stateResult = (((config?.ComponentsState.ModuleWatcher == true) && (stoppingService == false)) 
+                ? moduleWatcher.Start() 
+                : moduleWatcher.Stop());
         }
 
         private void OnLoadModule(ModuleInfo moduleInfo)

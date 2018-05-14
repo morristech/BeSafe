@@ -21,9 +21,12 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
             processWatcher.NewProcess += NewProcessArrived;
         }
 
-        public void Config(BeSafeConfig config)
+        public void Config(BeSafeConfig config, bool stoppingService)
         {
-            bool stateResult = (config.ComponentsState.ProcessWatcher == true ? processWatcher.Start() : processWatcher.Stop());
+            bool stateResult = 
+                (((config?.ComponentsState.ProcessWatcher == true) && (stoppingService == false)) 
+                ? processWatcher.Start() 
+                : processWatcher.Stop());
         }
 
         private void NewProcessArrived(ProcessInfo processInfo)

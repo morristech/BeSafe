@@ -4,11 +4,11 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     public class ComponentRegulator
     {
-        public static void ManageComponentsState(BeSafeConfig configuration)
+        public static void ManageComponentsState(BeSafeConfig configuration, bool stoppingService)
         {
-            ProcessRegulator.Instance().Config(configuration);
-            ModuleRegulator.Instance().Config(configuration);
-            SecureVolumeRegulator.Instance().Config(configuration);
+            ProcessRegulator.Instance().Config(configuration, stoppingService);
+            ModuleRegulator.Instance().Config(configuration, stoppingService);
+            SecureVolumeRegulator.Instance().Config(configuration, stoppingService);
         }
     }
 }

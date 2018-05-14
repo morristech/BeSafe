@@ -1,6 +1,8 @@
 ﻿using BeSafe.Components.Initializers;
 using BeSafe.Components.Initializers.VirtualDrive;
+using BeSafe.Core.Utils;
 using ConfigManager;
+using System.IO;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
@@ -12,25 +14,25 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         #endregion
 
         private VirtualDrive secureDrive = new VirtualDrive();
-        private string _mappedDriveLetter;
         private DriveView driveView;
 
-        public void Config(BeSafeConfig config)
+        public void Config(BeSafeConfig config, bool stoppingService)
         {
-            if (config.ComponentsState.SecureVolume)
+            if ((config != null) && (config.ComponentsState.SecureVolume) && (stoppingService == false))
             {
-                _mappedDriveLetter = secureDrive.MapDrive(config.SecureVolumePath);
+                string mappedDriveLetter = secureDrive.MapDrive(config.SecureVolumePath);
 
-                driveView = new DriveView(_mappedDriveLetter);
+                driveView = new DriveView(mappedDriveLetter);
                 driveView.SetDriveIcon($"{System.Reflection.Assembly.GetEntryAssembly().Location}");
             }
             else
             {
-                if (string.IsNullOrEmpty(_mappedDriveLetter))
+                DriveInfo beSafeDriveInfo = ServiceUtils.GetBeSafeDriveLetter();
+                if (beSafeDriveInfo == null)
                     return;
 
-                secureDrive.UnmapDrive(_mappedDriveLetter);
-                driveView.RemoveDriveView();
+                secureDrive.UnmapDrive(beSafeDriveInfo.Name);
+                new DriveView(beSafeDriveInfo.Name).RemoveDriveView();
             }
         }
     }
