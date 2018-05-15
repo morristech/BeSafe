@@ -8,6 +8,7 @@ namespace ConfigManager
         public bool SecureVolume;
         public bool ProcessWatcher;
         public bool ModuleWatcher;
+        public bool RegistryWatcher;
         public bool StaticScanEngine;
         public bool DynamicScanEngine;
         public bool ProtectorDetectorEngine;
