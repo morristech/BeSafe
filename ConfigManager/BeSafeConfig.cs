@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Principal;
 using Common.Utils;
 using ExceptionManager;
 
@@ -10,6 +11,11 @@ namespace ConfigManager
     public class BeSafeConfig
     {
         private readonly string _configFilePath;
+
+        /// <summary>
+        /// Contain SID of current user
+        /// </summary>
+        public string UserSID { get; set; }
 
         /// <summary>
         /// Contain SecureVolume map path
@@ -50,6 +56,7 @@ namespace ConfigManager
                     BeSafeConfig tempConfig = (BeSafeConfig)bformatter.Deserialize(tempStream);
 
                     // Assign loaded config fields to local fields for use
+                    this.UserSID = tempConfig.UserSID;
                     this.SecureVolumePath = tempConfig.SecureVolumePath;
                     this.PluginsPath = tempConfig.PluginsPath;
                     this.ComponentsState = tempConfig.ComponentsState;
@@ -100,7 +107,8 @@ namespace ConfigManager
 
             // Initialize default config
             try
-            {              
+            {
+                this.UserSID = WindowsIdentity.GetCurrent()?.User?.ToString();
                 this.SecureVolumePath = PathUtils.BeSafeSecureVolumePath;
                 this.PluginsPath = PathUtils.PluginsPath;
                 this.ComponentsState = new ComponentsEnableState();
