@@ -56,7 +56,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                 return;
             }
 
-            stateResult = registryWatcher.Stop();
+            stateResult = registryWatcher != null ? registryWatcher.Stop() : false;
         }
 
         private void ValueChangedArrived(ChangedValueInfo valueInfo)
