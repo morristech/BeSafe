@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.Win32;
 using BeSafe.Core.Utils;
-using BeSafe.Components.Watchers.Types.RegistryWatcherTypes;
 using ExceptionManager;
+using SharedTypes.Watchers.RegistryWatcherTypes;
 
 namespace BeSafe.Components.Watchers
 {

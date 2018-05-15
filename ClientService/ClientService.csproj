@@ -72,8 +72,6 @@
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Watchers\RegistryWatcher.cs" />
-    <Compile Include="Components\Watchers\Types\RegistryWatcherTypes\RegistryMonitorPath.cs" />
-    <Compile Include="Components\Watchers\Types\RegistryWatcherTypes\ChangedValueInfo.cs" />
     <Compile Include="Core\ConfigLoader.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ComponentRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\IComponentRegulator.cs" />
@@ -148,6 +146,10 @@
     <ProjectReference Include="..\PluginSDK\PluginSDK.csproj">
       <Project>{A2F48B96-69FE-4731-AB4A-90552803B52A}</Project>
       <Name>PluginSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedTypes\SharedTypes.csproj">
+      <Project>{aeaf437f-cfcc-4afb-96fb-58e8ced89929}</Project>
+      <Name>SharedTypes</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

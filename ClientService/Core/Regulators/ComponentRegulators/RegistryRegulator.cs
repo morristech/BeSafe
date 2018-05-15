@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Win32;
 using ConfigManager;
 using BeSafe.Components.Watchers;
-using BeSafe.Components.Watchers.Types.RegistryWatcherTypes;
+using SharedTypes.Watchers.RegistryWatcherTypes;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
