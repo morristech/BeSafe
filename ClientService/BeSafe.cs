@@ -79,7 +79,7 @@ namespace ClientService
     
             if (configiguration != null)
             {
-                ServiceUtils.SystemHideDirectory(configiguration.SecureVolumePath);
+                ServiceUtils.SystemHiddenDirectory(configiguration.SecureVolumePath);
                 ComponentRegulator.ManageComponentsState(configiguration, false);
                 return true;
             }
