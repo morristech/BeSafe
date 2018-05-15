@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using PluginSample.Properties;
 using PluginSDK;
 
 namespace PluginSample
@@ -18,6 +20,14 @@ namespace PluginSample
 
         public PluginResult ScanFile(dynamic parameters, bool canFightWithThreat)
         {
+            string filePath = (string)parameters;
+
+            if (canFightWithThreat)
+            {
+                string quarantineFilePath = filePath + Resources.BeSafeQuarantineFileExt;
+                File.Move(filePath, quarantineFilePath);
+            }
+
             return new PluginResult
             {
                 ScannedObject = (string)parameters,
