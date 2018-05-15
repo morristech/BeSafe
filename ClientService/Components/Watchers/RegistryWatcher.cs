@@ -21,7 +21,7 @@ namespace BeSafe.Components.Watchers
         private const int ValueRegChangeNotifyFilter = 4;
 
 
-        public RegistryMonitor(List<RegistryMonitorPath> mustMonitorRegistryPathes)
+        public RegistryWatcher(List<RegistryMonitorPath> mustMonitorRegistryPathes)
         {
             _mustMonitorRegistryPathes = mustMonitorRegistryPathes;
         }
