@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Collections.Generic;
+using Microsoft.Win32;
 using ConfigManager;
 using BeSafe.Components.Watchers;
 using BeSafe.Components.Watchers.Types.RegistryWatcherTypes;
@@ -16,19 +17,26 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private RegistryWatcher registryWatcher;
         private Stack<ChangedValueInfo> ExecutedProcessStack = new Stack<ChangedValueInfo>();
 
-        public RegistryRegulator()
-        {
-            registryWatcher = new RegistryWatcher(new List<RegistryMonitorPath>());
-            registryWatcher.ValueChanged += ValueChangedArrived;
-        }
-
         public void Config(BeSafeConfig config, bool stoppingService)
         {
-            bool stateResult =
-                (((config?.ComponentsState.RegistryWatcher == true) && (stoppingService == false))
-                ? registryWatcher.Start()
-                : registryWatcher.Stop());
+            bool stateResult;
+
+            if ((config?.ComponentsState.RegistryWatcher == true) && (stoppingService == false))
+            {
+                registryWatcher = new RegistryWatcher(new List<RegistryMonitorPath>
+                {
+                    new RegistryMonitorPath()
+                });
+
+                registryWatcher.ValueChanged += ValueChangedArrived;
+                stateResult = registryWatcher.Start();
+
+                return;
+            }
+
+            stateResult = registryWatcher.Stop();
         }
+
         private void ValueChangedArrived(ChangedValueInfo valueInfo)
         {
             ExecutedProcessStack.Push(valueInfo);
