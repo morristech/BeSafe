@@ -4,7 +4,7 @@
     {
         public string ScannedObject;
         public bool Threat;
-        public int Rate;
+        public ThreatRiskRates RiskRate;
         public string Message;
         public dynamic ExtraInfo;
     }
