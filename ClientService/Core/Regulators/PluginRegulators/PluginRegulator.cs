@@ -27,11 +27,11 @@ namespace BeSafe.Core.Regulators.PluginRegulators
             foreach (IBeSafePlugin plugin in _plugins)
             {
                 string fileExt = Path.GetExtension(filePath);
-                List<string> pluginSupportedFileTypes = plugin.GetPluginInfo().SupportedFileTypes;
+                string pluginSupportedFileTypes = plugin.GetPluginInfo().Description;
 
                 if (pluginSupportedFileTypes.Contains(fileExt))
                 {
-                    scanResult = plugin.ScanFile(filePath);
+                    scanResult = plugin.ScanFile(filePath, _config.ComponentsState.AutoKill);
 
                     if (scanResult.Threat == true)
                         break;
