@@ -15,6 +15,7 @@ namespace ClientUI.Core
 
             settingForm.chbProcessWatcher.Checked = beSafeConfig.ComponentsState.ProcessWatcher;
             settingForm.chbmoduleWatcher.Checked = beSafeConfig.ComponentsState.ModuleWatcher;
+            settingForm.chbRegistryWatcher.Checked = beSafeConfig.ComponentsState.RegistryWatcher;
             settingForm.chbYaraEngine.Checked = beSafeConfig.ComponentsState.YaraEngine;
             settingForm.chbSecureVolume.Checked = beSafeConfig.ComponentsState.SecureVolume;
             settingForm.chbStaticEngine.Checked = beSafeConfig.ComponentsState.StaticScanEngine;
@@ -37,6 +38,7 @@ namespace ClientUI.Core
 
             beSafeConfig.ComponentsState.ProcessWatcher = settingForm.chbProcessWatcher.Checked;
             beSafeConfig.ComponentsState.ModuleWatcher = settingForm.chbmoduleWatcher.Checked;
+            beSafeConfig.ComponentsState.RegistryWatcher = settingForm.chbRegistryWatcher.Checked;
             beSafeConfig.ComponentsState.YaraEngine = settingForm.chbYaraEngine.Checked;
             beSafeConfig.ComponentsState.SecureVolume = settingForm.chbSecureVolume.Checked;
             beSafeConfig.ComponentsState.StaticScanEngine = settingForm.chbStaticEngine.Checked;
