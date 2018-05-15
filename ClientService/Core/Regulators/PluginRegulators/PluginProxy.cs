@@ -36,7 +36,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
                     return SecureVolumePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
 
                 case PluginType.Registry:
-                    return null;
+                    return RegistryPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
 
                 case PluginType.Process:
                     return null;
