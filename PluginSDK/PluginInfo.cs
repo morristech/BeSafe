@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace PluginSDK
 {
@@ -7,11 +6,12 @@ namespace PluginSDK
     {
         public string Name;
         public Version Version;
-        public List<string> SupportedFileTypes;
+        public PluginType Type;
+        public string Description;
 
         public override string ToString()
         {
-            return $"{Name} {Version} ({string.Join(",", SupportedFileTypes)})";
+            return $"{Name} {Version} ({Description})";
         }
     }
 }

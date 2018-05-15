@@ -38,6 +38,7 @@
     <Compile Include="PluginInfo.cs" />
     <Compile Include="PluginResult.cs" />
     <Compile Include="PluginSDK.cs" />
+    <Compile Include="PluginType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
