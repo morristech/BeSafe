@@ -71,6 +71,9 @@
     <Compile Include="BeSafe.Designer.cs">
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Watchers\RegistryWatcher.cs" />
+    <Compile Include="Components\Watchers\Types\RegistryWatcherTypes\RegistryMonitorPath.cs" />
+    <Compile Include="Components\Watchers\Types\RegistryWatcherTypes\ChangedValueInfo.cs" />
     <Compile Include="Core\ConfigLoader.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ComponentRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\IRegulator.cs" />
