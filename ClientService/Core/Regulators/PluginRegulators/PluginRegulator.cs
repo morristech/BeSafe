@@ -1,51 +1,51 @@
-﻿using System.IO;
+﻿using System.Linq;
 using System.Collections.Generic;
 using Common.Utils;
-using PluginSDK;
 using ConfigManager;
+using PluginSDK;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
-    public class PluginRegulator
+    public class PluginRegulator : IPluginRegulator
     {
-        private readonly PluginUtils pluginUtils = new PluginUtils();
+        #region Singleton
+        private static PluginRegulator SingletonInstance;
+        public static PluginRegulator Instance(BeSafeConfig config) => (SingletonInstance ?? (SingletonInstance = new PluginRegulator(config)));
+        #endregion
+
         private readonly BeSafeConfig _config;
 
-        private List<IBeSafePlugin> _plugins;
+        private readonly PluginUtils pluginUtils = new PluginUtils();
 
         public PluginRegulator(BeSafeConfig config)
         {
             _config = config;
         }
 
-        public PluginResult IsFileSafeToExecute(string filePath)
+        public PluginResult Scan(dynamic scanObject, PluginType type)
         {
-            _plugins = pluginUtils.GetPluginsInfo(_config.PluginsPath);
+            List<IBeSafePlugin> plugins = pluginUtils.GetPluginsInfo(_config.PluginsPath).Where(w => w.GetPluginInfo().Type == type).ToList();
+            if ((plugins == null) || (! plugins.Any()))
+                return null;
 
-            PluginResult scanResult = new PluginResult();
+            bool canFight = _config.ComponentsState.FightWithThreats;
 
-            foreach (IBeSafePlugin plugin in _plugins)
+            switch (type)
             {
-                string fileExt = Path.GetExtension(filePath);
-                string pluginSupportedFileTypes = plugin.GetPluginInfo().Description;
+                case PluginType.File:
+                    return SecureVolumePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
 
-                if (pluginSupportedFileTypes.Contains(fileExt))
-                {
-                    scanResult = plugin.ScanFile(filePath, _config.ComponentsState.FightWithThreats);
+                case PluginType.Registry:
+                    return null;
 
-                    if (scanResult.Threat == true)
-                        break;
-                }
-            }
+                case PluginType.Process:
+                    return null;
 
-            return scanResult;
-        }
+                case PluginType.Module:
+                    return null;
 
-        public bool AutoQuarantineThreatFile
-        {
-            get
-            {
-                return _config.ComponentsState.FightWithThreats;
+                default:
+                    return null;
             }
         }
     }

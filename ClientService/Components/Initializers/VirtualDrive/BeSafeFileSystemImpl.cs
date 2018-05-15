@@ -11,14 +11,13 @@ using BeSafe.Core.Regulators.PluginRegulators;
 using PluginSDK;
 using ExceptionManager;
 using BeSafe.Properties;
-using System.Diagnostics;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
     internal class BeSafeFileSystemImpl : IDokanOperations
     {
         private readonly string path;
-        private readonly PluginRegulator _pluginRegulator;
+        private readonly IPluginRegulator _pluginRegulator;
 
         private const FileAccess DataAccess = FileAccess.ReadData | FileAccess.WriteData | FileAccess.AppendData |
                                               FileAccess.Execute |
@@ -29,7 +28,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                                                    FileAccess.Delete |
                                                    FileAccess.GenericWrite;
 
-        public BeSafeFileSystemImpl(string path, PluginRegulator pluginRegulator)
+        public BeSafeFileSystemImpl(string path, IPluginRegulator pluginRegulator)
         {
             if (!Directory.Exists(path))
                 throw new ArgumentException(nameof(path));
@@ -124,16 +123,10 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                             {
                                 try
                                 {
-                                    PluginResult scanResult = _pluginRegulator.IsFileSafeToExecute(filePath);
+                                    PluginResult scanResult = _pluginRegulator.Scan(filePath, PluginType.File);
 
                                     if (scanResult.Threat)
                                     {
-                                        if (_pluginRegulator.AutoQuarantineThreatFile)
-                                        {
-                                            string quarantineFilePath = filePath + Resources.BeSafeQuarantineFileExt;
-                                            File.Move(filePath, quarantineFilePath);
-                                        }
-
                                         return DokanResult.FileNotFound;
                                     }
                                 }
