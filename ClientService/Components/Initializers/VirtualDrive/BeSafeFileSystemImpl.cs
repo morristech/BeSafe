@@ -125,7 +125,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                                 {
                                     PluginResult scanResult = _pluginRegulator.Scan(filePath, PluginType.File);
 
-                                    if (scanResult.Threat)
+                                    if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
                                     {
                                         return DokanResult.FileNotFound;
                                     }

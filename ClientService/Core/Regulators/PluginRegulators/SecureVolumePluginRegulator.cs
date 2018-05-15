@@ -29,7 +29,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
                 {
                     scanResult = plugin.ScanFile(filePath, canFight);
 
-                    if (scanResult.Threat == true)
+                    if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
                         break;
                 }
             }
