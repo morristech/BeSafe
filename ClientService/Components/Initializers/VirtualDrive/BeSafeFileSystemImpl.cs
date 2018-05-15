@@ -17,7 +17,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
     internal class BeSafeFileSystemImpl : IDokanOperations
     {
         private readonly string path;
-        private readonly IPluginRegulator _pluginRegulator;
+        private readonly IPluginProxy _pluginRegulator;
 
         private const FileAccess DataAccess = FileAccess.ReadData | FileAccess.WriteData | FileAccess.AppendData |
                                               FileAccess.Execute |
@@ -28,7 +28,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                                                    FileAccess.Delete |
                                                    FileAccess.GenericWrite;
 
-        public BeSafeFileSystemImpl(string path, IPluginRegulator pluginRegulator)
+        public BeSafeFileSystemImpl(string path, IPluginProxy pluginRegulator)
         {
             if (!Directory.Exists(path))
                 throw new ArgumentException(nameof(path));

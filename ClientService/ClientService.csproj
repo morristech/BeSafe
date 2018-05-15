@@ -86,9 +86,9 @@
     <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\VirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\BeSafeFileSystemImpl.cs" />
-    <Compile Include="Core\Regulators\PluginRegulators\IPlugin.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\IPluginRegulator.cs" />
-    <Compile Include="Core\Regulators\PluginRegulators\PluginRegulator.cs" />
+    <Compile Include="Core\Regulators\PluginRegulators\IPluginProxy.cs" />
+    <Compile Include="Core\Regulators\PluginRegulators\PluginProxy.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\SecureVolumePluginRegulator.cs" />
     <Compile Include="Core\ServerSetting.cs" />
     <Compile Include="Core\Utils\ServiceUtils.cs" />

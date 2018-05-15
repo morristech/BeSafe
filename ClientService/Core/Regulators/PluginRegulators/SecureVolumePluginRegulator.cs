@@ -4,7 +4,7 @@ using PluginSDK;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
-    public class SecureVolumePluginRegulator : IPlugin
+    public class SecureVolumePluginRegulator : IPluginRegulator
     {
         #region Singleton
         private static SecureVolumePluginRegulator SingletonInstance;

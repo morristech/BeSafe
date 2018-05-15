@@ -6,18 +6,18 @@ using PluginSDK;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
-    public class PluginRegulator : IPluginRegulator
+    public class PluginProxy : IPluginProxy
     {
         #region Singleton
-        private static PluginRegulator SingletonInstance;
-        public static PluginRegulator Instance(BeSafeConfig config) => (SingletonInstance ?? (SingletonInstance = new PluginRegulator(config)));
+        private static PluginProxy SingletonInstance;
+        public static PluginProxy Instance(BeSafeConfig config) => (SingletonInstance ?? (SingletonInstance = new PluginProxy(config)));
         #endregion
 
         private readonly BeSafeConfig _config;
 
         private readonly PluginUtils pluginUtils = new PluginUtils();
 
-        public PluginRegulator(BeSafeConfig config)
+        public PluginProxy(BeSafeConfig config)
         {
             _config = config;
         }
