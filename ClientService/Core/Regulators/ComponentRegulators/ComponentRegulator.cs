@@ -8,6 +8,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         {
             ProcessRegulator.Instance().Config(configuration, stoppingService);
             ModuleRegulator.Instance().Config(configuration, stoppingService);
+            RegistryRegulator.Instance().Config(configuration, stoppingService);
             SecureVolumeRegulator.Instance().Config(configuration, stoppingService);
         }
     }

@@ -79,6 +79,7 @@
     <Compile Include="Core\Regulators\ComponentRegulators\IRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ModuleRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ProcessRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\RegistryRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\SecureVolumeRegulator.cs" />
     <Compile Include="Core\PipeServer.cs" />
     <Compile Include="Components\Initializers\DriveView.cs" />
