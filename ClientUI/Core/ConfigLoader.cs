@@ -20,10 +20,8 @@ namespace ClientUI.Core
             settingForm.chbSecureVolume.Checked = beSafeConfig.ComponentsState.SecureVolume;
             settingForm.chbStaticEngine.Checked = beSafeConfig.ComponentsState.StaticScanEngine;
             settingForm.chbDynamicEngine.Checked = beSafeConfig.ComponentsState.DynamicScanEngine;
-            settingForm.chbKillSuspicious.Checked = beSafeConfig.ComponentsState.AutoKill;
-            settingForm.chbQuarantineSuspicious.Checked = beSafeConfig.ComponentsState.AutoQuarantine;
+            settingForm.chbFightWithThreats.Checked = beSafeConfig.ComponentsState.FightWithThreats;
             settingForm.chbVirusTotalEngine.Checked = beSafeConfig.ComponentsState.VirusTotalEngine;
-            settingForm.chbProtectorDetector.Checked = beSafeConfig.ComponentsState.ProtectorDetectorEngine;
 
             return true;
         }
@@ -43,10 +41,8 @@ namespace ClientUI.Core
             beSafeConfig.ComponentsState.SecureVolume = settingForm.chbSecureVolume.Checked;
             beSafeConfig.ComponentsState.StaticScanEngine = settingForm.chbStaticEngine.Checked;
             beSafeConfig.ComponentsState.DynamicScanEngine = settingForm.chbDynamicEngine.Checked;
-            beSafeConfig.ComponentsState.AutoKill = settingForm.chbKillSuspicious.Checked;
-            beSafeConfig.ComponentsState.AutoQuarantine = settingForm.chbQuarantineSuspicious.Checked;
+            beSafeConfig.ComponentsState.FightWithThreats = settingForm.chbFightWithThreats.Checked;
             beSafeConfig.ComponentsState.VirusTotalEngine = settingForm.chbVirusTotalEngine.Checked;
-            beSafeConfig.ComponentsState.ProtectorDetectorEngine = settingForm.chbProtectorDetector.Checked;
 
             beSafeConfig.Save();
 

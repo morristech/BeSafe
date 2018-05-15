@@ -11,10 +11,8 @@ namespace ConfigManager
         public bool RegistryWatcher;
         public bool StaticScanEngine;
         public bool DynamicScanEngine;
-        public bool ProtectorDetectorEngine;
         public bool VirusTotalEngine;
         public bool YaraEngine;
-        public bool AutoKill;
-        public bool AutoQuarantine;
+        public bool FightWithThreats;
     }
 }

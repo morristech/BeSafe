@@ -31,7 +31,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
                 if (pluginSupportedFileTypes.Contains(fileExt))
                 {
-                    scanResult = plugin.ScanFile(filePath, _config.ComponentsState.AutoKill);
+                    scanResult = plugin.ScanFile(filePath, _config.ComponentsState.FightWithThreats);
 
                     if (scanResult.Threat == true)
                         break;
@@ -45,7 +45,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
         {
             get
             {
-                return _config.ComponentsState.AutoQuarantine;
+                return _config.ComponentsState.FightWithThreats;
             }
         }
     }
