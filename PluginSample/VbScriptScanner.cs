@@ -30,7 +30,7 @@ namespace PluginSample
 
             return new PluginResult
             {
-                ScannedObject = (string)parameters,
+                ScannedObject = parameters,
                 RiskRate = ThreatRiskRates.HighRisk,
                 Message = "Be careful, Most of the times VBScript files are dangerous !",
                 ExtraInfo = "https://en.wikipedia.org/wiki/VBScript"

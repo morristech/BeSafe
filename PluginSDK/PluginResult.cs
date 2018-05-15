@@ -2,7 +2,7 @@
 {
     public class PluginResult
     {
-        public string ScannedObject;
+        public dynamic ScannedObject;
         public ThreatRiskRates RiskRate;
         public string Message;
         public dynamic ExtraInfo;
