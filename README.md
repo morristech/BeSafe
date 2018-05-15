@@ -16,6 +16,7 @@ Except VirusTotal's power, BeSafe use other techniques and tricks to protect you
 Key features :
 
 - Scan running process, modules and URLs
+- Monitor suspicious registry modifications
 - Secure volume that prevent execution of malicious files
 - Yara signature scanner engine
 - Static scan of executable files for suspicious trail (Strings,Icon,EOF,Sections and etc.)
