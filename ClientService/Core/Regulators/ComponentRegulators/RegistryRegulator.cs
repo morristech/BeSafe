@@ -7,7 +7,7 @@ using BeSafe.Components.Watchers.Types.RegistryWatcherTypes;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
-    public class RegistryRegulator : IRegulator
+    public class RegistryRegulator : IComponentRegulator
     {
         #region Singleton
         private static RegistryRegulator SingletonInstance;

@@ -76,7 +76,7 @@
     <Compile Include="Components\Watchers\Types\RegistryWatcherTypes\ChangedValueInfo.cs" />
     <Compile Include="Core\ConfigLoader.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ComponentRegulator.cs" />
-    <Compile Include="Core\Regulators\ComponentRegulators\IRegulator.cs" />
+    <Compile Include="Core\Regulators\ComponentRegulators\IComponentRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ModuleRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ProcessRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\RegistryRegulator.cs" />

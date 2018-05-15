@@ -6,7 +6,7 @@ using System.IO;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
-    public class SecureVolumeRegulator : IRegulator
+    public class SecureVolumeRegulator : IComponentRegulator
     {
         #region Singleton
         private static SecureVolumeRegulator SingletonInstance;

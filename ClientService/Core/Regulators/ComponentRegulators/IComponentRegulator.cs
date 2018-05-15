@@ -2,7 +2,7 @@
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
-    interface IRegulator
+    interface IComponentRegulator
     {
         void Config(BeSafeConfig config, bool stoppingService);
     }

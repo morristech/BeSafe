@@ -6,7 +6,7 @@ using ConfigManager;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
-    public class ProcessRegulator : IRegulator
+    public class ProcessRegulator : IComponentRegulator
     {
         #region Singleton
         private static ProcessRegulator SingletonInstance;
