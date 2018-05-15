@@ -39,7 +39,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
                     return RegistryPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
 
                 case PluginType.Process:
-                    return null;
+                    return ProcessPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
 
                 case PluginType.Module:
                     return null;

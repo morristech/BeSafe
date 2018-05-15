@@ -89,6 +89,7 @@
     <Compile Include="Core\Regulators\PluginRegulators\IPluginRegulator.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\IPluginProxy.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\PluginProxy.cs" />
+    <Compile Include="Core\Regulators\PluginRegulators\ProcessPluginRegulator.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\RegistryPluginRegulator.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\SecureVolumePluginRegulator.cs" />
     <Compile Include="Core\ServerSetting.cs" />
