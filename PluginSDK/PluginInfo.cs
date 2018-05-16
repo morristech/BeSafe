@@ -2,6 +2,7 @@
 
 namespace PluginSDK
 {
+    [Serializable]
     public class PluginInfo
     {
         public string Name;

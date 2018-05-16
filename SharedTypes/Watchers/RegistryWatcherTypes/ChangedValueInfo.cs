@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SharedTypes.Watchers.RegistryWatcherTypes
 {
+    [Serializable]
     public class ChangedValueInfo
     {
         public RegistryMonitorPath MonitorPath{get;set;}
