@@ -115,6 +115,10 @@
       <Project>{a2f48b96-69fe-4731-ab4a-90552803b52a}</Project>
       <Name>PluginSDK</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedTypes\SharedTypes.csproj">
+      <Project>{aeaf437f-cfcc-4afb-96fb-58e8ced89929}</Project>
+      <Name>SharedTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
