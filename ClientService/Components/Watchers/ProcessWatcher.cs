@@ -2,10 +2,9 @@
 using ExceptionManager;
 using System.Management;
 using BeSafe.Properties;
-using BeSafe.Components.Watchers.Types;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Linq;
+using SharedTypes.Watchers;
 
 namespace BeSafe.Components.Watchers
 {

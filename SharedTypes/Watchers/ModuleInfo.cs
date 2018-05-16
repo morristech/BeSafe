@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using BeSafe.Core.Utils;
 
-namespace BeSafe.Components.Watchers.Types
+namespace SharedTypes.Watchers
 {
     public class ModuleInfo
     {

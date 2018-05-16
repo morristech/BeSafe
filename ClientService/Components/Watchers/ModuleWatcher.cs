@@ -2,7 +2,7 @@
 using System.Management;
 using ExceptionManager;
 using BeSafe.Properties;
-using BeSafe.Components.Watchers.Types;
+using SharedTypes.Watchers;
 
 namespace BeSafe.Components.Watchers
 {

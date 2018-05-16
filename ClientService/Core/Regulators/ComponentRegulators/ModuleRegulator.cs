@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Collections.Generic;
 using BeSafe.Components.Watchers;
-using BeSafe.Components.Watchers.Types;
 using ConfigManager;
+using SharedTypes.Watchers;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {

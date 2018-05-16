@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HashUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Watchers\ModuleInfo.cs" />
+    <Compile Include="Watchers\ProcessInfo.cs" />
     <Compile Include="Watchers\RegistryWatcherTypes\ChangedValueInfo.cs" />
     <Compile Include="Watchers\RegistryWatcherTypes\RegistryMonitorPath.cs" />
   </ItemGroup>

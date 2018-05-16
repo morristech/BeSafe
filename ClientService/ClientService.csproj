@@ -107,12 +107,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Components\Engines\VirusTotalEngine.cs" />
-    <Compile Include="Core\Utils\HashUtils.cs" />
     <Compile Include="Core\Utils\Win32APIDefinitions.cs" />
     <Compile Include="Components\Watchers\ModuleWatcher.cs" />
     <Compile Include="Components\Watchers\ProcessWatcher.cs" />
-    <Compile Include="Components\Watchers\Types\ModuleInfo.cs" />
-    <Compile Include="Components\Watchers\Types\ProcessInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BeSafe.resx">

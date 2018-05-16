@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using VirusTotalNET.Results;
-using BeSafe.Components.Watchers.Types;
+using SharedTypes.Watchers;
 
 namespace BeSafe.Components.Engines
 {
