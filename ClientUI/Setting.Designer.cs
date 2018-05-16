@@ -472,6 +472,7 @@
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Setting_FormClosing);
             this.Resize += new System.EventHandler(this.Setting_Resize);
             this.TryIconMenu.ResumeLayout(false);
