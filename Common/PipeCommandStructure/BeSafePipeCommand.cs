@@ -1,4 +1,5 @@
 ﻿using System;
+using PluginSDK;
 
 namespace Common.PipeCommandStructure
 {
@@ -9,5 +10,6 @@ namespace Common.PipeCommandStructure
         public PipeCommands Command;
         public string Notification;
         public string ConfigFilePath;
+        public PluginResult PluginScanResult;
     }
 }
