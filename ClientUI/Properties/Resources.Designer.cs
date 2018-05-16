@@ -124,5 +124,25 @@ namespace ClientUI.Properties {
                 return ResourceManager.GetString("PluginsPathName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warning___red {
+            get {
+                object obj = ResourceManager.GetObject("warning___red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warning___yellow {
+            get {
+                object obj = ResourceManager.GetObject("warning___yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
