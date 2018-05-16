@@ -38,8 +38,11 @@ namespace ClientUI
                 case PipeCommands.PluginScanResult:
                     {
                         PluginResult pResult = command.PluginScanResult;
-                        ToolTipIcon icon = command.PluginScanResult.RiskRate == ThreatRiskRates.LowRisk ? ToolTipIcon.Warning : ToolTipIcon.Error;
-                        notifyIcon.ShowBalloonTip(3000, Resources.ApplicationName, pResult.ToString(), icon);
+
+                        notifyIcon.Tag = pResult;
+                        ToolTipIcon icon = command.PluginScanResult.RiskRate == ThreatRiskRates.HighRisk ? ToolTipIcon.Error : ToolTipIcon.Warning;
+                        string message = $"{pResult.PluginInfo.Name}{Environment.NewLine}{pResult.Message}";
+                        notifyIcon.ShowBalloonTip(3000, Resources.ApplicationName, message, icon);
                     }
                     break;
             }
@@ -89,6 +92,18 @@ namespace ClientUI
             bool unloadResult = PluginManager.UnloadPlugin(selectedPlugin);
             if (unloadResult)
                 PluginManager.LoadPluginsInfoToListBox(lbPlugins);
+        }
+
+        private void notifyIcon_BalloonTipClicked(object sender, EventArgs e)
+        {
+            NotifyIcon ni = (NotifyIcon)sender;
+
+            if (ni.Tag is PluginResult)
+            {
+                PluginResult pResult = (PluginResult)ni.Tag;
+
+                ThreatInfo.Execute(pResult);
+            }
         }
 
         #region UI minimize and restore
