@@ -1,5 +1,6 @@
-﻿using SharedTypes.Watchers.RegistryWatcherTypes;
-using System;
+﻿using System;
+using SharedTypes.Watchers;
+using SharedTypes.Watchers.RegistryWatcherTypes;
 
 namespace PluginSDK
 {
@@ -26,6 +27,20 @@ namespace PluginSDK
                     {
                         ChangedValueInfo so = (ChangedValueInfo)ScannedObject;
                         scannedObjectString = $@"{so.MonitorPath.RegistryHive}\{so.MonitorPath}\{so.KeyValue.Key}";
+                    }
+                    break;
+
+                case PluginType.Process:
+                    {
+                        ProcessInfo pInfo = (ProcessInfo)ScannedObject;
+                        scannedObjectString = $@"{pInfo.ProcessId} : {pInfo.ProcessName}{Environment.NewLine}Parent : {pInfo.ParentProcessId}";
+                    }
+                    break;
+
+                case PluginType.Module:
+                    {
+                        ModuleInfo mInfo = (ModuleInfo)ScannedObject;
+                        scannedObjectString = $@"{mInfo.ProcessId}";
                     }
                     break;
             }
