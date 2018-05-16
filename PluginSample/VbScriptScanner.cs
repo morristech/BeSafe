@@ -7,15 +7,22 @@ namespace PluginSample
 {
     public class VbScriptScanner : IBeSafePlugin
     {
-        public PluginInfo GetPluginInfo()
+        private PluginInfo _pluginInfo;
+
+        public VbScriptScanner()
         {
-            return new PluginInfo
+            _pluginInfo = new PluginInfo
             {
                 Name = "Script Scanner",
                 Version = new Version(1, 0),
                 Type = PluginType.File,
                 Description = ".vb,.vbe,.vbs,.js,.ps1,.psd1,.psm1,.bat"
             };
+        }
+
+        public PluginInfo GetPluginInfo()
+        {
+            return _pluginInfo;
         }
 
         public PluginResult ScanFile(dynamic parameters, bool canFightWithThreat)
@@ -30,6 +37,7 @@ namespace PluginSample
 
             return new PluginResult
             {
+                PluginInfo = _pluginInfo,
                 ScannedObject = parameters,
                 RiskRate = ThreatRiskRates.HighRisk,
                 Message = "Be careful, Most of the times VBScript files are dangerous !",
