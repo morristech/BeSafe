@@ -11,7 +11,7 @@ namespace PluginSDK
         public dynamic ScannedObject;
         public ThreatRiskRates RiskRate;
         public string Message;
-        public dynamic ExtraInfo;
+        public string ExtraInfo;
         public string ScannedObjectString
         {
             get

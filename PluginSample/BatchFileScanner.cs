@@ -5,18 +5,18 @@ using PluginSDK;
 
 namespace PluginSample
 {
-    public class VbScriptScanner : IBeSafePlugin
+    public class BatchFileScanner : IBeSafePlugin
     {
         private PluginInfo _pluginInfo;
 
-        public VbScriptScanner()
+        public BatchFileScanner()
         {
             _pluginInfo = new PluginInfo
             {
-                Name = "Script Scanner",
+                Name = "Batch File Scanner",
                 Version = new Version(1, 0),
                 Type = PluginType.File,
-                Description = ".vb,.vbe,.vbs,.js,.ps1,.psd1,.psm1,.bat"
+                Description = ".bat"
             };
         }
 
@@ -40,8 +40,8 @@ namespace PluginSample
                 PluginInfo = _pluginInfo,
                 ScannedObject = parameters,
                 RiskRate = ThreatRiskRates.HighRisk,
-                Message = "Be careful, Most of the times VBScript files are dangerous !",
-                ExtraInfo = "https://en.wikipedia.org/wiki/VBScript"
+                Message = "Be careful, Most of the times batch files are dangerous !",
+                ExtraInfo = "https://en.wikipedia.org/wiki/Batch"
             };
         }
 
