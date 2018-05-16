@@ -29,7 +29,20 @@ namespace ClientUI
 
         private void OnServerCommandReceived(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection, BeSafePipeCommand command)
         {
-            MessageBox.Show(command.Notification);
+            switch (command.Command)
+            {
+                case PipeCommands.Notification:
+                    MessageBox.Show(command.Notification, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+
+                case PipeCommands.PluginScanResult:
+                    {
+                        PluginResult pResult = command.PluginScanResult;
+                        ToolTipIcon icon = command.PluginScanResult.RiskRate == ThreatRiskRates.LowRisk ? ToolTipIcon.Warning : ToolTipIcon.Error;
+                        notifyIcon.ShowBalloonTip(3000, Resources.ApplicationName, pResult.ToString(), icon);
+                    }
+                    break;
+            }
         }
 
         private void btnOk_Click(object sender, EventArgs e)

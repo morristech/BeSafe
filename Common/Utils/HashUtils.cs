@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
 
-namespace BeSafe.Core.Utils
+namespace Common.Utils
 {
     public static class HashUtils
     {
