@@ -14,8 +14,11 @@ using BeSafe.Properties;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
-    internal class BeSafeFileSystemImpl : IDokanOperations
+    public class BeSafeFileSystemImpl : IDokanOperations
     {
+        public delegate ThreatRiskRates FileAccessRequestDelegate(string filePath);
+        public FileAccessRequestDelegate FileAccessRequest;
+
         private readonly string path;
         private readonly IPluginProxy _pluginRegulator;
 
@@ -123,9 +126,9 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                             {
                                 try
                                 {
-                                    PluginResult scanResult = _pluginRegulator.Scan(filePath, PluginType.File);
-
-                                    if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
+                                    ThreatRiskRates? riskRate = FileAccessRequest?.Invoke(filePath);
+                      
+                                    if ((riskRate != null) && (riskRate != ThreatRiskRates.NoRisk))
                                     {
                                         return DokanResult.FileNotFound;
                                     }

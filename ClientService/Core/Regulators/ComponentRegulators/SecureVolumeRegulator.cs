@@ -1,8 +1,12 @@
-﻿using BeSafe.Components.Initializers;
+﻿using System;
+using System.IO;
+using BeSafe.Components.Initializers;
 using BeSafe.Components.Initializers.VirtualDrive;
 using BeSafe.Core.Utils;
 using ConfigManager;
-using System.IO;
+using PluginSDK;
+using BeSafe.Core.Regulators.PluginRegulators;
+using Common.PipeCommandStructure;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
@@ -16,10 +20,17 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private VirtualDrive secureDrive = new VirtualDrive();
         private DriveView driveView;
 
+        private BeSafeConfig _config;
+        private PipeServer _pipeServer;
+
         public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
+            _config = config;
+            _pipeServer = pipeServer;
+
             if ((config != null) && (config.ComponentsState.SecureVolume) && (stoppingService == false))
             {
+                secureDrive.FileAccessRequestEvent += OnFileAccessRequestEvent;
                 string mappedDriveLetter = secureDrive.MapDrive(config.SecureVolumePath);
 
                 driveView = new DriveView(mappedDriveLetter);
@@ -34,6 +45,23 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                 secureDrive.UnmapDrive(beSafeDriveInfo.Name);
                 new DriveView(beSafeDriveInfo.Name).RemoveDriveView();
             }
+        }
+
+        private ThreatRiskRates OnFileAccessRequestEvent(string filePath)
+        {
+            PluginResult scanResult = PluginProxy.Instance(_config).Scan(filePath, PluginType.File);
+
+            if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
+            {
+                bool? sendCommandResult = _pipeServer?.SendCommandToUI(new BeSafePipeCommand
+                {
+                    CommandId = Guid.NewGuid(),
+                    Command = PipeCommands.PluginScanResult,
+                    PluginScanResult = scanResult
+                });
+            }
+
+            return scanResult.RiskRate;
         }
     }
 }

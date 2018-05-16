@@ -11,11 +11,14 @@ using BeSafe.Core.Regulators.PluginRegulators;
 using ExceptionManager;
 using ConfigManager;
 using DokanNet;
+using static BeSafe.Components.Initializers.VirtualDrive.BeSafeFileSystemImpl;
 
 namespace BeSafe.Components.Initializers.VirtualDrive
 {
     public class VirtualDrive : IVirtualDrive
     {
+        public FileAccessRequestDelegate FileAccessRequestEvent;
+
         private BeSafeFileSystemImpl virtualDriveImpl;
         private const int NumberOfThradsToManageFileSystem = 5;
 
@@ -39,6 +42,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                     IPluginProxy pluginRegulator = new PluginProxy(config);
 
                     virtualDriveImpl = new BeSafeFileSystemImpl(virtualPath, pluginRegulator);
+                    virtualDriveImpl.FileAccessRequest += FileAccessRequestEvent;
                     virtualDriveImpl.Mount(normalizedDriveLetter, DokanOptions.FixedDrive, NumberOfThradsToManageFileSystem);
                 });
 
