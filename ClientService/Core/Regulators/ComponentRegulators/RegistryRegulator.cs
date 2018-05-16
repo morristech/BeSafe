@@ -1,9 +1,16 @@
-﻿using System.Diagnostics;
-using System.Collections.Generic;
+﻿using System;
+using System.Linq;
 using Microsoft.Win32;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections.Concurrent;
 using ConfigManager;
 using BeSafe.Components.Watchers;
 using SharedTypes.Watchers.RegistryWatcherTypes;
+using BeSafe.Core.Regulators.PluginRegulators;
+using PluginSDK;
+using Common.PipeCommandStructure;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {
@@ -15,10 +22,16 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         #endregion
 
         private RegistryWatcher registryWatcher;
-        private Stack<ChangedValueInfo> ExecutedProcessStack = new Stack<ChangedValueInfo>();
+        private ConcurrentStack<ChangedValueInfo> ChangedValuesStack = new ConcurrentStack<ChangedValueInfo>();
+
+        private BeSafeConfig _config;
+        private PipeServer _pipeServer;
 
         public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
+            _config = config;
+            _pipeServer = pipeServer;
+
             bool stateResult;
 
             if ((config?.ComponentsState.RegistryWatcher == true) && (stoppingService == false))
@@ -53,6 +66,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                 registryWatcher.ValueChanged += ValueChangedArrived;
                 stateResult = registryWatcher.Start();
 
+                Task.Run(() => StackScanner(ChangedValuesStack));
                 return;
             }
 
@@ -61,8 +75,32 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
 
         private void ValueChangedArrived(ChangedValueInfo valueInfo)
         {
-            ExecutedProcessStack.Push(valueInfo);
-            Debug.WriteLine(valueInfo.ToString());
+            ChangedValuesStack.Push(valueInfo);
+        }
+
+        private void StackScanner(ConcurrentStack<ChangedValueInfo> stack)
+        {
+            while (true)
+            {
+                ChangedValueInfo valueInfo = null;
+                stack.TryPop(out valueInfo);
+                if (valueInfo == null)
+                    continue;
+
+                PluginResult scanResult = PluginProxy.Instance(_config).Scan(valueInfo, PluginType.Registry);
+
+                if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
+                {
+                    bool? sendCommandResult = _pipeServer?.SendCommandToUI(new BeSafePipeCommand
+                    {
+                        CommandId = Guid.NewGuid(),
+                        Command = PipeCommands.PluginScanResult,
+                        PluginScanResult = scanResult
+                    });
+                }
+
+                Thread.Sleep(500);
+            }
         }
     }
 }
