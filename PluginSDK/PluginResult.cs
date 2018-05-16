@@ -12,42 +12,44 @@ namespace PluginSDK
         public ThreatRiskRates RiskRate;
         public string Message;
         public dynamic ExtraInfo;
+        public string ScannedObjectString
+        {
+            get
+            {
+                switch (PluginInfo.Type)
+                {
+                    case PluginType.File:
+                        return (string)ScannedObject;
+
+                    case PluginType.Registry:
+                        {
+                            ChangedValueInfo so = (ChangedValueInfo)ScannedObject;
+                            return $@"{so.MonitorPath.RegistryHive}\{so.MonitorPath}\{so.KeyValue.Key}";
+                        }
+
+                    case PluginType.Process:
+                        {
+                            ProcessInfo pInfo = (ProcessInfo)ScannedObject;
+                            return $@"{pInfo.ProcessId} : {pInfo.ProcessName}{Environment.NewLine}Parent : {pInfo.ParentProcessId}";
+                        }
+
+                    case PluginType.Module:
+                        {
+                            ModuleInfo mInfo = (ModuleInfo)ScannedObject;
+                            return $@"{mInfo.ProcessId}";
+                        }
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
 
         public new string ToString()
         {
-            string scannedObjectString = string.Empty;
-
-            switch (PluginInfo.Type)
-            {
-                case PluginType.File:
-                    scannedObjectString = (string)ScannedObject;
-                    break;
-
-                case PluginType.Registry:
-                    {
-                        ChangedValueInfo so = (ChangedValueInfo)ScannedObject;
-                        scannedObjectString = $@"{so.MonitorPath.RegistryHive}\{so.MonitorPath}\{so.KeyValue.Key}";
-                    }
-                    break;
-
-                case PluginType.Process:
-                    {
-                        ProcessInfo pInfo = (ProcessInfo)ScannedObject;
-                        scannedObjectString = $@"{pInfo.ProcessId} : {pInfo.ProcessName}{Environment.NewLine}Parent : {pInfo.ParentProcessId}";
-                    }
-                    break;
-
-                case PluginType.Module:
-                    {
-                        ModuleInfo mInfo = (ModuleInfo)ScannedObject;
-                        scannedObjectString = $@"{mInfo.ProcessId}";
-                    }
-                    break;
-            }
-
             return $"{PluginInfo.Name}{Environment.NewLine}" +
                      $"{Message}{Environment.NewLine}" +
-                    $"{scannedObjectString}";
+                    $"{ScannedObjectString}";
         }
     }
 }
