@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using PluginSDK;
+using SharedTypes.Watchers.RegistryWatcherTypes;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
@@ -13,7 +14,21 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
         public PluginResult Scan(List<IBeSafePlugin> plugins, dynamic scanObject, bool canFight)
         {
-            throw new NotImplementedException();
+            ChangedValueInfo regitryValueInfo = (ChangedValueInfo)scanObject;
+            if (regitryValueInfo == null)
+                return null;
+
+            PluginResult scanResult = new PluginResult();
+
+            foreach (IBeSafePlugin plugin in plugins)
+            {
+                scanResult = plugin.ScanRegistry(regitryValueInfo, canFight);
+                Debug.WriteLine(scanResult.RiskRate);
+                if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
+                    break;
+            }
+
+            return scanResult;
         }
     }
 }
