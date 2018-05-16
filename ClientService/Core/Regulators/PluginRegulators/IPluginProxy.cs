@@ -2,7 +2,7 @@
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
-    interface IPluginProxy
+    public interface IPluginProxy
     {
         PluginResult Scan(dynamic scanObject, PluginType type);
     }
