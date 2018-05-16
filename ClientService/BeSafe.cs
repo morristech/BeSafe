@@ -37,7 +37,7 @@ namespace ClientService
         protected override void OnStop()
         {
             pipeServer.Stop();
-            ComponentRegulator.ManageComponentsState(null, true);
+            ComponentRegulator.ManageComponentsState(null, null, true);
         }
 
         private void OnClientCommandReceived(NamedPipeConnection<BeSafePipeCommand, BeSafePipeCommand> connection, BeSafePipeCommand command)
@@ -80,7 +80,7 @@ namespace ClientService
             if (configiguration != null)
             {
                 ServiceUtils.SystemHiddenDirectory(configiguration.SecureVolumePath);
-                ComponentRegulator.ManageComponentsState(configiguration, false);
+                ComponentRegulator.ManageComponentsState(configiguration, pipeServer, false);
                 return true;
             }
 

@@ -17,7 +17,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private RegistryWatcher registryWatcher;
         private Stack<ChangedValueInfo> ExecutedProcessStack = new Stack<ChangedValueInfo>();
 
-        public void Config(BeSafeConfig config, bool stoppingService)
+        public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
             bool stateResult;
 

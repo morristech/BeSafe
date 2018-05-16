@@ -16,7 +16,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private VirtualDrive secureDrive = new VirtualDrive();
         private DriveView driveView;
 
-        public void Config(BeSafeConfig config, bool stoppingService)
+        public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
             if ((config != null) && (config.ComponentsState.SecureVolume) && (stoppingService == false))
             {

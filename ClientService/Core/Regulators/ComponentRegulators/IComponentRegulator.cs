@@ -4,6 +4,6 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
 {
     interface IComponentRegulator
     {
-        void Config(BeSafeConfig config, bool stoppingService);
+        void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService);
     }
 }
