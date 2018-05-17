@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace SharedTypes.Watchers.RegistryWatcherTypes
 {
+    [Serializable]
     public class RegistryChangedObject : IEquatable<RegistryChangedObject>
     {
         public string Key { get; set; }
