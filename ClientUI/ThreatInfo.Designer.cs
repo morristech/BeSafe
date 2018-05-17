@@ -31,6 +31,7 @@
             this.ThreatInfoTheme = new ClientUI.MonoFlat_ThemeContainer();
             this.lblThreatInfo = new ClientUI.MonoFlat_Label();
             this.monoFlat_Panel2 = new ClientUI.MonoFlat_Panel();
+            this.pbRiskRate = new System.Windows.Forms.PictureBox();
             this.lblThreatObject = new ClientUI.MonoFlat_Label();
             this.lblRisk = new ClientUI.MonoFlat_Label();
             this.lblMessage = new ClientUI.MonoFlat_Label();
@@ -39,14 +40,13 @@
             this.lblScannedObjectTitle = new ClientUI.MonoFlat_Label();
             this.lblPluginInfo = new ClientUI.MonoFlat_Label();
             this.monoFlat_Panel1 = new ClientUI.MonoFlat_Panel();
-            this.pbRiskRate = new System.Windows.Forms.PictureBox();
             this.lblPluginDescription = new ClientUI.MonoFlat_Label();
             this.lblPluginNameAndVersion = new ClientUI.MonoFlat_Label();
             this.btnOk = new ClientUI.MonoFlat_Button();
             this.ThreatInfoTheme.SuspendLayout();
             this.monoFlat_Panel2.SuspendLayout();
-            this.monoFlat_Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRiskRate)).BeginInit();
+            this.monoFlat_Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ThreatInfoTheme
@@ -64,7 +64,7 @@
             this.ThreatInfoTheme.Padding = new System.Windows.Forms.Padding(10, 70, 10, 9);
             this.ThreatInfoTheme.RoundCorners = true;
             this.ThreatInfoTheme.Sizable = true;
-            this.ThreatInfoTheme.Size = new System.Drawing.Size(698, 371);
+            this.ThreatInfoTheme.Size = new System.Drawing.Size(698, 458);
             this.ThreatInfoTheme.SmartBounds = true;
             this.ThreatInfoTheme.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ThreatInfoTheme.TabIndex = 0;
@@ -74,11 +74,11 @@
             // 
             this.lblThreatInfo.AutoSize = true;
             this.lblThreatInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblThreatInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblThreatInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblThreatInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblThreatInfo.Location = new System.Drawing.Point(13, 184);
+            this.lblThreatInfo.Location = new System.Drawing.Point(13, 179);
             this.lblThreatInfo.Name = "lblThreatInfo";
-            this.lblThreatInfo.Size = new System.Drawing.Size(107, 15);
+            this.lblThreatInfo.Size = new System.Drawing.Size(135, 19);
             this.lblThreatInfo.TabIndex = 7;
             this.lblThreatInfo.Text = "Threat Information";
             // 
@@ -97,67 +97,83 @@
             this.monoFlat_Panel2.Location = new System.Drawing.Point(13, 205);
             this.monoFlat_Panel2.Name = "monoFlat_Panel2";
             this.monoFlat_Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.monoFlat_Panel2.Size = new System.Drawing.Size(672, 100);
+            this.monoFlat_Panel2.Size = new System.Drawing.Size(672, 183);
             this.monoFlat_Panel2.TabIndex = 6;
             this.monoFlat_Panel2.Text = "monoFlat_Panel2";
             // 
+            // pbRiskRate
+            // 
+            this.pbRiskRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbRiskRate.BackColor = System.Drawing.Color.Transparent;
+            this.pbRiskRate.Image = global::ClientUI.Properties.Resources.warning___yellow;
+            this.pbRiskRate.Location = new System.Drawing.Point(606, 122);
+            this.pbRiskRate.Name = "pbRiskRate";
+            this.pbRiskRate.Size = new System.Drawing.Size(48, 48);
+            this.pbRiskRate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRiskRate.TabIndex = 6;
+            this.pbRiskRate.TabStop = false;
+            // 
             // lblThreatObject
             // 
-            this.lblThreatObject.AutoSize = true;
             this.lblThreatObject.BackColor = System.Drawing.Color.Transparent;
             this.lblThreatObject.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblThreatObject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.lblThreatObject.Location = new System.Drawing.Point(112, 13);
             this.lblThreatObject.Name = "lblThreatObject";
-            this.lblThreatObject.Size = new System.Drawing.Size(395, 15);
+            this.lblThreatObject.Size = new System.Drawing.Size(542, 106);
             this.lblThreatObject.TabIndex = 9;
-            this.lblThreatObject.Text = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run";
+            this.lblThreatObject.Text = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\r\nOriginal Value :" +
+    " Test\r\nCurrent Value : threat.exe";
             // 
             // lblRisk
             // 
+            this.lblRisk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblRisk.AutoSize = true;
             this.lblRisk.BackColor = System.Drawing.Color.Transparent;
-            this.lblRisk.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblRisk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblRisk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblRisk.Location = new System.Drawing.Point(112, 40);
+            this.lblRisk.Location = new System.Drawing.Point(112, 133);
             this.lblRisk.Name = "lblRisk";
-            this.lblRisk.Size = new System.Drawing.Size(53, 15);
+            this.lblRisk.Size = new System.Drawing.Size(56, 15);
             this.lblRisk.TabIndex = 8;
             this.lblRisk.Text = "Low Risk";
             // 
             // lblMessage
             // 
+            this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMessage.AutoSize = true;
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblMessage.Location = new System.Drawing.Point(112, 67);
+            this.lblMessage.Location = new System.Drawing.Point(112, 155);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(95, 15);
+            this.lblMessage.Size = new System.Drawing.Size(99, 15);
             this.lblMessage.TabIndex = 7;
             this.lblMessage.Text = "Sample message";
             // 
             // lblMessageTitle
             // 
+            this.lblMessageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMessageTitle.AutoSize = true;
             this.lblMessageTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessageTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblMessageTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblMessageTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblMessageTitle.Location = new System.Drawing.Point(8, 67);
+            this.lblMessageTitle.Location = new System.Drawing.Point(8, 155);
             this.lblMessageTitle.Name = "lblMessageTitle";
-            this.lblMessageTitle.Size = new System.Drawing.Size(62, 15);
+            this.lblMessageTitle.Size = new System.Drawing.Size(64, 15);
             this.lblMessageTitle.TabIndex = 6;
             this.lblMessageTitle.Text = "Message : ";
             // 
             // lblRiskRateTitle
             // 
+            this.lblRiskRateTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblRiskRateTitle.AutoSize = true;
             this.lblRiskRateTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblRiskRateTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblRiskRateTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblRiskRateTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblRiskRateTitle.Location = new System.Drawing.Point(8, 40);
+            this.lblRiskRateTitle.Location = new System.Drawing.Point(8, 133);
             this.lblRiskRateTitle.Name = "lblRiskRateTitle";
-            this.lblRiskRateTitle.Size = new System.Drawing.Size(37, 15);
+            this.lblRiskRateTitle.Size = new System.Drawing.Size(39, 15);
             this.lblRiskRateTitle.TabIndex = 5;
             this.lblRiskRateTitle.Text = "Risk : ";
             // 
@@ -165,11 +181,11 @@
             // 
             this.lblScannedObjectTitle.AutoSize = true;
             this.lblScannedObjectTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblScannedObjectTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblScannedObjectTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblScannedObjectTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.lblScannedObjectTitle.Location = new System.Drawing.Point(8, 13);
             this.lblScannedObjectTitle.Name = "lblScannedObjectTitle";
-            this.lblScannedObjectTitle.Size = new System.Drawing.Size(88, 15);
+            this.lblScannedObjectTitle.Size = new System.Drawing.Size(93, 15);
             this.lblScannedObjectTitle.TabIndex = 4;
             this.lblScannedObjectTitle.Text = "Threat Object : ";
             // 
@@ -177,11 +193,11 @@
             // 
             this.lblPluginInfo.AutoSize = true;
             this.lblPluginInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblPluginInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPluginInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblPluginInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblPluginInfo.Location = new System.Drawing.Point(13, 75);
+            this.lblPluginInfo.Location = new System.Drawing.Point(13, 71);
             this.lblPluginInfo.Name = "lblPluginInfo";
-            this.lblPluginInfo.Size = new System.Drawing.Size(107, 15);
+            this.lblPluginInfo.Size = new System.Drawing.Size(134, 19);
             this.lblPluginInfo.TabIndex = 1;
             this.lblPluginInfo.Text = "Plugin Information";
             // 
@@ -199,26 +215,15 @@
             this.monoFlat_Panel1.TabIndex = 3;
             this.monoFlat_Panel1.Text = "monoFlat_Panel1";
             // 
-            // pbRiskRate
-            // 
-            this.pbRiskRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbRiskRate.Image = global::ClientUI.Properties.Resources.warning___yellow;
-            this.pbRiskRate.Location = new System.Drawing.Point(590, 18);
-            this.pbRiskRate.Name = "pbRiskRate";
-            this.pbRiskRate.Size = new System.Drawing.Size(64, 64);
-            this.pbRiskRate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbRiskRate.TabIndex = 6;
-            this.pbRiskRate.TabStop = false;
-            // 
             // lblPluginDescription
             // 
             this.lblPluginDescription.AutoSize = true;
             this.lblPluginDescription.BackColor = System.Drawing.Color.Transparent;
-            this.lblPluginDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPluginDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblPluginDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.lblPluginDescription.Location = new System.Drawing.Point(8, 40);
             this.lblPluginDescription.Name = "lblPluginDescription";
-            this.lblPluginDescription.Size = new System.Drawing.Size(67, 15);
+            this.lblPluginDescription.Size = new System.Drawing.Size(71, 15);
             this.lblPluginDescription.TabIndex = 5;
             this.lblPluginDescription.Text = "Description";
             // 
@@ -226,11 +231,11 @@
             // 
             this.lblPluginNameAndVersion.AutoSize = true;
             this.lblPluginNameAndVersion.BackColor = System.Drawing.Color.Transparent;
-            this.lblPluginNameAndVersion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPluginNameAndVersion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblPluginNameAndVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.lblPluginNameAndVersion.Location = new System.Drawing.Point(8, 13);
             this.lblPluginNameAndVersion.Name = "lblPluginNameAndVersion";
-            this.lblPluginNameAndVersion.Size = new System.Drawing.Size(103, 15);
+            this.lblPluginNameAndVersion.Size = new System.Drawing.Size(107, 15);
             this.lblPluginNameAndVersion.TabIndex = 4;
             this.lblPluginNameAndVersion.Text = "Name and version";
             // 
@@ -241,7 +246,7 @@
             this.btnOk.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnOk.Image = null;
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(585, 318);
+            this.btnOk.Location = new System.Drawing.Point(585, 405);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 41);
             this.btnOk.TabIndex = 0;
@@ -253,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 371);
+            this.ClientSize = new System.Drawing.Size(698, 458);
             this.Controls.Add(this.ThreatInfoTheme);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -266,9 +271,9 @@
             this.ThreatInfoTheme.PerformLayout();
             this.monoFlat_Panel2.ResumeLayout(false);
             this.monoFlat_Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRiskRate)).EndInit();
             this.monoFlat_Panel1.ResumeLayout(false);
             this.monoFlat_Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRiskRate)).EndInit();
             this.ResumeLayout(false);
 
         }
