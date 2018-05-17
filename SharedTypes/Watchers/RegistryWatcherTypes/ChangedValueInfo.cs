@@ -11,7 +11,7 @@ namespace SharedTypes.Watchers.RegistryWatcherTypes
 
         public new string ToString()
         {
-            return $@"{MonitorPath.RegistryHive}\{MonitorPath.RegistryKeyPath}{Environment.NewLine}" +
+            return $@"{MonitorPath.RegistryHive}\{MonitorPath.RegistryKeyPath}{Environment.NewLine}{Environment.NewLine}" +
                 $"Key : {ChangedObject.Key}{Environment.NewLine}" +
                 $"Original Value : { ChangedObject.OriginalValue}{Environment.NewLine}" +
                 $"Current Value : { ChangedObject.Value}";
