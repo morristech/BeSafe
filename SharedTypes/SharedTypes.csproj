@@ -45,6 +45,7 @@
     <Compile Include="Watchers\ModuleInfo.cs" />
     <Compile Include="Watchers\ProcessInfo.cs" />
     <Compile Include="Watchers\RegistryWatcherTypes\ChangedValueInfo.cs" />
+    <Compile Include="Watchers\RegistryWatcherTypes\RegistryChangedObject.cs" />
     <Compile Include="Watchers\RegistryWatcherTypes\RegistryMonitorPath.cs" />
   </ItemGroup>
   <ItemGroup />

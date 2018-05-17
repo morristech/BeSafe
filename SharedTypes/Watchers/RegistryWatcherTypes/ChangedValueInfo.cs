@@ -8,11 +8,11 @@ namespace SharedTypes.Watchers.RegistryWatcherTypes
     {
         public RegistryMonitorPath MonitorPath{get;set;}
 
-        public KeyValuePair<string, string> KeyValue { get; set; }
+        public RegistryChangedObject ChangedObject { get; set; }
 
         public new string ToString()
         {
-            return $@"{MonitorPath.RegistryHive}\{MonitorPath.RegistryKeyPath} - {KeyValue.Key} = {KeyValue.Value}";
+            return $@"{MonitorPath.RegistryHive}\{MonitorPath.RegistryKeyPath} - {ChangedObject.Key} = {ChangedObject.Value}";
         }
     }
 }
