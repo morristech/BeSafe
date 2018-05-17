@@ -75,7 +75,7 @@ namespace BeSafe.Components.Watchers
                 WaitHandle[] waitHandles = new WaitHandle[] { _eventNotify };
                 while (!_cancelToken.IsCancellationRequested)
                 {
-                    List<KeyValuePair<string, string>> cachedValues = GetNamesAndValuesOfRegistryKey(registryPath.RegistryHive, registryPath.RegistryKeyPath).ToList();
+                    List<RegistryChangedObject> cachedValues = GetNamesAndValuesOfRegistryKey(registryPath.RegistryHive, registryPath.RegistryKeyPath).ToList();
 
                     result = Win32APIDefinitions.RegNotifyChangeKeyValue(registryKey, true, ValueRegChangeNotifyFilter, _eventNotify.SafeWaitHandle, true);
                     if (result != 0)
@@ -83,23 +83,16 @@ namespace BeSafe.Components.Watchers
 
                     if (WaitHandle.WaitAny(waitHandles) == 0)
                     {
-                        List<KeyValuePair<string, string>> currentValues = GetNamesAndValuesOfRegistryKey(registryPath.RegistryHive, registryPath.RegistryKeyPath).ToList();
+                        List<RegistryChangedObject> currentValues = GetNamesAndValuesOfRegistryKey(registryPath.RegistryHive, registryPath.RegistryKeyPath).ToList();
 
-                        string keyDiff = currentValues.Select(field => field.Key).Except(cachedValues.Select(field => field.Key)).FirstOrDefault();
-                        string valueDiff = currentValues.Select(field => field.Value).Except(cachedValues.Select(field => field.Value)).FirstOrDefault();
-
-                        if (keyDiff == null && valueDiff == null)
-                            continue;
-
-                        if (valueDiff != null && keyDiff == null)
-                            keyDiff = currentValues.FirstOrDefault(f => f.Value == valueDiff).Key;
+                        List<RegistryChangedObject> CachedWithCurrentDiff = currentValues.Except(cachedValues).ToList();
 
                         cachedValues = currentValues;
 
                         ValueChanged?.Invoke(new ChangedValueInfo
                         {
                             MonitorPath = registryPath,
-                            KeyValue = new KeyValuePair<string, string>(keyDiff, valueDiff)
+                            ChangedObject = CachedWithCurrentDiff.FirstOrDefault()
                         });
                     }
                 }
@@ -111,7 +104,7 @@ namespace BeSafe.Components.Watchers
             }
         }
 
-        private IEnumerable<KeyValuePair<string, string>> GetNamesAndValuesOfRegistryKey(RegistryHive hive, string path)
+        private IEnumerable<RegistryChangedObject> GetNamesAndValuesOfRegistryKey(RegistryHive hive, string path)
         {
             RegistryKey regKey = RegistryKey.OpenBaseKey(hive, RegistryView.Registry64);
             regKey = regKey.OpenSubKey(path);
@@ -124,7 +117,7 @@ namespace BeSafe.Components.Watchers
                 if ((valueKind == RegistryValueKind.String) || (valueKind == RegistryValueKind.ExpandString))
                 {
                     string valueOfKey = (string)regKey.GetValue(keyName);
-                    yield return new KeyValuePair<string, string>(keyName, valueOfKey);
+                    yield return new RegistryChangedObject {Key = keyName, Value = valueOfKey };
                 }
             }
         }
