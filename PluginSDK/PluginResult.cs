@@ -24,7 +24,7 @@ namespace PluginSDK
                     case PluginType.Registry:
                         {
                             ChangedValueInfo so = (ChangedValueInfo)ScannedObject;
-                            return $@"{so.MonitorPath.RegistryHive}\{so.MonitorPath}\{so.ChangedObject.Key}";
+                            return so.ToString();
                         }
 
                     case PluginType.Process:
