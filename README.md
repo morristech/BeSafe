@@ -42,7 +42,10 @@ Here are some screenshots of BeSafe Windows client UI :
 ![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Configuration.png) |  
 ![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Plugins.png) | 
 ![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Account.png) |
+:------------------------:|:-------------------------:|:-------------------------:
+
 ![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_ThreatInfo.png)
-:------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_LogHistory.png)
+:------------------------:|:-------------------------:
 
 Be safe and keep calm ;)
