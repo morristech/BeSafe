@@ -10,12 +10,7 @@ namespace BeSafe.Core.Utils
 {
     internal class ThreatLog
     {
-        #region Singleton
-        private static ThreatLog SingletonInstance;
-        public static ThreatLog Instance() => (SingletonInstance ?? (SingletonInstance = new ThreatLog()));
-        #endregion
-
-        public bool Add(PluginResult log)
+        public static bool Log(PluginResult log)
         {
             try
             {

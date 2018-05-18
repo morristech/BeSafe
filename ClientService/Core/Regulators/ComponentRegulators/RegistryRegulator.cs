@@ -101,7 +101,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                     });
 
                     // Log threat
-                    ThreatLog.Instance().Add(scanResult);
+                    ThreatLog.Log(scanResult);
                 }
 
                 Thread.Sleep(500);
