@@ -59,6 +59,9 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                     Command = PipeCommands.PluginScanResult,
                     PluginScanResult = scanResult
                 });
+
+                // Log threat
+                ThreatLog.Instance().Add(scanResult);
             }
 
             return scanResult.RiskRate;
