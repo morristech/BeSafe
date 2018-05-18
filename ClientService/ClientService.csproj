@@ -93,6 +93,7 @@
     <Compile Include="Core\Regulators\PluginRegulators\SecureVolumePluginRegulator.cs" />
     <Compile Include="Core\Utils\ServerSetting.cs" />
     <Compile Include="Core\Utils\ServiceUtils.cs" />
+    <Compile Include="Core\Utils\ThreatLog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
