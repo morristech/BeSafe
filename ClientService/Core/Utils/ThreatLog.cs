@@ -1,7 +1,10 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using PluginSDK;
+using System.IO;
+using System.Diagnostics;
+using System.Runtime.Serialization.Formatters.Binary;
+using BeSafe.Properties;
 using ExceptionManager;
+using PluginSDK;
 
 namespace BeSafe.Core.Utils
 {
@@ -12,14 +15,17 @@ namespace BeSafe.Core.Utils
         public static ThreatLog Instance() => (SingletonInstance ?? (SingletonInstance = new ThreatLog()));
         #endregion
 
-
-        private ConcurrentQueue<PluginResult> _logs;
-
         public bool Add(PluginResult log)
         {
             try
             {
-                _logs.Enqueue(log);
+                using (var serializedLog = new MemoryStream())
+                {
+                    BinaryFormatter bformatter = new BinaryFormatter();
+                    bformatter.Serialize(serializedLog, log);
+
+                    EventLog.WriteEntry(Resources.ApplicationName, log.PluginInfo.Name, EventLogEntryType.Warning, 2, 0, serializedLog.ToArray());
+                }
 
                 return true;
             }
