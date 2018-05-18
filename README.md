@@ -39,13 +39,13 @@ Access the project's Trello board here : http://bit.do/BeSafeBoard
 
 Here are some screenshots of BeSafe Windows client UI :
 
-![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Configuration.png) |  
-![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Plugins.png) | 
-![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Account.png) |
+<img width="400" src="https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Configuration.png"> |
+<img width="400" src="https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Plugins.png"> |
+<img width="400" src="https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_Account.png"> |
 :------------------------:|:-------------------------:|:-------------------------:
 
-![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_ThreatInfo.png)
-![](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_LogHistory.png)
+ <img width="400" src="https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_ThreatInfo.png"> |
+ <img width="400" src="https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/UI%20Screenshots/UI_LogHistory.png">
 :------------------------:|:-------------------------:
 
 Be safe and keep calm ;)
