@@ -135,5 +135,10 @@ namespace ClientUI
             }
         }
         #endregion
+
+        private void logHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LogHistory.Execute();
+        }
     }
 }

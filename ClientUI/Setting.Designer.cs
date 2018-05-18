@@ -62,6 +62,7 @@
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnApply = new ClientUI.MonoFlat_Button();
             this.openPluginFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.logHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -74,13 +75,13 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // TryIconMenu
@@ -88,15 +89,16 @@
             this.TryIconMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.TryIconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startToolStripMenuItem,
+            this.logHistoryToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TryIconMenu.Name = "TryIconMenu";
-            this.TryIconMenu.Size = new System.Drawing.Size(108, 70);
+            this.TryIconMenu.Size = new System.Drawing.Size(181, 114);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -459,6 +461,13 @@
             // 
             this.openPluginFileDialog.Filter = "BeSafe Plugin Files|*.bsp";
             // 
+            // logHistoryToolStripMenuItem
+            // 
+            this.logHistoryToolStripMenuItem.Name = "logHistoryToolStripMenuItem";
+            this.logHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logHistoryToolStripMenuItem.Text = "Log History";
+            this.logHistoryToolStripMenuItem.Click += new System.EventHandler(this.logHistoryToolStripMenuItem_Click);
+            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,6 +532,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openPluginFileDialog;
         public MonoFlat_CheckBox chbRegistryWatcher;
+        private System.Windows.Forms.ToolStripMenuItem logHistoryToolStripMenuItem;
     }
 }
 
