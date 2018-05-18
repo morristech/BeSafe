@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Concurrent;
 using PluginSDK;
 using ExceptionManager;
@@ -14,9 +13,9 @@ namespace BeSafe.Core.Utils
         #endregion
 
 
-        private ConcurrentQueue<Dictionary<PluginType, PluginResult>> _logs;
+        private ConcurrentQueue<PluginResult> _logs;
 
-        public bool Add(Dictionary<PluginType, PluginResult> log)
+        public bool Add(PluginResult log)
         {
             try
             {
