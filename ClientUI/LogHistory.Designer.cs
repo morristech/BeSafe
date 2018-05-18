@@ -33,12 +33,13 @@
             this.btnExport = new ClientUI.MonoFlat_Button();
             this.btnOk = new ClientUI.MonoFlat_Button();
             this.LogsGrid = new System.Windows.Forms.DataGridView();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pluginNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scannedObjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pluginMessageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.riskDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.logPresenterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scannedObjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.riskDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pluginNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pluginMessageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CsvExportDialog = new System.Windows.Forms.SaveFileDialog();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logPresenterBindingSource)).BeginInit();
@@ -74,8 +75,9 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(120, 41);
             this.btnExport.TabIndex = 2;
-            this.btnExport.Text = "Export";
+            this.btnExport.Text = "Export (.csv)";
             this.btnExport.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnOk
             // 
@@ -104,10 +106,10 @@
             this.LogsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LogsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateDataGridViewTextBoxColumn,
-            this.pluginNameDataGridViewTextBoxColumn,
             this.scannedObjectDataGridViewTextBoxColumn,
-            this.pluginMessageDataGridViewTextBoxColumn,
-            this.riskDataGridViewTextBoxColumn});
+            this.riskDataGridViewTextBoxColumn,
+            this.pluginNameDataGridViewTextBoxColumn,
+            this.pluginMessageDataGridViewTextBoxColumn});
             this.LogsGrid.DataSource = this.logPresenterBindingSource;
             this.LogsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.LogsGrid.Location = new System.Drawing.Point(12, 73);
@@ -116,6 +118,10 @@
             this.LogsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.LogsGrid.Size = new System.Drawing.Size(1350, 649);
             this.LogsGrid.TabIndex = 0;
+            // 
+            // logPresenterBindingSource
+            // 
+            this.logPresenterBindingSource.DataSource = typeof(ClientUI.Core.LogPresenter);
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -127,6 +133,21 @@
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateDataGridViewTextBoxColumn.Width = 140;
             // 
+            // scannedObjectDataGridViewTextBoxColumn
+            // 
+            this.scannedObjectDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.scannedObjectDataGridViewTextBoxColumn.DataPropertyName = "ScannedObject";
+            this.scannedObjectDataGridViewTextBoxColumn.HeaderText = "ScannedObject";
+            this.scannedObjectDataGridViewTextBoxColumn.Name = "scannedObjectDataGridViewTextBoxColumn";
+            this.scannedObjectDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // riskDataGridViewTextBoxColumn
+            // 
+            this.riskDataGridViewTextBoxColumn.DataPropertyName = "Risk";
+            this.riskDataGridViewTextBoxColumn.HeaderText = "Risk";
+            this.riskDataGridViewTextBoxColumn.Name = "riskDataGridViewTextBoxColumn";
+            this.riskDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // pluginNameDataGridViewTextBoxColumn
             // 
             this.pluginNameDataGridViewTextBoxColumn.DataPropertyName = "PluginName";
@@ -137,14 +158,6 @@
             this.pluginNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.pluginNameDataGridViewTextBoxColumn.Width = 250;
             // 
-            // scannedObjectDataGridViewTextBoxColumn
-            // 
-            this.scannedObjectDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.scannedObjectDataGridViewTextBoxColumn.DataPropertyName = "ScannedObject";
-            this.scannedObjectDataGridViewTextBoxColumn.HeaderText = "ScannedObject";
-            this.scannedObjectDataGridViewTextBoxColumn.Name = "scannedObjectDataGridViewTextBoxColumn";
-            this.scannedObjectDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // pluginMessageDataGridViewTextBoxColumn
             // 
             this.pluginMessageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -153,16 +166,10 @@
             this.pluginMessageDataGridViewTextBoxColumn.Name = "pluginMessageDataGridViewTextBoxColumn";
             this.pluginMessageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // riskDataGridViewTextBoxColumn
+            // CsvExportDialog
             // 
-            this.riskDataGridViewTextBoxColumn.DataPropertyName = "Risk";
-            this.riskDataGridViewTextBoxColumn.HeaderText = "Risk";
-            this.riskDataGridViewTextBoxColumn.Name = "riskDataGridViewTextBoxColumn";
-            this.riskDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // logPresenterBindingSource
-            // 
-            this.logPresenterBindingSource.DataSource = typeof(ClientUI.Core.LogPresenter);
+            this.CsvExportDialog.DefaultExt = "csv";
+            this.CsvExportDialog.Filter = "*.csv|CSV Files";
             // 
             // LogHistory
             // 
@@ -190,12 +197,13 @@
         private MonoFlat_ThemeContainer monoFlat_ThemeContainer1;
         private System.Windows.Forms.DataGridView LogsGrid;
         private System.Windows.Forms.BindingSource logPresenterBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pluginNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scannedObjectDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pluginMessageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn riskDataGridViewTextBoxColumn;
         private MonoFlat_Button btnExport;
         private MonoFlat_Button btnOk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scannedObjectDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn riskDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pluginNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pluginMessageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.SaveFileDialog CsvExportDialog;
     }
 }

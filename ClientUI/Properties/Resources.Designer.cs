@@ -99,6 +99,15 @@ namespace ClientUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export finished successfully .
+        /// </summary>
+        internal static string ExportDoneMessage {
+            get {
+                return ResourceManager.GetString("ExportDoneMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to load plugin.
         /// </summary>
         internal static string FailedToLoadPlugin {

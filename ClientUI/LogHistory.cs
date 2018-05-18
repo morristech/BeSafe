@@ -15,6 +15,7 @@ namespace ClientUI
     public partial class LogHistory : Form
     {
         private const int BeSafe_Log_EventID = 2;
+        private static List<LogPresenter> LogPresenterList = new List<LogPresenter>();
 
         public LogHistory()
         {
@@ -23,8 +24,6 @@ namespace ClientUI
 
         public static bool Execute()
         {
-            var logPresenter = new List<LogPresenter>();
-
             EventLogEntryCollection applicationEntries = EventLog.GetEventLogs().FirstOrDefault(f => f.LogDisplayName == "Application").Entries;
             List<EventLogEntry> beSafeLogEntries = applicationEntries.Cast<EventLogEntry>().Where(w => w.Source == Resources.ApplicationName && w.InstanceId == BeSafe_Log_EventID).ToList();
 
@@ -35,7 +34,7 @@ namespace ClientUI
 
                 PluginResult pluginResult = Deserialize<PluginResult>(ev.Data);
 
-                logPresenter.Add(new LogPresenter
+                LogPresenterList.Add(new LogPresenter
                 {
                     Date = ev.TimeWritten,
                     ScannedObject = pluginResult.ScannedObjectString,
@@ -47,9 +46,30 @@ namespace ClientUI
 
             using (var logHistory = new LogHistory())
             {
-                logHistory.logPresenterBindingSource.DataSource = logPresenter;
+                logHistory.logPresenterBindingSource.DataSource = LogPresenterList;
                 return logHistory.ShowDialog() == DialogResult.OK;
             }
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (CsvExportDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            List<string> csvFileContent = new List<string>();
+
+            foreach(LogPresenter log in LogPresenterList)
+            {
+                csvFileContent.Add($"{log.Date},{log.ScannedObject},{log.Risk},{log.PluginName},{log.PluginMessage}".Replace(Environment.NewLine, ";"));
+            }
+
+            File.AppendAllLines(CsvExportDialog.FileName, csvFileContent);
+            MessageBox.Show(Resources.ExportDoneMessage, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private static T Deserialize<T>(byte[] param)
@@ -59,11 +79,6 @@ namespace ClientUI
                 IFormatter br = new BinaryFormatter();
                 return (T)br.Deserialize(ms);
             }
-        }
-
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
         }
     }
 }
