@@ -72,14 +72,14 @@
       <DependentUpon>BeSafe.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Watchers\RegistryWatcher.cs" />
-    <Compile Include="Core\ConfigLoader.cs" />
+    <Compile Include="Core\Utils\ConfigLoader.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ComponentRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\IComponentRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ModuleRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\ProcessRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\RegistryRegulator.cs" />
     <Compile Include="Core\Regulators\ComponentRegulators\SecureVolumeRegulator.cs" />
-    <Compile Include="Core\PipeServer.cs" />
+    <Compile Include="Core\Utils\PipeServer.cs" />
     <Compile Include="Components\Initializers\DriveView.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\IVirtualDrive.cs" />
     <Compile Include="Components\Initializers\VirtualDrive\VirtualDrive.cs" />
@@ -91,7 +91,7 @@
     <Compile Include="Core\Regulators\PluginRegulators\ProcessPluginRegulator.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\RegistryPluginRegulator.cs" />
     <Compile Include="Core\Regulators\PluginRegulators\SecureVolumePluginRegulator.cs" />
-    <Compile Include="Core\ServerSetting.cs" />
+    <Compile Include="Core\Utils\ServerSetting.cs" />
     <Compile Include="Core\Utils\ServiceUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">

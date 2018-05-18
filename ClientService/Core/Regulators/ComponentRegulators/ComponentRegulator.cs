@@ -1,4 +1,5 @@
-﻿using ConfigManager;
+﻿using BeSafe.Core.Utils;
+using ConfigManager;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators
 {

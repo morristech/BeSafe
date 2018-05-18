@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BeSafe.Components.Watchers;
 using ConfigManager;
+using BeSafe.Core.Utils;
 using SharedTypes.Watchers;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators

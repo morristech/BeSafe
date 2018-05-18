@@ -10,6 +10,7 @@ using BeSafe.Components.Watchers;
 using SharedTypes.Watchers.RegistryWatcherTypes;
 using BeSafe.Core.Regulators.PluginRegulators;
 using PluginSDK;
+using BeSafe.Core.Utils;
 using Common.PipeCommandStructure;
 
 namespace BeSafe.Core.Regulators.ComponentRegulators

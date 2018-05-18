@@ -4,7 +4,7 @@ using ExceptionManager;
 using Common.PipeCommandStructure;
 using BeSafe.Properties;
 
-namespace BeSafe.Core
+namespace BeSafe.Core.Utils
 {
     public class PipeServer
     {

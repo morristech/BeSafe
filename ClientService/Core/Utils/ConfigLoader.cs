@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using ConfigManager;
 
-namespace BeSafe.Core
+namespace BeSafe.Core.Utils
 {
     public class ConfigLoader
     {

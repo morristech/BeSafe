@@ -3,7 +3,7 @@ using Microsoft.Win32;
 using ExceptionManager;
 using BeSafe.Properties;
 
-namespace BeSafe.Core
+namespace BeSafe.Core.Utils
 {
     public class ServiceSetting : IDisposable
     {
