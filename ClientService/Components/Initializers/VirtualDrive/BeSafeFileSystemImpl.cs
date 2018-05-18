@@ -122,20 +122,23 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                     case FileMode.Open:
                         {
                             // Scan file with BeSafe plugins
-                            if ((access != FileAccess.Delete) && (_pluginRegulator != null))
+                            if ((access != FileAccess.Delete) && (access != FileAccess.ReadAttributes) && (_pluginRegulator != null))
                             {
-                                try
+                                if (File.Exists(filePath))
                                 {
-                                    ThreatRiskRates? riskRate = FileAccessRequest?.Invoke(filePath);
-                      
-                                    if ((riskRate != null) && (riskRate != ThreatRiskRates.NoRisk))
+                                    try
                                     {
-                                        return DokanResult.FileNotFound;
+                                        ThreatRiskRates? riskRate = FileAccessRequest?.Invoke(filePath);
+
+                                        if ((riskRate != null) && (riskRate != ThreatRiskRates.NoRisk))
+                                        {
+                                            return DokanResult.FileNotFound;
+                                        }
                                     }
-                                }
-                                catch(Exception ex)
-                                {
-                                    ex.Log();
+                                    catch (Exception ex)
+                                    {
+                                        ex.Log();
+                                    }
                                 }
                             }
 
