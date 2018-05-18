@@ -15,7 +15,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         #endregion
 
         private ProcessWatcher processWatcher = new ProcessWatcher();
-        private Stack<ProcessInfo> ExecutedProcessStack = new Stack<ProcessInfo>();
+        private Queue<ProcessInfo> ExecutedProcessStack = new Queue<ProcessInfo>();
 
         public ProcessRegulator()
         {
@@ -33,7 +33,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private void NewProcessArrived(ProcessInfo processInfo)
         {
             // TODO Scan engines not implemented yet, after they get ready use theme to scan process here :)
-            ExecutedProcessStack.Push(processInfo);
+            ExecutedProcessStack.Enqueue(processInfo);
             Debug.WriteLine(processInfo.ToString());
         }
     }

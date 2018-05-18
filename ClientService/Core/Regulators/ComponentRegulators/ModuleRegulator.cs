@@ -15,7 +15,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         #endregion    
 
         private ModuleWatcher moduleWatcher = new ModuleWatcher();
-        private Stack<ModuleInfo> LoadedModulesStack = new Stack<ModuleInfo>();
+        private Queue<ModuleInfo> LoadedModulesStack = new Queue<ModuleInfo>();
 
         public ModuleRegulator()
         {
@@ -31,7 +31,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private void OnLoadModule(ModuleInfo moduleInfo)
         {
             // TODO Scan engines not implemented yet, after they get ready use theme to scan process here :)
-            LoadedModulesStack.Push(moduleInfo);
+            LoadedModulesStack.Enqueue(moduleInfo);
             Debug.WriteLine(moduleInfo.ToString());
         }
     }

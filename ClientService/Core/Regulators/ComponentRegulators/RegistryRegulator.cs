@@ -23,7 +23,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         #endregion
 
         private RegistryWatcher registryWatcher;
-        private ConcurrentStack<ChangedValueInfo> ChangedValuesStack = new ConcurrentStack<ChangedValueInfo>();
+        private ConcurrentQueue<ChangedValueInfo> ChangedValuesStack = new ConcurrentQueue<ChangedValueInfo>();
 
         private BeSafeConfig _config;
         private PipeServer _pipeServer;
@@ -76,15 +76,16 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
 
         private void ValueChangedArrived(ChangedValueInfo valueInfo)
         {
-            ChangedValuesStack.Push(valueInfo);
+            ChangedValuesStack.Enqueue(valueInfo);
         }
 
-        private void StackScanner(ConcurrentStack<ChangedValueInfo> stack)
+        private void StackScanner(ConcurrentQueue<ChangedValueInfo> queue)
         {
             while (true)
             {
                 ChangedValueInfo valueInfo = null;
-                stack.TryPop(out valueInfo);
+                queue.TryDequeue(out valueInfo);
+
                 if (valueInfo == null)
                     continue;
 
