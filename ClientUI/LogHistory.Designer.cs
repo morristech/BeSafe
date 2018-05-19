@@ -33,13 +33,14 @@
             this.btnExport = new ClientUI.MonoFlat_Button();
             this.btnOk = new ClientUI.MonoFlat_Button();
             this.LogsGrid = new System.Windows.Forms.DataGridView();
-            this.logPresenterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scannedObjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.riskDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pluginNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pluginMessageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logPresenterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CsvExportDialog = new System.Windows.Forms.SaveFileDialog();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logPresenterBindingSource)).BeginInit();
@@ -48,6 +49,7 @@
             // monoFlat_ThemeContainer1
             // 
             this.monoFlat_ThemeContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.monoFlat_ThemeContainer1.Controls.Add(this.dateTimePicker);
             this.monoFlat_ThemeContainer1.Controls.Add(this.btnExport);
             this.monoFlat_ThemeContainer1.Controls.Add(this.btnOk);
             this.monoFlat_ThemeContainer1.Controls.Add(this.LogsGrid);
@@ -119,10 +121,6 @@
             this.LogsGrid.Size = new System.Drawing.Size(1350, 649);
             this.LogsGrid.TabIndex = 0;
             // 
-            // logPresenterBindingSource
-            // 
-            this.logPresenterBindingSource.DataSource = typeof(ClientUI.Core.LogPresenter);
-            // 
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
@@ -166,10 +164,28 @@
             this.pluginMessageDataGridViewTextBoxColumn.Name = "pluginMessageDataGridViewTextBoxColumn";
             this.pluginMessageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // logPresenterBindingSource
+            // 
+            this.logPresenterBindingSource.DataSource = typeof(ClientUI.Core.LogPresenter);
+            // 
             // CsvExportDialog
             // 
             this.CsvExportDialog.DefaultExt = "csv";
             this.CsvExportDialog.Filter = "*.csv|CSV Files";
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.dateTimePicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold);
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Location = new System.Drawing.Point(937, 732);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(164, 38);
+            this.dateTimePicker.TabIndex = 3;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // LogHistory
             // 
@@ -205,5 +221,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pluginNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pluginMessageDataGridViewTextBoxColumn;
         private System.Windows.Forms.SaveFileDialog CsvExportDialog;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }

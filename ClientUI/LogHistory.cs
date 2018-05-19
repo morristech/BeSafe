@@ -24,31 +24,16 @@ namespace ClientUI
 
         public static bool Execute()
         {
-            EventLogEntryCollection applicationEntries = EventLog.GetEventLogs().FirstOrDefault(f => f.LogDisplayName == "Application").Entries;
-            List<EventLogEntry> beSafeLogEntries = applicationEntries.Cast<EventLogEntry>().Where(w => w.Source == Resources.ApplicationName && w.InstanceId == BeSafe_Log_EventID).ToList();
-
-            foreach (EventLogEntry ev in beSafeLogEntries)
-            {
-                if (! ev.Data.Any())
-                    continue;
-
-                PluginResult pluginResult = Deserialize<PluginResult>(ev.Data);
-
-                LogPresenterList.Add(new LogPresenter
-                {
-                    Date = ev.TimeWritten,
-                    ScannedObject = pluginResult.ScannedObjectString,
-                    PluginName = pluginResult.PluginInfo.ToString(),
-                    Risk = pluginResult.RiskRate,
-                    PluginMessage = pluginResult.Message,
-                });
-            }
-
             using (var logHistory = new LogHistory())
             {
-                logHistory.logPresenterBindingSource.DataSource = LogPresenterList;
+                logHistory.LoadLogFromEventLog(DateTime.Now);
                 return logHistory.ShowDialog() == DialogResult.OK;
             }
+        }
+
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            LoadLogFromEventLog(dateTimePicker.Value);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -79,6 +64,35 @@ namespace ClientUI
                 IFormatter br = new BinaryFormatter();
                 return (T)br.Deserialize(ms);
             }
+        }
+
+        private void LoadLogFromEventLog(DateTime? dateTime)
+        {
+            LogPresenterList.Clear();
+
+            EventLogEntryCollection applicationEntries = EventLog.GetEventLogs().FirstOrDefault(f => f.LogDisplayName == "Application").Entries;
+            IEnumerable<EventLogEntry> beSafeLogEntries = applicationEntries.Cast<EventLogEntry>().Where(w => w.Source == Resources.ApplicationName && w.InstanceId == BeSafe_Log_EventID);
+
+            List<EventLogEntry> beSafeLogsFilteredByDate = (dateTime != null) ? beSafeLogEntries.Where(w => w.TimeWritten.Date.CompareTo(dateTime.Value.Date) == 0).ToList() : beSafeLogEntries.ToList();
+
+            foreach (EventLogEntry ev in beSafeLogsFilteredByDate)
+            {
+                if (!ev.Data.Any())
+                    continue;
+
+                PluginResult pluginResult = Deserialize<PluginResult>(ev.Data);
+
+                LogPresenterList.Add(new LogPresenter
+                {
+                    Date = ev.TimeWritten,
+                    ScannedObject = pluginResult.ScannedObjectString,
+                    PluginName = pluginResult.PluginInfo.ToString(),
+                    Risk = pluginResult.RiskRate,
+                    PluginMessage = pluginResult.Message,
+                });
+            }
+
+            logPresenterBindingSource.DataSource = LogPresenterList.ToList();
         }
     }
 }
