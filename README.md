@@ -48,4 +48,4 @@ Here are some screenshots of BeSafe Windows client UI :
  <img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/UI%20Screenshots/UI_LogHistory.png">
 :------------------------:|:-------------------------:
 
-Be safe and keep calm ;)
+Be safe and keep calm :)
