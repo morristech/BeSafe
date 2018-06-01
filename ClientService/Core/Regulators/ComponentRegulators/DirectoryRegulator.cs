@@ -26,11 +26,6 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         private BeSafeConfig _config;
         private PipeServer _pipeServer;
 
-        public DirectoryRegulator()
-        {
-            _directoryWatcher.DirectoryChanged += DirectoryChanged;
-        }
-
         public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
             _config = config;
