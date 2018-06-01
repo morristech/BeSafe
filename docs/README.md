@@ -1,4 +1,4 @@
-![alt text](https://github.com/MojtabaTajik/BeSafe/blob/master/Resources/Besaf_Logo.png)
+<img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/Besaf_Logo.png">
 
 BeSafe
 
@@ -36,16 +36,5 @@ BeSafe developed using C#.7 in VisualStudio.2017 using folowing free libraries :
 :exclamation: Dependencies automatically handled by NuGet package manager of VisualStudio.
 
 Access the project's Trello board here : http://bit.do/BeSafeBoard
-
-Here are some screenshots of BeSafe Windows client UI :
-
-<img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/UI%20Screenshots/UI_Configuration.png"> |
-<img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/UI%20Screenshots/UI_Plugins.png"> |
-<img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/UI%20Screenshots/UI_Account.png"> |
-:------------------------:|:-------------------------:|:-------------------------:
-
- <img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/UI%20Screenshots/UI_ThreatInfo.png"> |
- <img width="400" src="https://raw.githubusercontent.com/MojtabaTajik/BeSafe/master/Resources/UI%20Screenshots/UI_LogHistory.png">
-:------------------------:|:-------------------------:
 
 Be safe and keep calm ;)
