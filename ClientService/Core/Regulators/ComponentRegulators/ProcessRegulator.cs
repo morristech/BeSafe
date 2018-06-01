@@ -14,26 +14,26 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         public static ProcessRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new ProcessRegulator()));
         #endregion
 
-        private ProcessWatcher processWatcher = new ProcessWatcher();
-        private Queue<ProcessInfo> ExecutedProcessStack = new Queue<ProcessInfo>();
+        private readonly ProcessWatcher _processWatcher = new ProcessWatcher();
+        private readonly Queue<ProcessInfo> _executedProcessStack = new Queue<ProcessInfo>();
 
-        public ProcessRegulator()
+        private ProcessRegulator()
         {
-            processWatcher.NewProcess += NewProcessArrived;
+            _processWatcher.NewProcess += NewProcessArrived;
         }
 
         public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
             bool stateResult = 
                 (((config?.ComponentsState.ProcessWatcher == true) && (stoppingService == false)) 
-                ? processWatcher.Start() 
-                : processWatcher.Stop());
+                ? _processWatcher.Start() 
+                : _processWatcher.Stop());
         }
 
         private void NewProcessArrived(ProcessInfo processInfo)
         {
             // TODO Scan engines not implemented yet, after they get ready use theme to scan process here :)
-            ExecutedProcessStack.Enqueue(processInfo);
+            _executedProcessStack.Enqueue(processInfo);
             Debug.WriteLine(processInfo.ToString());
         }
     }

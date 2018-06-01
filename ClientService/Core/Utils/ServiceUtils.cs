@@ -6,7 +6,7 @@ using ExceptionManager;
 
 namespace BeSafe.Core.Utils
 {
-    public class ServiceUtils
+    public static class ServiceUtils
     {
         public static DriveInfo GetBeSafeDriveLetter()
         {

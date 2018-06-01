@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace BeSafe.Core.Utils
 {
-    public class Win32APIDefinitions
+    public static class Win32APIDefinitions
     {
         [DllImport("kernel32", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]

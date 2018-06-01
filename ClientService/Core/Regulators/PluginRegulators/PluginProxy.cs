@@ -15,7 +15,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
         private readonly BeSafeConfig _config;
 
-        private readonly PluginUtils pluginUtils = new PluginUtils();
+        private readonly PluginUtils _pluginUtils = new PluginUtils();
 
         public PluginProxy(BeSafeConfig config)
         {
@@ -24,8 +24,8 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
         public PluginResult Scan(dynamic scanObject, PluginType type)
         {
-            List<IBeSafePlugin> plugins = pluginUtils.GetPluginsInfo(_config.PluginsPath).Where(w => w.GetPluginInfo().Type == type).ToList();
-            if ((plugins == null) || (! plugins.Any()))
+            List<IBeSafePlugin> plugins = _pluginUtils.GetPluginsInfo(_config.PluginsPath).Where(w => w.GetPluginInfo().Type == type).ToList();
+            if (! plugins.Any())
                 return null;
 
             bool canFight = _config.ComponentsState.FightWithThreats;

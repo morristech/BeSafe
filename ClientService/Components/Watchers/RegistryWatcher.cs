@@ -16,8 +16,8 @@ namespace BeSafe.Components.Watchers
         public delegate void NewRegistryValueChangeEventHandler(ChangedValueInfo valueInfo);
         public event NewRegistryValueChangeEventHandler ValueChanged;
 
-        List<RegistryMonitorPath> _mustMonitorRegistryPathes;
-        private CancellationTokenSource _cancelToken = new CancellationTokenSource();
+        readonly List<RegistryMonitorPath> _mustMonitorRegistryPathes;
+        private readonly CancellationTokenSource _cancelToken = new CancellationTokenSource();
         private const int ValueRegChangeNotifyFilter = 4;
 
 
@@ -62,9 +62,8 @@ namespace BeSafe.Components.Watchers
 
         private void MonitorKeyLoop(RegistryMonitorPath registryPath)
         {
-            IntPtr registryKey;
             int result = Win32APIDefinitions.RegOpenKeyEx((IntPtr)registryPath.RegistryHive, registryPath.RegistryKeyPath, 0, Win32APIDefinitions.STANDARD_RIGHTS_READ | Win32APIDefinitions.KEY_QUERY_VALUE | Win32APIDefinitions.KEY_NOTIFY,
-                                      out registryKey);
+                                      out var registryKey);
 
             if (result != 0)
                 return;

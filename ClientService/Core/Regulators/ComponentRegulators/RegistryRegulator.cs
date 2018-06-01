@@ -22,8 +22,8 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         public static RegistryRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new RegistryRegulator()));
         #endregion
 
-        private RegistryWatcher registryWatcher;
-        private ConcurrentQueue<ChangedValueInfo> ChangedValuesStack = new ConcurrentQueue<ChangedValueInfo>();
+        private RegistryWatcher _registryWatcher;
+        private readonly ConcurrentQueue<ChangedValueInfo> _changedValuesStack = new ConcurrentQueue<ChangedValueInfo>();
 
         private BeSafeConfig _config;
         private PipeServer _pipeServer;
@@ -39,7 +39,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
             {
                 string userSID = config.UserSID;
 
-                registryWatcher = new RegistryWatcher(new List<RegistryMonitorPath>
+                _registryWatcher = new RegistryWatcher(new List<RegistryMonitorPath>
                 {
                     // CurrentUser keys
                     new RegistryMonitorPath{RegistryHive = RegistryHive.Users, RegistryKeyPath = $@"{userSID}\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders"},
@@ -64,27 +64,26 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                     new RegistryMonitorPath{RegistryHive = RegistryHive.LocalMachine, RegistryKeyPath = @"SOFTWARE\Classes\scrfile\shell\open\command"},
                 });
 
-                registryWatcher.ValueChanged += ValueChangedArrived;
-                stateResult = registryWatcher.Start();
+                _registryWatcher.ValueChanged += ValueChangedArrived;
+                stateResult = _registryWatcher.Start();
 
-                Task.Run(() => StackScanner(ChangedValuesStack));
+                Task.Run(() => StackScanner(_changedValuesStack));
                 return;
             }
 
-            stateResult = registryWatcher != null ? registryWatcher.Stop() : false;
+            stateResult = _registryWatcher?.Stop() ?? false;
         }
 
         private void ValueChangedArrived(ChangedValueInfo valueInfo)
         {
-            ChangedValuesStack.Enqueue(valueInfo);
+            _changedValuesStack.Enqueue(valueInfo);
         }
 
         private void StackScanner(ConcurrentQueue<ChangedValueInfo> queue)
         {
             while (true)
             {
-                ChangedValueInfo valueInfo = null;
-                queue.TryDequeue(out valueInfo);
+                queue.TryDequeue(out var valueInfo);
 
                 if (valueInfo == null)
                     continue;

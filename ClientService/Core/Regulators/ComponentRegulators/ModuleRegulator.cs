@@ -14,24 +14,25 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         public static ModuleRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new ModuleRegulator()));
         #endregion    
 
-        private ModuleWatcher moduleWatcher = new ModuleWatcher();
-        private Queue<ModuleInfo> LoadedModulesStack = new Queue<ModuleInfo>();
+        private readonly ModuleWatcher _moduleWatcher = new ModuleWatcher();
+        private readonly Queue<ModuleInfo> _loadedModulesStack = new Queue<ModuleInfo>();
 
-        public ModuleRegulator()
+        private ModuleRegulator()
         {
-            moduleWatcher.LoadModule += OnLoadModule;
+            _moduleWatcher.LoadModule += OnLoadModule;
         }
+
         public void Config(BeSafeConfig config, PipeServer pipeServer, bool stoppingService)
         {
             bool stateResult = (((config?.ComponentsState.ModuleWatcher == true) && (stoppingService == false)) 
-                ? moduleWatcher.Start() 
-                : moduleWatcher.Stop());
+                ? _moduleWatcher.Start() 
+                : _moduleWatcher.Stop());
         }
 
         private void OnLoadModule(ModuleInfo moduleInfo)
         {
             // TODO Scan engines not implemented yet, after they get ready use theme to scan process here :)
-            LoadedModulesStack.Enqueue(moduleInfo);
+            _loadedModulesStack.Enqueue(moduleInfo);
             Debug.WriteLine(moduleInfo.ToString());
         }
     }

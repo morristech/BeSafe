@@ -8,7 +8,7 @@ using PluginSDK;
 
 namespace BeSafe.Core.Utils
 {
-    internal class ThreatLog
+    internal static class ThreatLog
     {
         public static bool Log(PluginResult log)
         {

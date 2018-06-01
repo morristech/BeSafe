@@ -7,8 +7,8 @@ namespace BeSafe.Components.Initializers
 {
     public class DriveView : IDisposable
     {
-        private char _driveLetter;
-        private RegistryKey _driveSpecificKey = Registry.LocalMachine;
+        private readonly char _driveLetter;
+        private readonly RegistryKey _driveSpecificKey = Registry.LocalMachine;
 
         public DriveView(string driveLetter)
         {

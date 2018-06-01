@@ -7,7 +7,7 @@ namespace BeSafe.Core.Utils
 {
     public class ServiceSetting : IDisposable
     {
-        private RegistryKey _driveSpecificKey = Registry.LocalMachine;
+        private readonly RegistryKey _driveSpecificKey = Registry.LocalMachine;
 
         public ServiceSetting()
         {

@@ -17,8 +17,8 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         public static SecureVolumeRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new SecureVolumeRegulator()));
         #endregion
 
-        private VirtualDrive secureDrive = new VirtualDrive();
-        private DriveView driveView;
+        private readonly VirtualDrive _secureDrive = new VirtualDrive();
+        private DriveView _driveView;
 
         private BeSafeConfig _config;
         private PipeServer _pipeServer;
@@ -30,11 +30,11 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
 
             if ((config != null) && (config.ComponentsState.SecureVolume) && (stoppingService == false))
             {
-                secureDrive.FileAccessRequestEvent += OnFileAccessRequestEvent;
-                string mappedDriveLetter = secureDrive.MapDrive(config.SecureVolumePath);
+                _secureDrive.FileAccessRequestEvent += OnFileAccessRequestEvent;
+                string mappedDriveLetter = _secureDrive.MapDrive(config.SecureVolumePath);
 
-                driveView = new DriveView(mappedDriveLetter);
-                driveView.SetDriveIcon($"{System.Reflection.Assembly.GetEntryAssembly().Location}");
+                _driveView = new DriveView(mappedDriveLetter);
+                _driveView.SetDriveIcon($"{System.Reflection.Assembly.GetEntryAssembly().Location}");
             }
             else
             {
@@ -42,7 +42,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
                 if (beSafeDriveInfo == null)
                     return;
 
-                secureDrive.UnmapDrive(beSafeDriveInfo.Name);
+                _secureDrive.UnmapDrive(beSafeDriveInfo.Name);
                 new DriveView(beSafeDriveInfo.Name).RemoveDriveView();
             }
         }

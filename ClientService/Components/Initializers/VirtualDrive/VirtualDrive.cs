@@ -19,7 +19,7 @@ namespace BeSafe.Components.Initializers.VirtualDrive
     {
         public FileAccessRequestDelegate FileAccessRequestEvent;
 
-        private BeSafeFileSystemImpl virtualDriveImpl;
+        private BeSafeFileSystemImpl _virtualDriveImpl;
         private const int NumberOfThradsToManageFileSystem = 5;
 
         public string MapDrive(string virtualPath)
@@ -41,9 +41,9 @@ namespace BeSafe.Components.Initializers.VirtualDrive
                     BeSafeConfig config = ConfigLoader.Instance().LoadConfig();
                     IPluginProxy pluginRegulator = new PluginProxy(config);
 
-                    virtualDriveImpl = new BeSafeFileSystemImpl(virtualPath, pluginRegulator);
-                    virtualDriveImpl.FileAccessRequest += FileAccessRequestEvent;
-                    virtualDriveImpl.Mount(normalizedDriveLetter, DokanOptions.FixedDrive, NumberOfThradsToManageFileSystem);
+                    _virtualDriveImpl = new BeSafeFileSystemImpl(virtualPath, pluginRegulator);
+                    _virtualDriveImpl.FileAccessRequest += FileAccessRequestEvent;
+                    _virtualDriveImpl.Mount(normalizedDriveLetter, DokanOptions.FixedDrive, NumberOfThradsToManageFileSystem);
                 });
 
                 return normalizedDriveLetter;
