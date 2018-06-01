@@ -33,6 +33,7 @@
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TryIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.logHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.monoFlat_ThemeContainer1 = new ClientUI.MonoFlat_ThemeContainer();
@@ -62,7 +63,7 @@
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnApply = new ClientUI.MonoFlat_Button();
             this.openPluginFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.logHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chbDirectoryWatcher = new ClientUI.MonoFlat_CheckBox();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -75,13 +76,13 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // TryIconMenu
@@ -93,12 +94,19 @@
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TryIconMenu.Name = "TryIconMenu";
-            this.TryIconMenu.Size = new System.Drawing.Size(181, 114);
+            this.TryIconMenu.Size = new System.Drawing.Size(136, 92);
+            // 
+            // logHistoryToolStripMenuItem
+            // 
+            this.logHistoryToolStripMenuItem.Name = "logHistoryToolStripMenuItem";
+            this.logHistoryToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.logHistoryToolStripMenuItem.Text = "Log History";
+            this.logHistoryToolStripMenuItem.Click += new System.EventHandler(this.logHistoryToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -162,6 +170,7 @@
             // tpConfiguration
             // 
             this.tpConfiguration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.tpConfiguration.Controls.Add(this.chbDirectoryWatcher);
             this.tpConfiguration.Controls.Add(this.chbRegistryWatcher);
             this.tpConfiguration.Controls.Add(this.chbVirusTotalEngine);
             this.tpConfiguration.Controls.Add(this.chbFightWithThreats);
@@ -183,7 +192,7 @@
             // 
             this.chbRegistryWatcher.Checked = false;
             this.chbRegistryWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbRegistryWatcher.Location = new System.Drawing.Point(18, 68);
+            this.chbRegistryWatcher.Location = new System.Drawing.Point(18, 86);
             this.chbRegistryWatcher.Name = "chbRegistryWatcher";
             this.chbRegistryWatcher.Size = new System.Drawing.Size(243, 16);
             this.chbRegistryWatcher.TabIndex = 45;
@@ -193,7 +202,7 @@
             // 
             this.chbVirusTotalEngine.Checked = false;
             this.chbVirusTotalEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbVirusTotalEngine.Location = new System.Drawing.Point(18, 178);
+            this.chbVirusTotalEngine.Location = new System.Drawing.Point(18, 196);
             this.chbVirusTotalEngine.Name = "chbVirusTotalEngine";
             this.chbVirusTotalEngine.Size = new System.Drawing.Size(243, 16);
             this.chbVirusTotalEngine.TabIndex = 43;
@@ -203,7 +212,7 @@
             // 
             this.chbFightWithThreats.Checked = false;
             this.chbFightWithThreats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbFightWithThreats.Location = new System.Drawing.Point(18, 200);
+            this.chbFightWithThreats.Location = new System.Drawing.Point(18, 218);
             this.chbFightWithThreats.Name = "chbFightWithThreats";
             this.chbFightWithThreats.Size = new System.Drawing.Size(243, 16);
             this.chbFightWithThreats.TabIndex = 41;
@@ -213,7 +222,7 @@
             // 
             this.chbDynamicEngine.Checked = false;
             this.chbDynamicEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbDynamicEngine.Location = new System.Drawing.Point(18, 156);
+            this.chbDynamicEngine.Location = new System.Drawing.Point(18, 174);
             this.chbDynamicEngine.Name = "chbDynamicEngine";
             this.chbDynamicEngine.Size = new System.Drawing.Size(243, 16);
             this.chbDynamicEngine.TabIndex = 40;
@@ -223,7 +232,7 @@
             // 
             this.chbStaticEngine.Checked = false;
             this.chbStaticEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbStaticEngine.Location = new System.Drawing.Point(18, 134);
+            this.chbStaticEngine.Location = new System.Drawing.Point(18, 152);
             this.chbStaticEngine.Name = "chbStaticEngine";
             this.chbStaticEngine.Size = new System.Drawing.Size(243, 16);
             this.chbStaticEngine.TabIndex = 39;
@@ -233,7 +242,7 @@
             // 
             this.chbSecureVolume.Checked = false;
             this.chbSecureVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbSecureVolume.Location = new System.Drawing.Point(18, 112);
+            this.chbSecureVolume.Location = new System.Drawing.Point(18, 130);
             this.chbSecureVolume.Name = "chbSecureVolume";
             this.chbSecureVolume.Size = new System.Drawing.Size(243, 16);
             this.chbSecureVolume.TabIndex = 38;
@@ -243,7 +252,7 @@
             // 
             this.chbYaraEngine.Checked = false;
             this.chbYaraEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbYaraEngine.Location = new System.Drawing.Point(18, 90);
+            this.chbYaraEngine.Location = new System.Drawing.Point(18, 108);
             this.chbYaraEngine.Name = "chbYaraEngine";
             this.chbYaraEngine.Size = new System.Drawing.Size(243, 16);
             this.chbYaraEngine.TabIndex = 37;
@@ -253,7 +262,7 @@
             // 
             this.chbmoduleWatcher.Checked = false;
             this.chbmoduleWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbmoduleWatcher.Location = new System.Drawing.Point(18, 46);
+            this.chbmoduleWatcher.Location = new System.Drawing.Point(18, 42);
             this.chbmoduleWatcher.Name = "chbmoduleWatcher";
             this.chbmoduleWatcher.Size = new System.Drawing.Size(243, 16);
             this.chbmoduleWatcher.TabIndex = 36;
@@ -263,7 +272,7 @@
             // 
             this.chbProcessWatcher.Checked = false;
             this.chbProcessWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbProcessWatcher.Location = new System.Drawing.Point(18, 24);
+            this.chbProcessWatcher.Location = new System.Drawing.Point(18, 20);
             this.chbProcessWatcher.Name = "chbProcessWatcher";
             this.chbProcessWatcher.Size = new System.Drawing.Size(243, 16);
             this.chbProcessWatcher.TabIndex = 35;
@@ -461,12 +470,15 @@
             // 
             this.openPluginFileDialog.Filter = "BeSafe Plugin Files|*.bsp";
             // 
-            // logHistoryToolStripMenuItem
+            // chbDirectoryWatcher
             // 
-            this.logHistoryToolStripMenuItem.Name = "logHistoryToolStripMenuItem";
-            this.logHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logHistoryToolStripMenuItem.Text = "Log History";
-            this.logHistoryToolStripMenuItem.Click += new System.EventHandler(this.logHistoryToolStripMenuItem_Click);
+            this.chbDirectoryWatcher.Checked = false;
+            this.chbDirectoryWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chbDirectoryWatcher.Location = new System.Drawing.Point(18, 64);
+            this.chbDirectoryWatcher.Name = "chbDirectoryWatcher";
+            this.chbDirectoryWatcher.Size = new System.Drawing.Size(243, 16);
+            this.chbDirectoryWatcher.TabIndex = 46;
+            this.chbDirectoryWatcher.Text = "Directory watcher";
             // 
             // Setting
             // 
@@ -533,6 +545,7 @@
         private System.Windows.Forms.OpenFileDialog openPluginFileDialog;
         public MonoFlat_CheckBox chbRegistryWatcher;
         private System.Windows.Forms.ToolStripMenuItem logHistoryToolStripMenuItem;
+        public MonoFlat_CheckBox chbDirectoryWatcher;
     }
 }
 
