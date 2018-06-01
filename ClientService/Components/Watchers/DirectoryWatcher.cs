@@ -34,7 +34,7 @@ namespace BeSafe.Components.Watchers
                         FileSystemWatcher watcher = new FileSystemWatcher
                         {
                             Path = watchPath,
-                            NotifyFilter = NotifyFilters.LastWrite,
+                            NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName,
                             Filter = "*.*"
                         };
                         watcher.Changed += DirectoryChanged;
