@@ -9,6 +9,7 @@ namespace BeSafe.Core.Regulators.ComponentRegulators
         {
             ProcessRegulator.Instance().Config(configuration, pipeServer, stoppingService);
             ModuleRegulator.Instance().Config(configuration, pipeServer, stoppingService);
+            DirectoryRegulator.Instance().Config(configuration, pipeServer, stoppingService);
             RegistryRegulator.Instance().Config(configuration, pipeServer, stoppingService);
             SecureVolumeRegulator.Instance().Config(configuration, pipeServer, stoppingService);
         }
