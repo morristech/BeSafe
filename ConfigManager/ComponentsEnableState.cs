@@ -9,6 +9,7 @@ namespace ConfigManager
         public bool ProcessWatcher;
         public bool ModuleWatcher;
         public bool RegistryWatcher;
+        public bool DirectoryWatcher;
         public bool StaticScanEngine;
         public bool DynamicScanEngine;
         public bool VirusTotalEngine;
