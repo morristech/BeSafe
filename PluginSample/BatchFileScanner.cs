@@ -2,12 +2,13 @@
 using System.IO;
 using PluginSample.Properties;
 using PluginSDK;
+using PluginSDK.PluginInterfaces;
 
 namespace PluginSample
 {
-    public class BatchFileScanner : IBeSafePlugin
+    public class BatchFileScanner : IBeSafeFilePlugin
     {
-        private PluginInfo _pluginInfo;
+        private readonly PluginInfo _pluginInfo;
 
         public BatchFileScanner()
         {
@@ -25,10 +26,8 @@ namespace PluginSample
             return _pluginInfo;
         }
 
-        public PluginResult ScanFile(dynamic parameters, bool canFightWithThreat)
+        public PluginResult Scan(string filePath, bool canFightWithThreat)
         {
-            string filePath = (string)parameters;
-
             if (canFightWithThreat)
             {
                 string quarantineFilePath = filePath + Resources.BeSafeQuarantineFileExt;
@@ -38,26 +37,11 @@ namespace PluginSample
             return new PluginResult
             {
                 PluginInfo = _pluginInfo,
-                ScannedObject = parameters,
+                ScannedObject = filePath,
                 RiskRate = ThreatRiskRates.HighRisk,
                 Message = "Be careful, Most of the times batch files are dangerous !",
                 ExtraInfo = "https://en.wikipedia.org/wiki/Batch"
             };
-        }
-
-        public PluginResult ScanModule(dynamic parameters, bool canFightWithThreat)
-        {
-            throw new NotImplementedException();
-        }
-
-        public PluginResult ScanProcess(dynamic parameters, bool canFightWithThreat)
-        {
-            throw new NotImplementedException();
-        }
-
-        public PluginResult ScanRegistry(dynamic parameters, bool canFightWithThreat)
-        {
-            throw new NotImplementedException();
         }
     }
 }

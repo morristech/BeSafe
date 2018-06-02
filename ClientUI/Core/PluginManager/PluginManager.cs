@@ -6,6 +6,7 @@ using ExceptionManager;
 using PluginSDK;
 using ClientUI.Properties;
 using Common.Utils;
+using PluginSDK.PluginInterfaces;
 
 namespace ClientUI.Core.PluginManager
 {
@@ -15,8 +16,20 @@ namespace ClientUI.Core.PluginManager
         {
             listbox.Items.Clear();
 
-            List<IBeSafePlugin> plugins = new PluginUtils().GetPluginsInfo(PathUtils.PluginsPath);
-            foreach (IBeSafePlugin plugin in plugins)
+            List<IBeSafeFilePlugin> filePlugins = new PluginUtils().GetPluginsInfo<IBeSafeFilePlugin>(PathUtils.PluginsPath);
+            foreach (IBeSafeFilePlugin plugin in filePlugins)
+                listbox.Items.Add(plugin.GetPluginInfo());
+
+            List<IBeSafeRegistryPlugin> registryPlugins = new PluginUtils().GetPluginsInfo<IBeSafeRegistryPlugin>(PathUtils.PluginsPath);
+            foreach (IBeSafeRegistryPlugin plugin in registryPlugins)
+                listbox.Items.Add(plugin.GetPluginInfo());
+
+            List<IBeSafeProcessPlugin> processPlugins = new PluginUtils().GetPluginsInfo<IBeSafeProcessPlugin>(PathUtils.PluginsPath);
+            foreach (IBeSafeProcessPlugin plugin in processPlugins)
+                listbox.Items.Add(plugin.GetPluginInfo());
+
+            List<IBeSafeModulePlugin> modulePlugins = new PluginUtils().GetPluginsInfo<IBeSafeModulePlugin>(PathUtils.PluginsPath);
+            foreach (IBeSafeModulePlugin plugin in modulePlugins)
                 listbox.Items.Add(plugin.GetPluginInfo());
         }
 

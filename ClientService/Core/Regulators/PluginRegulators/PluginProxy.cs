@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using Common.Utils;
 using ConfigManager;
 using PluginSDK;
+using PluginSDK.PluginInterfaces;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
     public class PluginProxy : IPluginProxy
     {
         #region Singleton
+
         private static PluginProxy SingletonInstance;
-        public static PluginProxy Instance(BeSafeConfig config) => (SingletonInstance ?? (SingletonInstance = new PluginProxy(config)));
+
+        public static PluginProxy Instance(BeSafeConfig config) =>
+            (SingletonInstance ?? (SingletonInstance = new PluginProxy(config)));
+
         #endregion
 
         private readonly BeSafeConfig _config;
@@ -24,29 +29,51 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
         public PluginResult Scan(dynamic scanObject, PluginType type)
         {
-            List<IBeSafePlugin> plugins = _pluginUtils.GetPluginsInfo(_config.PluginsPath).Where(w => w.GetPluginInfo().Type == type).ToList();
-            if (! plugins.Any())
-                return null;
-
             bool canFight = _config.ComponentsState.FightWithThreats;
 
             switch (type)
             {
                 case PluginType.File:
-                    return SecureVolumePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                {
+                    List<IBeSafeFilePlugin> plugins =
+                        _pluginUtils.GetPluginsInfo<IBeSafeFilePlugin>(_config.PluginsPath).ToList();
+                    if (plugins.Any())
+                        return SecureVolumePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                }
+                    break;
 
                 case PluginType.Registry:
-                    return RegistryPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                {
+                    List<IBeSafeRegistryPlugin> plugins =
+                        _pluginUtils.GetPluginsInfo<IBeSafeRegistryPlugin>(_config.PluginsPath).ToList();
+                    if (plugins.Any())
+                        return RegistryPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                }
+                    break;
 
                 case PluginType.Process:
-                    return ProcessPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                {
+                    List<IBeSafeProcessPlugin> plugins =
+                        _pluginUtils.GetPluginsInfo<IBeSafeProcessPlugin>(_config.PluginsPath).ToList();
+                    if (plugins.Any())
+                        return ProcessPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                }
+                    break;
 
                 case PluginType.Module:
-                    return ModulePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                {
+                    List<IBeSafeModulePlugin> plugins =
+                        _pluginUtils.GetPluginsInfo<IBeSafeModulePlugin>(_config.PluginsPath).ToList();
+                    if (plugins.Any())
+                        return ModulePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
+                }
+                    break;
 
                 default:
                     return null;
             }
+
+            return null;
         }
     }
 }

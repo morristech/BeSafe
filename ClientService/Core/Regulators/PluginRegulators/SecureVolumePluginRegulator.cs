@@ -1,10 +1,11 @@
 ﻿using System.IO;
 using System.Collections.Generic;
 using PluginSDK;
+using PluginSDK.PluginInterfaces;
 
 namespace BeSafe.Core.Regulators.PluginRegulators
 {
-    public class SecureVolumePluginRegulator : IPluginRegulator
+    public class SecureVolumePluginRegulator
     {
         #region Singleton
         private static SecureVolumePluginRegulator SingletonInstance;
@@ -12,7 +13,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
         #endregion
        
 
-        public PluginResult Scan(List<IBeSafePlugin> plugins, dynamic scanObject, bool canFight)
+        public PluginResult Scan(List<IBeSafeFilePlugin> plugins, dynamic scanObject, bool canFight)
         {
             string filePath = (string)scanObject;
             if (string.IsNullOrEmpty(filePath))
@@ -20,14 +21,14 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
             PluginResult scanResult = new PluginResult();
 
-            foreach (IBeSafePlugin plugin in plugins)
+            foreach (IBeSafeFilePlugin plugin in plugins)
             {
                 string fileExt = Path.GetExtension(filePath);
                 string pluginSupportedFileTypes = plugin.GetPluginInfo().Description;
 
                 if (pluginSupportedFileTypes.Contains(fileExt))
                 {
-                    scanResult = plugin.ScanFile(filePath, canFight);
+                    scanResult = plugin.Scan(filePath, canFight);
 
                     if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
                         break;

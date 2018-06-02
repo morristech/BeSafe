@@ -11,38 +11,39 @@ namespace Common.Utils
 {
     public class PluginUtils
     {
-        public List<IBeSafePlugin> GetPluginsInfo(string pluginDirectory)
+        public List<T> GetPluginsInfo<T>(string pluginDirectory) where T : class
         {
-            var pluginsInfo = new List<IBeSafePlugin>();
-
             if (!Directory.Exists(pluginDirectory))
-                return pluginsInfo;
+                return null;
 
             // Search for plugin files in plugin directory & get information of plugins
-            foreach (var pluginFile in Directory.GetFiles(pluginDirectory, Resources.PluginSearchPattern))
+            var pluginsInfo = new List<T>();
+
+            try
             {
-                try
+                foreach (var pluginFile in Directory.GetFiles(pluginDirectory, Resources.PluginSearchPattern))
                 {
                     var assemblyInfo = Assembly.LoadFile(pluginFile);
-                    var pluginAssembly = CreateBeSafePluginInstance(assemblyInfo);
+                    var pluginAssembly = CreateBeSafePluginInstance<T>(assemblyInfo);
                     if (pluginAssembly != null)
                         pluginsInfo.Add(pluginAssembly);
                 }
-                catch (Exception ex)
-                {
-                    ex.Log();
-                }
+
+            }
+            catch (Exception ex)
+            {
+                ex.Log();
             }
 
             return pluginsInfo;
         }
 
-        public IBeSafePlugin CreateBeSafePluginInstance(Assembly assembly)
+        private T CreateBeSafePluginInstance<T>(Assembly assembly) where T : class
         {
             if (assembly == null)
                 throw new ArgumentNullException(nameof(assembly));
 
-            var firstOrDefault = assembly.DefinedTypes.FirstOrDefault(f => typeof(IBeSafePlugin).IsAssignableFrom(f));
+            var firstOrDefault = assembly.DefinedTypes.FirstOrDefault(f => typeof(T).IsAssignableFrom(f));
             if (!string.IsNullOrEmpty(firstOrDefault?.FullName))
             {
                 Type assemblyType =
@@ -51,7 +52,7 @@ namespace Common.Utils
                 {
                     var argTypes = new Type[] { };
                     ConstructorInfo constructorInfo = assemblyType.GetConstructor(argTypes);
-                    return (IBeSafePlugin)constructorInfo?.Invoke(null);
+                    return (T) constructorInfo?.Invoke(null);
                 }
             }
 
