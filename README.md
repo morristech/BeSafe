@@ -15,17 +15,16 @@ Except VirusTotal's power, BeSafe uses other techniques and tricks to protect yo
 
 Key features :
 
-- Scan running process, modules and URLs
-- Monitor suspicious registry modifications
-- Secure volume that prevent execution of malicious files
-- Yara signature scanner engine
-- Static scan of executable files for suspicious trail (Strings,Icon,EOF,Sections and etc.)
-- Dynamic scan of running process for suspicious trail (Run PE,Process Hollowing and etc.)
-- Ability to automatically kill suspicious processes
-- Ability to quarantine suspicious files & processes
-- Improve scan results using VirusTotal engine
-- Cloud analyzer which analyzes client's data in anonymous manner
-- Multipile reports about active world threats, frequency map, threats birth point and relations and etc.
+- [x] Monitor running process, modules and URLs
+- [x] Monitor suspicious registry modifications
+- [x] Secure volume that prevent execution of malicious files
+- [ ] Yara signature scanner engine
+- [x] Ability to automatically kill suspicious processes
+- [x] Ability to quarantine suspicious files & processes
+- [ ] Improve scan results using VirusTotal engine
+- [x] Plugin base engine that let developers to write custom scanner engines
+- [ ] Cloud analyzer which analyzes client's data in anonymous manner
+- [ ] Multipile reports about active world threats, frequency map, threats birth point and relations and etc.
 
 BeSafe developed using C#.7 in VisualStudio.2017 using folowing free libraries :
 
