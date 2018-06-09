@@ -40,6 +40,7 @@
             this.monoFlat_ControlBox1 = new ClientUI.MonoFlat_ControlBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpConfiguration = new System.Windows.Forms.TabPage();
+            this.chbDirectoryWatcher = new ClientUI.MonoFlat_CheckBox();
             this.chbRegistryWatcher = new ClientUI.MonoFlat_CheckBox();
             this.chbVirusTotalEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbFightWithThreats = new ClientUI.MonoFlat_CheckBox();
@@ -49,7 +50,7 @@
             this.chbYaraEngine = new ClientUI.MonoFlat_CheckBox();
             this.chbmoduleWatcher = new ClientUI.MonoFlat_CheckBox();
             this.chbProcessWatcher = new ClientUI.MonoFlat_CheckBox();
-            this.tpSecureVolumePlugins = new System.Windows.Forms.TabPage();
+            this.tpPlugins = new System.Windows.Forms.TabPage();
             this.btnUnloadPlugin = new ClientUI.MonoFlat_Button();
             this.btnLoadPlugin = new ClientUI.MonoFlat_Button();
             this.lbPlugins = new System.Windows.Forms.ListBox();
@@ -63,12 +64,11 @@
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnApply = new ClientUI.MonoFlat_Button();
             this.openPluginFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.chbDirectoryWatcher = new ClientUI.MonoFlat_CheckBox();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpConfiguration.SuspendLayout();
-            this.tpSecureVolumePlugins.SuspendLayout();
+            this.tpPlugins.SuspendLayout();
             this.tpAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -159,7 +159,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl.Controls.Add(this.tpConfiguration);
-            this.tabControl.Controls.Add(this.tpSecureVolumePlugins);
+            this.tabControl.Controls.Add(this.tpPlugins);
             this.tabControl.Controls.Add(this.tpAccount);
             this.tabControl.Location = new System.Drawing.Point(15, 73);
             this.tabControl.Name = "tabControl";
@@ -187,6 +187,16 @@
             this.tpConfiguration.Size = new System.Drawing.Size(542, 254);
             this.tpConfiguration.TabIndex = 0;
             this.tpConfiguration.Text = "Configuration";
+            // 
+            // chbDirectoryWatcher
+            // 
+            this.chbDirectoryWatcher.Checked = false;
+            this.chbDirectoryWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chbDirectoryWatcher.Location = new System.Drawing.Point(18, 64);
+            this.chbDirectoryWatcher.Name = "chbDirectoryWatcher";
+            this.chbDirectoryWatcher.Size = new System.Drawing.Size(243, 16);
+            this.chbDirectoryWatcher.TabIndex = 46;
+            this.chbDirectoryWatcher.Text = "Directory watcher";
             // 
             // chbRegistryWatcher
             // 
@@ -278,18 +288,18 @@
             this.chbProcessWatcher.TabIndex = 35;
             this.chbProcessWatcher.Text = "Process watcher";
             // 
-            // tpSecureVolumePlugins
+            // tpPlugins
             // 
-            this.tpSecureVolumePlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.tpSecureVolumePlugins.Controls.Add(this.btnUnloadPlugin);
-            this.tpSecureVolumePlugins.Controls.Add(this.btnLoadPlugin);
-            this.tpSecureVolumePlugins.Controls.Add(this.lbPlugins);
-            this.tpSecureVolumePlugins.Location = new System.Drawing.Point(4, 27);
-            this.tpSecureVolumePlugins.Name = "tpSecureVolumePlugins";
-            this.tpSecureVolumePlugins.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSecureVolumePlugins.Size = new System.Drawing.Size(542, 254);
-            this.tpSecureVolumePlugins.TabIndex = 1;
-            this.tpSecureVolumePlugins.Text = "Secure Volume Plugins";
+            this.tpPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.tpPlugins.Controls.Add(this.btnUnloadPlugin);
+            this.tpPlugins.Controls.Add(this.btnLoadPlugin);
+            this.tpPlugins.Controls.Add(this.lbPlugins);
+            this.tpPlugins.Location = new System.Drawing.Point(4, 27);
+            this.tpPlugins.Name = "tpPlugins";
+            this.tpPlugins.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPlugins.Size = new System.Drawing.Size(542, 254);
+            this.tpPlugins.TabIndex = 1;
+            this.tpPlugins.Text = "Plugins";
             // 
             // btnUnloadPlugin
             // 
@@ -470,16 +480,6 @@
             // 
             this.openPluginFileDialog.Filter = "BeSafe Plugin Files|*.bsp";
             // 
-            // chbDirectoryWatcher
-            // 
-            this.chbDirectoryWatcher.Checked = false;
-            this.chbDirectoryWatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chbDirectoryWatcher.Location = new System.Drawing.Point(18, 64);
-            this.chbDirectoryWatcher.Name = "chbDirectoryWatcher";
-            this.chbDirectoryWatcher.Size = new System.Drawing.Size(243, 16);
-            this.chbDirectoryWatcher.TabIndex = 46;
-            this.chbDirectoryWatcher.Text = "Directory watcher";
-            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,7 +502,7 @@
             this.monoFlat_ThemeContainer1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tpConfiguration.ResumeLayout(false);
-            this.tpSecureVolumePlugins.ResumeLayout(false);
+            this.tpPlugins.ResumeLayout(false);
             this.tpAccount.ResumeLayout(false);
             this.tpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
@@ -530,7 +530,7 @@
         public MonoFlat_CheckBox chbYaraEngine;
         public MonoFlat_CheckBox chbmoduleWatcher;
         public MonoFlat_CheckBox chbProcessWatcher;
-        private System.Windows.Forms.TabPage tpSecureVolumePlugins;
+        private System.Windows.Forms.TabPage tpPlugins;
         private MonoFlat_Button btnUnloadPlugin;
         private MonoFlat_Button btnLoadPlugin;
         private System.Windows.Forms.ListBox lbPlugins;
