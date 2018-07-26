@@ -55,11 +55,8 @@
             this.btnLoadPlugin = new ClientUI.MonoFlat_Button();
             this.lbPlugins = new System.Windows.Forms.ListBox();
             this.tpAccount = new System.Windows.Forms.TabPage();
-            this.tbPassword = new ClientUI.MonoFlat_TextBox();
-            this.lblPassword = new ClientUI.MonoFlat_Label();
-            this.lblUsername = new ClientUI.MonoFlat_Label();
-            this.tbUsername = new ClientUI.MonoFlat_TextBox();
-            this.btnLogin = new ClientUI.MonoFlat_Button();
+            this.lbllVTApiKey = new ClientUI.MonoFlat_Label();
+            this.tbVTApiKey = new ClientUI.MonoFlat_TextBox();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnApply = new ClientUI.MonoFlat_Button();
@@ -350,11 +347,8 @@
             // tpAccount
             // 
             this.tpAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.tpAccount.Controls.Add(this.tbPassword);
-            this.tpAccount.Controls.Add(this.lblPassword);
-            this.tpAccount.Controls.Add(this.lblUsername);
-            this.tpAccount.Controls.Add(this.tbUsername);
-            this.tpAccount.Controls.Add(this.btnLogin);
+            this.tpAccount.Controls.Add(this.lbllVTApiKey);
+            this.tpAccount.Controls.Add(this.tbVTApiKey);
             this.tpAccount.Location = new System.Drawing.Point(4, 27);
             this.tpAccount.Name = "tpAccount";
             this.tpAccount.Padding = new System.Windows.Forms.Padding(3);
@@ -362,79 +356,35 @@
             this.tpAccount.TabIndex = 2;
             this.tpAccount.Text = "Account";
             // 
-            // tbPassword
+            // lbllVTApiKey
             // 
-            this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tbPassword.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
-            this.tbPassword.Image = null;
-            this.tbPassword.Location = new System.Drawing.Point(167, 94);
-            this.tbPassword.MaxLength = 32767;
-            this.tbPassword.Multiline = false;
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.ReadOnly = false;
-            this.tbPassword.Size = new System.Drawing.Size(210, 43);
-            this.tbPassword.TabIndex = 4;
-            this.tbPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbPassword.UseSystemPasswordChar = true;
+            this.lbllVTApiKey.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbllVTApiKey.AutoSize = true;
+            this.lbllVTApiKey.BackColor = System.Drawing.Color.Transparent;
+            this.lbllVTApiKey.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllVTApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.lbllVTApiKey.Location = new System.Drawing.Point(18, 22);
+            this.lbllVTApiKey.Name = "lbllVTApiKey";
+            this.lbllVTApiKey.Size = new System.Drawing.Size(149, 21);
+            this.lbllVTApiKey.TabIndex = 2;
+            this.lbllVTApiKey.Text = "VirusTotal API Key";
             // 
-            // lblPassword
+            // tbVTApiKey
             // 
-            this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblPassword.Location = new System.Drawing.Point(56, 102);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(82, 21);
-            this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Password";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lblUsername.Location = new System.Drawing.Point(56, 57);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(87, 21);
-            this.lblUsername.TabIndex = 2;
-            this.lblUsername.Text = "Username";
-            // 
-            // tbUsername
-            // 
-            this.tbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbUsername.BackColor = System.Drawing.Color.Transparent;
-            this.tbUsername.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
-            this.tbUsername.Image = null;
-            this.tbUsername.Location = new System.Drawing.Point(167, 47);
-            this.tbUsername.MaxLength = 32767;
-            this.tbUsername.Multiline = false;
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.ReadOnly = false;
-            this.tbUsername.Size = new System.Drawing.Size(210, 43);
-            this.tbUsername.TabIndex = 1;
-            this.tbUsername.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbUsername.UseSystemPasswordChar = false;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnLogin.Image = null;
-            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(297, 142);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(80, 30);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.tbVTApiKey.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbVTApiKey.BackColor = System.Drawing.Color.Transparent;
+            this.tbVTApiKey.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVTApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
+            this.tbVTApiKey.Image = null;
+            this.tbVTApiKey.Location = new System.Drawing.Point(22, 52);
+            this.tbVTApiKey.MaxLength = 32767;
+            this.tbVTApiKey.Multiline = false;
+            this.tbVTApiKey.Name = "tbVTApiKey";
+            this.tbVTApiKey.ReadOnly = false;
+            this.tbVTApiKey.Size = new System.Drawing.Size(497, 43);
+            this.tbVTApiKey.TabIndex = 1;
+            this.tbVTApiKey.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbVTApiKey.UseSystemPasswordChar = false;
             // 
             // Logo
             // 
@@ -535,11 +485,8 @@
         private MonoFlat_Button btnLoadPlugin;
         private System.Windows.Forms.ListBox lbPlugins;
         private System.Windows.Forms.TabPage tpAccount;
-        private MonoFlat_TextBox tbPassword;
-        private MonoFlat_Label lblPassword;
-        private MonoFlat_Label lblUsername;
-        private MonoFlat_TextBox tbUsername;
-        private MonoFlat_Button btnLogin;
+        private MonoFlat_Label lbllVTApiKey;
+        public MonoFlat_TextBox tbVTApiKey;
         private MonoFlat_ControlBox monoFlat_ControlBox1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openPluginFileDialog;

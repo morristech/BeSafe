@@ -23,6 +23,7 @@ namespace ClientUI.Core
             settingForm.chbDynamicEngine.Checked = beSafeConfig.ComponentsState.DynamicScanEngine;
             settingForm.chbFightWithThreats.Checked = beSafeConfig.ComponentsState.FightWithThreats;
             settingForm.chbVirusTotalEngine.Checked = beSafeConfig.ComponentsState.VirusTotalEngine;
+            settingForm.tbVTApiKey.Text = beSafeConfig.VirusTotalApiKey;
 
             return true;
         }
@@ -45,6 +46,7 @@ namespace ClientUI.Core
             beSafeConfig.ComponentsState.DynamicScanEngine = settingForm.chbDynamicEngine.Checked;
             beSafeConfig.ComponentsState.FightWithThreats = settingForm.chbFightWithThreats.Checked;
             beSafeConfig.ComponentsState.VirusTotalEngine = settingForm.chbVirusTotalEngine.Checked;
+            beSafeConfig.VirusTotalApiKey = settingForm.tbVTApiKey.Text;
 
             beSafeConfig.Save();
 

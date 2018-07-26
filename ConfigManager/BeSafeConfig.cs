@@ -32,6 +32,8 @@ namespace ConfigManager
         /// </summary>
         public ComponentsEnableState ComponentsState { get; set; }
 
+        public string VirusTotalApiKey { get; set; }
+
         public BeSafeConfig(string configFilePath)
         {
             if (string.IsNullOrEmpty(configFilePath))
@@ -60,6 +62,7 @@ namespace ConfigManager
                     this.SecureVolumePath = tempConfig.SecureVolumePath;
                     this.PluginsPath = tempConfig.PluginsPath;
                     this.ComponentsState = tempConfig.ComponentsState;
+                    this.VirusTotalApiKey = tempConfig.VirusTotalApiKey;
                 }
 
                 return true;
