@@ -54,6 +54,12 @@
             this.btnUnloadPlugin = new ClientUI.MonoFlat_Button();
             this.btnLoadPlugin = new ClientUI.MonoFlat_Button();
             this.lbPlugins = new System.Windows.Forms.ListBox();
+            this.tpFileProtection = new System.Windows.Forms.TabPage();
+            this.btnRemoveFileExtension = new ClientUI.MonoFlat_Button();
+            this.btnAddFileExtension = new ClientUI.MonoFlat_Button();
+            this.rbtnBlacklist = new ClientUI.MonoFlat_RadioButton();
+            this.rbtnWhiteList = new ClientUI.MonoFlat_RadioButton();
+            this.lbProtectionExtensions = new System.Windows.Forms.ListBox();
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.lbllVTApiKey = new ClientUI.MonoFlat_Label();
             this.tbVTApiKey = new ClientUI.MonoFlat_TextBox();
@@ -66,6 +72,7 @@
             this.tabControl.SuspendLayout();
             this.tpConfiguration.SuspendLayout();
             this.tpPlugins.SuspendLayout();
+            this.tpFileProtection.SuspendLayout();
             this.tpAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +164,7 @@
             this.tabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl.Controls.Add(this.tpConfiguration);
             this.tabControl.Controls.Add(this.tpPlugins);
+            this.tabControl.Controls.Add(this.tpFileProtection);
             this.tabControl.Controls.Add(this.tpAccount);
             this.tabControl.Location = new System.Drawing.Point(15, 73);
             this.tabControl.Name = "tabControl";
@@ -344,6 +352,83 @@
             this.lbPlugins.Size = new System.Drawing.Size(515, 192);
             this.lbPlugins.TabIndex = 38;
             // 
+            // tpFileProtection
+            // 
+            this.tpFileProtection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.tpFileProtection.Controls.Add(this.btnRemoveFileExtension);
+            this.tpFileProtection.Controls.Add(this.btnAddFileExtension);
+            this.tpFileProtection.Controls.Add(this.rbtnBlacklist);
+            this.tpFileProtection.Controls.Add(this.rbtnWhiteList);
+            this.tpFileProtection.Controls.Add(this.lbProtectionExtensions);
+            this.tpFileProtection.Location = new System.Drawing.Point(4, 27);
+            this.tpFileProtection.Name = "tpFileProtection";
+            this.tpFileProtection.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFileProtection.Size = new System.Drawing.Size(542, 254);
+            this.tpFileProtection.TabIndex = 3;
+            this.tpFileProtection.Text = "File Protection";
+            // 
+            // btnRemoveFileExtension
+            // 
+            this.btnRemoveFileExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemoveFileExtension.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveFileExtension.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnRemoveFileExtension.Image = null;
+            this.btnRemoveFileExtension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveFileExtension.Location = new System.Drawing.Point(169, 213);
+            this.btnRemoveFileExtension.Name = "btnRemoveFileExtension";
+            this.btnRemoveFileExtension.Size = new System.Drawing.Size(150, 30);
+            this.btnRemoveFileExtension.TabIndex = 43;
+            this.btnRemoveFileExtension.Text = "Remove Extension";
+            this.btnRemoveFileExtension.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // btnAddFileExtension
+            // 
+            this.btnAddFileExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddFileExtension.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddFileExtension.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAddFileExtension.Image = null;
+            this.btnAddFileExtension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddFileExtension.Location = new System.Drawing.Point(13, 213);
+            this.btnAddFileExtension.Name = "btnAddFileExtension";
+            this.btnAddFileExtension.Size = new System.Drawing.Size(150, 30);
+            this.btnAddFileExtension.TabIndex = 42;
+            this.btnAddFileExtension.Text = "Add extension";
+            this.btnAddFileExtension.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // rbtnBlacklist
+            // 
+            this.rbtnBlacklist.Checked = true;
+            this.rbtnBlacklist.Location = new System.Drawing.Point(13, 16);
+            this.rbtnBlacklist.Name = "rbtnBlacklist";
+            this.rbtnBlacklist.Size = new System.Drawing.Size(73, 17);
+            this.rbtnBlacklist.TabIndex = 41;
+            this.rbtnBlacklist.Text = "Blacklist";
+            // 
+            // rbtnWhiteList
+            // 
+            this.rbtnWhiteList.Checked = false;
+            this.rbtnWhiteList.Location = new System.Drawing.Point(94, 16);
+            this.rbtnWhiteList.Name = "rbtnWhiteList";
+            this.rbtnWhiteList.Size = new System.Drawing.Size(74, 17);
+            this.rbtnWhiteList.TabIndex = 40;
+            this.rbtnWhiteList.Text = "Whitelist";
+            // 
+            // lbProtectionExtensions
+            // 
+            this.lbProtectionExtensions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbProtectionExtensions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            this.lbProtectionExtensions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbProtectionExtensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProtectionExtensions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.lbProtectionExtensions.FormattingEnabled = true;
+            this.lbProtectionExtensions.ItemHeight = 16;
+            this.lbProtectionExtensions.Location = new System.Drawing.Point(13, 44);
+            this.lbProtectionExtensions.Name = "lbProtectionExtensions";
+            this.lbProtectionExtensions.Size = new System.Drawing.Size(515, 160);
+            this.lbProtectionExtensions.TabIndex = 39;
+            // 
             // tpAccount
             // 
             this.tpAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
@@ -363,7 +448,7 @@
             this.lbllVTApiKey.BackColor = System.Drawing.Color.Transparent;
             this.lbllVTApiKey.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbllVTApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lbllVTApiKey.Location = new System.Drawing.Point(18, 22);
+            this.lbllVTApiKey.Location = new System.Drawing.Point(18, 160);
             this.lbllVTApiKey.Name = "lbllVTApiKey";
             this.lbllVTApiKey.Size = new System.Drawing.Size(149, 21);
             this.lbllVTApiKey.TabIndex = 2;
@@ -376,7 +461,7 @@
             this.tbVTApiKey.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbVTApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
             this.tbVTApiKey.Image = null;
-            this.tbVTApiKey.Location = new System.Drawing.Point(22, 52);
+            this.tbVTApiKey.Location = new System.Drawing.Point(22, 190);
             this.tbVTApiKey.MaxLength = 32767;
             this.tbVTApiKey.Multiline = false;
             this.tbVTApiKey.Name = "tbVTApiKey";
@@ -453,6 +538,7 @@
             this.tabControl.ResumeLayout(false);
             this.tpConfiguration.ResumeLayout(false);
             this.tpPlugins.ResumeLayout(false);
+            this.tpFileProtection.ResumeLayout(false);
             this.tpAccount.ResumeLayout(false);
             this.tpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
@@ -483,7 +569,6 @@
         private System.Windows.Forms.TabPage tpPlugins;
         private MonoFlat_Button btnUnloadPlugin;
         private MonoFlat_Button btnLoadPlugin;
-        private System.Windows.Forms.ListBox lbPlugins;
         private System.Windows.Forms.TabPage tpAccount;
         private MonoFlat_Label lbllVTApiKey;
         public MonoFlat_TextBox tbVTApiKey;
@@ -493,6 +578,13 @@
         public MonoFlat_CheckBox chbRegistryWatcher;
         private System.Windows.Forms.ToolStripMenuItem logHistoryToolStripMenuItem;
         public MonoFlat_CheckBox chbDirectoryWatcher;
+        private System.Windows.Forms.ListBox lbPlugins;
+        private System.Windows.Forms.TabPage tpFileProtection;
+        public System.Windows.Forms.ListBox lbProtectionExtensions;
+        public MonoFlat_RadioButton rbtnBlacklist;
+        public MonoFlat_RadioButton rbtnWhiteList;
+        private MonoFlat_Button btnRemoveFileExtension;
+        private MonoFlat_Button btnAddFileExtension;
     }
 }
 

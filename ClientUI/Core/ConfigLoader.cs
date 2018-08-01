@@ -1,5 +1,7 @@
-﻿using Common.Utils;
+﻿using System.Linq;
+using Common.Utils;
 using ConfigManager;
+using ConfigManager.Types;
 
 namespace ClientUI.Core
 {
@@ -24,6 +26,9 @@ namespace ClientUI.Core
             settingForm.chbFightWithThreats.Checked = beSafeConfig.ComponentsState.FightWithThreats;
             settingForm.chbVirusTotalEngine.Checked = beSafeConfig.ComponentsState.VirusTotalEngine;
             settingForm.tbVTApiKey.Text = beSafeConfig.VirusTotalApiKey;
+            settingForm.rbtnBlacklist.Checked = beSafeConfig.ProtectionMode == ProtectionMode.Blacklist;
+            settingForm.rbtnWhiteList.Checked = beSafeConfig.ProtectionMode == ProtectionMode.Whitelist;
+            settingForm.lbProtectionExtensions.DataSource = beSafeConfig.FileExtensions.ToList();
 
             return true;
         }
@@ -47,6 +52,11 @@ namespace ClientUI.Core
             beSafeConfig.ComponentsState.FightWithThreats = settingForm.chbFightWithThreats.Checked;
             beSafeConfig.ComponentsState.VirusTotalEngine = settingForm.chbVirusTotalEngine.Checked;
             beSafeConfig.VirusTotalApiKey = settingForm.tbVTApiKey.Text;
+            beSafeConfig.FileExtensions = settingForm.lbProtectionExtensions.Items.Cast<string>().ToList();
+            beSafeConfig.ProtectionMode = (settingForm.rbtnBlacklist.Checked)
+                ? ProtectionMode.Blacklist
+                : ProtectionMode.Whitelist;
+
 
             beSafeConfig.Save();
 

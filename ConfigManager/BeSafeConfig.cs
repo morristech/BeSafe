@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Principal;
 using Common.Utils;
+using ConfigManager.Types;
 using ExceptionManager;
 
 namespace ConfigManager
@@ -34,6 +36,10 @@ namespace ConfigManager
 
         public string VirusTotalApiKey { get; set; }
 
+        public ProtectionMode ProtectionMode { get; set; }
+
+        public List<string> FileExtensions { get; set; }
+
         public BeSafeConfig(string configFilePath)
         {
             if (string.IsNullOrEmpty(configFilePath))
@@ -63,6 +69,8 @@ namespace ConfigManager
                     this.PluginsPath = tempConfig.PluginsPath;
                     this.ComponentsState = tempConfig.ComponentsState;
                     this.VirusTotalApiKey = tempConfig.VirusTotalApiKey;
+                    this.ProtectionMode = tempConfig.ProtectionMode;
+                    this.FileExtensions = tempConfig.FileExtensions;
                 }
 
                 return true;
@@ -115,7 +123,8 @@ namespace ConfigManager
                 this.SecureVolumePath = PathUtils.BeSafeSecureVolumePath;
                 this.PluginsPath = PathUtils.PluginsPath;
                 this.ComponentsState = new ComponentsEnableState();
-                
+                this.FileExtensions = new List<string>();
+
                 Save();
                 return true;
             }
