@@ -380,6 +380,7 @@
             this.btnRemoveFileExtension.TabIndex = 43;
             this.btnRemoveFileExtension.Text = "Remove Extension";
             this.btnRemoveFileExtension.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnRemoveFileExtension.Click += new System.EventHandler(this.btnRemoveFileExtension_Click);
             // 
             // btnAddFileExtension
             // 
@@ -394,6 +395,7 @@
             this.btnAddFileExtension.TabIndex = 42;
             this.btnAddFileExtension.Text = "Add extension";
             this.btnAddFileExtension.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddFileExtension.Click += new System.EventHandler(this.btnAddFileExtension_Click);
             // 
             // rbtnBlacklist
             // 

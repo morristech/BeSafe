@@ -10,7 +10,7 @@
     <AssemblyName>ClientUI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AssemblyVersion>1.14.162.0</AssemblyVersion>
+    <AssemblyVersion>1.14.168.0</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,6 +58,12 @@
     <Compile Include="Core\PipeClient.cs" />
     <Compile Include="Core\PluginManager\LoadPluginResult.cs" />
     <Compile Include="Core\PluginManager\PluginManager.cs" />
+    <Compile Include="AddExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExtension.Designer.cs">
+      <DependentUpon>AddExtension.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="ThreatInfo.Designer.cs">
       <DependentUpon>ThreatInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddExtension.resx">
+      <DependentUpon>AddExtension.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogHistory.resx">
       <DependentUpon>LogHistory.cs</DependentUpon>
     </EmbeddedResource>
