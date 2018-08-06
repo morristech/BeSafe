@@ -16,7 +16,9 @@ namespace ExceptionManager
             [CallerMemberName] string callerMethodName = "",
             [CallerLineNumber] int callerLineNumber = 0)
         {
-            string logMessage = $"FilePath : {callerFilePath} - MethodName : {callerMethodName} - LineNo : {callerLineNumber}{Environment.NewLine}{ex.Message}";
+            string logMessage = $"FilePath : {callerFilePath} - MethodName : {callerMethodName} - LineNo : {callerLineNumber}" +
+                                $"{Environment.NewLine}Exception :   {ex.Message}" +
+                                $"{Environment.NewLine}Description : {description}";
             EventLog.WriteEntry(ApplicationName, logMessage, EventLogEntryType.Error, (int)type);
         }
     }
