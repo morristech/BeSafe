@@ -29,6 +29,7 @@ namespace ClientUI.Core
             settingForm.rbtnBlacklist.Checked = beSafeConfig.ProtectionMode == ProtectionMode.Blacklist;
             settingForm.rbtnWhiteList.Checked = beSafeConfig.ProtectionMode == ProtectionMode.Whitelist;
             settingForm.lbProtectionExtensions.DataSource = beSafeConfig.FileExtensions.ToList();
+            settingForm.chbUseSystemProxy.Checked = beSafeConfig.UseSystemProxy;
 
             return true;
         }
@@ -53,6 +54,7 @@ namespace ClientUI.Core
             beSafeConfig.ComponentsState.VirusTotalEngine = settingForm.chbVirusTotalEngine.Checked;
             beSafeConfig.VirusTotalApiKey = settingForm.tbVTApiKey.Text;
             beSafeConfig.FileExtensions = settingForm.lbProtectionExtensions.Items.Cast<string>().ToList();
+            beSafeConfig.UseSystemProxy = settingForm.chbUseSystemProxy.Checked;
             beSafeConfig.ProtectionMode = (settingForm.rbtnBlacklist.Checked)
                 ? ProtectionMode.Blacklist
                 : ProtectionMode.Whitelist;

@@ -67,6 +67,7 @@
             this.monoFlat_HeaderLabel1 = new ClientUI.MonoFlat_HeaderLabel();
             this.btnApply = new ClientUI.MonoFlat_Button();
             this.openPluginFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.chbUseSystemProxy = new ClientUI.MonoFlat_CheckBox();
             this.TryIconMenu.SuspendLayout();
             this.monoFlat_ThemeContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -434,6 +435,7 @@
             // tpAccount
             // 
             this.tpAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.tpAccount.Controls.Add(this.chbUseSystemProxy);
             this.tpAccount.Controls.Add(this.lbllVTApiKey);
             this.tpAccount.Controls.Add(this.tbVTApiKey);
             this.tpAccount.Location = new System.Drawing.Point(4, 27);
@@ -448,11 +450,11 @@
             this.lbllVTApiKey.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbllVTApiKey.AutoSize = true;
             this.lbllVTApiKey.BackColor = System.Drawing.Color.Transparent;
-            this.lbllVTApiKey.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllVTApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbllVTApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.lbllVTApiKey.Location = new System.Drawing.Point(18, 160);
+            this.lbllVTApiKey.Location = new System.Drawing.Point(15, 172);
             this.lbllVTApiKey.Name = "lbllVTApiKey";
-            this.lbllVTApiKey.Size = new System.Drawing.Size(149, 21);
+            this.lbllVTApiKey.Size = new System.Drawing.Size(105, 15);
             this.lbllVTApiKey.TabIndex = 2;
             this.lbllVTApiKey.Text = "VirusTotal API Key";
             // 
@@ -463,12 +465,12 @@
             this.tbVTApiKey.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbVTApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
             this.tbVTApiKey.Image = null;
-            this.tbVTApiKey.Location = new System.Drawing.Point(22, 190);
+            this.tbVTApiKey.Location = new System.Drawing.Point(18, 190);
             this.tbVTApiKey.MaxLength = 32767;
             this.tbVTApiKey.Multiline = false;
             this.tbVTApiKey.Name = "tbVTApiKey";
             this.tbVTApiKey.ReadOnly = false;
-            this.tbVTApiKey.Size = new System.Drawing.Size(497, 43);
+            this.tbVTApiKey.Size = new System.Drawing.Size(506, 43);
             this.tbVTApiKey.TabIndex = 1;
             this.tbVTApiKey.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbVTApiKey.UseSystemPasswordChar = false;
@@ -516,6 +518,16 @@
             // openPluginFileDialog
             // 
             this.openPluginFileDialog.Filter = "BeSafe Plugin Files|*.bsp";
+            // 
+            // chbUseSystemProxy
+            // 
+            this.chbUseSystemProxy.Checked = false;
+            this.chbUseSystemProxy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chbUseSystemProxy.Location = new System.Drawing.Point(18, 20);
+            this.chbUseSystemProxy.Name = "chbUseSystemProxy";
+            this.chbUseSystemProxy.Size = new System.Drawing.Size(148, 16);
+            this.chbUseSystemProxy.TabIndex = 3;
+            this.chbUseSystemProxy.Text = "Use system proxy";
             // 
             // Setting
             // 
@@ -587,6 +599,6 @@
         public MonoFlat_RadioButton rbtnWhiteList;
         private MonoFlat_Button btnRemoveFileExtension;
         private MonoFlat_Button btnAddFileExtension;
+        public MonoFlat_CheckBox chbUseSystemProxy;
     }
 }
-

@@ -40,6 +40,8 @@ namespace ConfigManager
 
         public List<string> FileExtensions { get; set; }
 
+        public bool UseSystemProxy { get; set; }
+
         public BeSafeConfig(string configFilePath)
         {
             if (string.IsNullOrEmpty(configFilePath))
@@ -71,6 +73,7 @@ namespace ConfigManager
                     this.VirusTotalApiKey = tempConfig.VirusTotalApiKey;
                     this.ProtectionMode = tempConfig.ProtectionMode;
                     this.FileExtensions = tempConfig.FileExtensions;
+                    this.UseSystemProxy = tempConfig.UseSystemProxy;
                 }
 
                 return true;
@@ -124,6 +127,7 @@ namespace ConfigManager
                 this.PluginsPath = PathUtils.PluginsPath;
                 this.ComponentsState = new ComponentsEnableState();
                 this.FileExtensions = new List<string>();
+                this.UseSystemProxy = true;
 
                 Save();
                 return true;
