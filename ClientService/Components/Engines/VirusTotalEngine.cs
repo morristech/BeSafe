@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Net;
 using VirusTotalNET.Results;
 using SharedTypes.Watchers;
 
@@ -10,10 +11,16 @@ namespace BeSafe.Components.Engines
         private readonly string _apiKey;
         private readonly VirusTotalNET.VirusTotal _virusTotal;
 
-        public VirusTotalEngine(string apiKey)
+        public VirusTotalEngine(string apiKey, bool useSystemProxy)
         {
             _apiKey = apiKey;
             _virusTotal = new VirusTotalNET.VirusTotal(apiKey) { UseTLS = true };
+
+            if (useSystemProxy)
+            {
+                _virusTotal.Proxy = WebRequest.DefaultWebProxy;
+                _virusTotal.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
+            }
         }
 
         public List<FileReport> ScanProcess(List<ProcessInfo> processInfos)
