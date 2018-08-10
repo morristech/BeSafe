@@ -17,20 +17,8 @@ namespace ClientUI.Core.PluginManager
         {
             listbox.Items.Clear();
 
-            Dictionary<string, IBeSafeFilePlugin> filePlugins = new PluginUtils().GetPluginsInfo<IBeSafeFilePlugin>(PathUtils.PluginsPath);
-            foreach (KeyValuePair<string, IBeSafeFilePlugin> plugin in filePlugins)
-                listbox.Items.Add(plugin.Value.GetPluginInfo());
-
-            Dictionary<string, IBeSafeRegistryPlugin> registryPlugins = new PluginUtils().GetPluginsInfo<IBeSafeRegistryPlugin>(PathUtils.PluginsPath);
-            foreach (KeyValuePair<string, IBeSafeRegistryPlugin> plugin in registryPlugins)
-                listbox.Items.Add(plugin.Value.GetPluginInfo());
-
-            Dictionary<string, IBeSafeProcessPlugin> processPlugins = new PluginUtils().GetPluginsInfo<IBeSafeProcessPlugin>(PathUtils.PluginsPath);
-            foreach (KeyValuePair<string, IBeSafeProcessPlugin> plugin in processPlugins)
-                listbox.Items.Add(plugin.Value.GetPluginInfo());
-
-            Dictionary<string, IBeSafeModulePlugin> modulePlugins = new PluginUtils().GetPluginsInfo<IBeSafeModulePlugin>(PathUtils.PluginsPath);
-            foreach (KeyValuePair<string, IBeSafeModulePlugin> plugin in modulePlugins)
+            Dictionary<string, IBeSafeBasePlugin> modulePlugins = new PluginUtils().GetPluginsInfo<IBeSafeBasePlugin>(PathUtils.PluginsPath);
+            foreach (KeyValuePair<string, IBeSafeBasePlugin> plugin in modulePlugins)
                 listbox.Items.Add(plugin.Value.GetPluginInfo());
         }
 
