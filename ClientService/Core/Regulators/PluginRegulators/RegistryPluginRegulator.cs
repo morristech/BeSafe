@@ -13,7 +13,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
         public static RegistryPluginRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new RegistryPluginRegulator()));
         #endregion
 
-        public PluginResult Scan(List<IBeSafeRegistryPlugin> plugins, dynamic scanObject, bool canFight)
+        public PluginResult Scan(Dictionary<string, IBeSafeRegistryPlugin> plugins, dynamic scanObject, bool canFight)
         {
             ChangedValueInfo regitryValueInfo = (ChangedValueInfo)scanObject;
             if (regitryValueInfo == null)
@@ -21,9 +21,9 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
             PluginResult scanResult = new PluginResult();
 
-            foreach (IBeSafeRegistryPlugin plugin in plugins)
+            foreach (KeyValuePair<string, IBeSafeRegistryPlugin> plugin in plugins)
             {
-                scanResult = plugin.Scan(regitryValueInfo, canFight);
+                scanResult = plugin.Value.Scan(regitryValueInfo, canFight);
                 Debug.WriteLine(scanResult.RiskRate);
                 if (scanResult.RiskRate != ThreatRiskRates.NoRisk)
                     break;

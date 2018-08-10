@@ -35,8 +35,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
             {
                 case PluginType.File:
                 {
-                    List<IBeSafeFilePlugin> plugins =
-                        _pluginUtils.GetPluginsInfo<IBeSafeFilePlugin>(_config.PluginsPath).ToList();
+                    Dictionary<string, IBeSafeFilePlugin> plugins = _pluginUtils.GetPluginsInfo<IBeSafeFilePlugin>(_config.PluginsPath);
                     if (plugins.Any())
                         return SecureVolumePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
                 }
@@ -44,8 +43,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
                 case PluginType.Registry:
                 {
-                    List<IBeSafeRegistryPlugin> plugins =
-                        _pluginUtils.GetPluginsInfo<IBeSafeRegistryPlugin>(_config.PluginsPath).ToList();
+                    Dictionary<string, IBeSafeRegistryPlugin> plugins = _pluginUtils.GetPluginsInfo<IBeSafeRegistryPlugin>(_config.PluginsPath);
                     if (plugins.Any())
                         return RegistryPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
                 }
@@ -53,8 +51,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
                 case PluginType.Process:
                 {
-                    List<IBeSafeProcessPlugin> plugins =
-                        _pluginUtils.GetPluginsInfo<IBeSafeProcessPlugin>(_config.PluginsPath).ToList();
+                    Dictionary<string, IBeSafeProcessPlugin> plugins = _pluginUtils.GetPluginsInfo<IBeSafeProcessPlugin>(_config.PluginsPath);
                     if (plugins.Any())
                         return ProcessPluginRegulator.Instance().Scan(plugins, scanObject, canFight);
                 }
@@ -62,8 +59,8 @@ namespace BeSafe.Core.Regulators.PluginRegulators
 
                 case PluginType.Module:
                 {
-                    List<IBeSafeModulePlugin> plugins =
-                        _pluginUtils.GetPluginsInfo<IBeSafeModulePlugin>(_config.PluginsPath).ToList();
+                    Dictionary<string, IBeSafeModulePlugin> plugins =
+                        _pluginUtils.GetPluginsInfo<IBeSafeModulePlugin>(_config.PluginsPath);
                     if (plugins.Any())
                         return ModulePluginRegulator.Instance().Scan(plugins, scanObject, canFight);
                 }

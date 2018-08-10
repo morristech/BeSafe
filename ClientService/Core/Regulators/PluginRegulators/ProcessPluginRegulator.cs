@@ -12,7 +12,7 @@ namespace BeSafe.Core.Regulators.PluginRegulators
         public static ProcessPluginRegulator Instance() => (SingletonInstance ?? (SingletonInstance = new ProcessPluginRegulator()));
         #endregion
 
-        public PluginResult Scan(List<IBeSafeProcessPlugin> plugins, dynamic scanObject, bool canFight)
+        public PluginResult Scan(Dictionary<string, IBeSafeProcessPlugin> plugins, dynamic scanObject, bool canFight)
         {
             throw new NotImplementedException();
         }
