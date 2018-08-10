@@ -4,20 +4,19 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using ExceptionManager;
-using PluginSDK;
 using Common.Properties;
 
 namespace Common.Utils
 {
     public class PluginUtils
     {
-        public List<T> GetPluginsInfo<T>(string pluginDirectory) where T : class
+        public Dictionary<string, T> GetPluginsInfo<T>(string pluginDirectory) where T : class
         {
             if (!Directory.Exists(pluginDirectory))
                 return null;
 
             // Search for plugin files in plugin directory & get information of plugins
-            var pluginsInfo = new List<T>();
+            var pluginsInfo = new Dictionary<string, T>();
 
             try
             {
@@ -26,7 +25,7 @@ namespace Common.Utils
                     var assemblyInfo = Assembly.LoadFile(pluginFile);
                     var pluginAssembly = CreateBeSafePluginInstance<T>(assemblyInfo);
                     if (pluginAssembly != null)
-                        pluginsInfo.Add(pluginAssembly);
+                        pluginsInfo.Add(pluginFile, pluginAssembly);
                 }
 
             }
