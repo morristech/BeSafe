@@ -62,8 +62,16 @@ namespace ClientUI.Core.PluginManager
 
         public static bool UnloadPlugin(PluginInfo pluginInfo)
         {
-            // TODO Shoud load plugins in separate APPDomain, this let us unload the domain and all plugins
-            throw new NotImplementedException();
+            Dictionary<string, IBeSafeBasePlugin> plugins = new PluginUtils().GetPluginsInfo<IBeSafeBasePlugin>(PathUtils.PluginsPath);
+
+            var pluginFile = plugins.FirstOrDefault(f => f.Value.GetPluginInfo().Name == pluginInfo.Name).Key;
+            if (File.Exists(pluginFile))
+            {
+                File.Delete(pluginFile);
+                return true;
+            }
+
+            return false;
         }
     }
 }

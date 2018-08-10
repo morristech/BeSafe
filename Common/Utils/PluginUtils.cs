@@ -22,7 +22,7 @@ namespace Common.Utils
             {
                 foreach (var pluginFile in Directory.GetFiles(pluginDirectory, Resources.PluginSearchPattern))
                 {
-                    var assemblyInfo = Assembly.LoadFile(pluginFile);
+                    var assemblyInfo = Assembly.Load(File.ReadAllBytes(pluginFile));
                     var pluginAssembly = CreateBeSafePluginInstance<T>(assemblyInfo);
                     if (pluginAssembly != null)
                         pluginsInfo.Add(pluginFile, pluginAssembly);
