@@ -1,8 +1,7 @@
 ﻿namespace PluginSDK.PluginInterfaces
 {
-    public interface IBeSafeFilePlugin
+    public interface IBeSafeFilePlugin : IBeSafeBasePlugin
     {
-        PluginInfo GetPluginInfo();
         PluginResult Scan(string filePath, bool canFightWithThreat);
     }
 }

@@ -2,9 +2,8 @@
 
 namespace PluginSDK.PluginInterfaces
 {
-    public interface IBeSafeProcessPlugin
+    public interface IBeSafeProcessPlugin : IBeSafeBasePlugin
     {
-        PluginInfo GetPluginInfo();
         PluginResult Scan(ProcessInfo processInfo, bool canFightWithThreat);
     }
 }

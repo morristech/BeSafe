@@ -2,9 +2,8 @@
 
 namespace PluginSDK.PluginInterfaces
 {
-    public interface IBeSafeModulePlugin
+    public interface IBeSafeModulePlugin : IBeSafeBasePlugin
     {
-        PluginInfo GetPluginInfo();
         PluginResult Scan(ModuleInfo moduleInfo, bool canFightWithThreat);
     }
 }
